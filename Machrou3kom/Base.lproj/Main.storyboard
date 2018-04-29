@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="335" y="86"/>
         </scene>
-        <!--Item 2-->
+        <!--اتصل بنا-->
         <scene sceneID="iZE-jW-xC8">
             <objects>
                 <viewController id="Ml9-YZ-Ho7" sceneMemberID="viewController">
@@ -49,11 +49,43 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ePS-XC-Gzj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="D2y-sp-ODc"/>
+                    <tabBarItem key="tabBarItem" title="اتصل بنا" image="communication-25" id="D2y-sp-ODc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krI-vh-OpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2182" y="450"/>
+        </scene>
+        <!--إشعارات-->
+        <scene sceneID="je4-Ag-KKX">
+            <objects>
+                <viewController id="FOm-GI-L9v" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vz9-hF-0xM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rPQ-he-afP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="إشعارات" image="notification-25" id="mZA-nc-76b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="37w-n6-A7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2182" y="1135"/>
+        </scene>
+        <!--الملف الشخصي-->
+        <scene sceneID="KXv-I2-gjs">
+            <objects>
+                <viewController id="IpN-9a-Y1B" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GOn-hL-sAy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="faw-qh-1dQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="الملف الشخصي" image="user-25" id="OfG-iD-1lD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mg1-GS-WYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1225" y="1051"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="eCx-eO-vmo">
@@ -376,6 +408,8 @@
                     <connections>
                         <segue destination="C2I-fs-VuY" kind="relationship" relationship="viewControllers" id="bnZ-MZ-xhv"/>
                         <segue destination="Ml9-YZ-Ho7" kind="relationship" relationship="viewControllers" id="n75-xV-fLv"/>
+                        <segue destination="FOm-GI-L9v" kind="relationship" relationship="viewControllers" id="0WQ-WO-I42"/>
+                        <segue destination="IpN-9a-Y1B" kind="relationship" relationship="viewControllers" id="OQv-Nj-9yA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0DN-eV-9v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -467,8 +501,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="communication-25" width="25" height="25"/>
         <image name="heart-outline-25" width="25" height="25"/>
         <image name="home-25" width="25" height="25"/>
         <image name="marker-25" width="25" height="25"/>
+        <image name="notification-25" width="25" height="25"/>
+        <image name="user-25" width="25" height="25"/>
     </resources>
 </document>
