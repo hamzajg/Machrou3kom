@@ -28,7 +28,9 @@ class ViewController: UIViewController {
                 case .success(let credentials):
                     // Do something with credentials e.g.: save them.
                     // Auth0 will automatically dismiss the login page
-                    print("Credentials: \(credentials)")
+                    //print("Credentials: \(credentials)")
+                    self.performSegue(withIdentifier: "goHomePage", sender: self)
+
                 }
         }
     }
