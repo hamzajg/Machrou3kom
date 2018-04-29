@@ -22,6 +22,7 @@
 		8869993920963A4C00B370A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993820963A4C00B370A4 /* HomeViewController.swift */; };
 		8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */; };
 		8869994820964FA800B370A4 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8869994720964FA800B370A4 /* Auth0.plist */; };
+		8869994B209673E100B370A4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869994A209673E100B370A4 /* Post.swift */; };
 		C524B86E41A56D714D564B76 /* Pods_Machrou3komUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531A73630DFF5A645E11667B /* Pods_Machrou3komUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		8869993820963A4C00B370A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
 		8869994720964FA800B370A4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		8869994A209673E100B370A4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		B583C4D5E8607F616B539535 /* Pods_Machrou3kom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Machrou3kom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5C7AF8473D52A57AB07703 /* Pods-Machrou3kom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Machrou3kom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Machrou3kom/Pods-Machrou3kom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 		881B84B2209627B10084BAF2 /* Machrou3kom */ = {
 			isa = PBXGroup;
 			children = (
+				88699949209673D100B370A4 /* Models */,
 				8869992D2096352F00B370A4 /* Services */,
 				8869992A2096350100B370A4 /* Views */,
 				88699925209634A100B370A4 /* Controllers */,
@@ -195,6 +198,14 @@
 				8869992E2096353F00B370A4 /* AppServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		88699949209673D100B370A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8869994A209673E100B370A4 /* Post.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D1AEB32A8B0727C97F522678 /* Frameworks */ = {
@@ -432,6 +443,7 @@
 				881B84B6209627B10084BAF2 /* ViewController.swift in Sources */,
 				8869992F2096353F00B370A4 /* AppServices.swift in Sources */,
 				881B84B4209627B10084BAF2 /* AppDelegate.swift in Sources */,
+				8869994B209673E100B370A4 /* Post.swift in Sources */,
 				8869993920963A4C00B370A4 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

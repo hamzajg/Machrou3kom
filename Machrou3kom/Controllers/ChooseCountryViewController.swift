@@ -12,6 +12,17 @@ class ChooseCountryViewController: UIViewController {
     
     @IBAction func bahrainBtnAction(_ sender: UIButton) {
         print("bahrainBtnAction")
+        let defaults = UserDefaults.standard
+        
+        // Store
+        defaults.set("bahrain", forKey: "country")
+        
+        // Receive
+        if let name = defaults.string(forKey: "country")
+        {
+            print(name)
+            self.performSegue(withIdentifier: "goHomePage", sender: self)
+        }
     }
     @IBAction func saudiArabiaBtnAction(_ sender: UIButton) {
         print("saudiArabiaBtnAction")

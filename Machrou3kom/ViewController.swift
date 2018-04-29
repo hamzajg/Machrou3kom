@@ -29,8 +29,13 @@ class ViewController: UIViewController {
                     // Do something with credentials e.g.: save them.
                     // Auth0 will automatically dismiss the login page
                     //print("Credentials: \(credentials)")
-                    self.performSegue(withIdentifier: "goHomePage", sender: self)
-
+                    let defaults = UserDefaults.standard
+                    if let country = defaults.string(forKey: "country")
+                    {
+                        self.performSegue(withIdentifier: "goHomePage", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "setCountry", sender: self)
+                    }
                 }
         }
     }
