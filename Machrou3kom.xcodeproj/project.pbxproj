@@ -14,6 +14,7 @@
 		881B84BE209627B20084BAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881B84BC209627B20084BAF2 /* LaunchScreen.storyboard */; };
 		881B84C9209627B20084BAF2 /* Machrou3komTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84C8209627B20084BAF2 /* Machrou3komTests.swift */; };
 		881B84D4209627B20084BAF2 /* Machrou3komUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */; };
+		881B84E52096280A0084BAF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 881B84E4209628090084BAF2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		881B84CF209627B20084BAF2 /* Machrou3komUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Machrou3komUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machrou3komUITests.swift; sourceTree = "<group>"; };
 		881B84D5209627B20084BAF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		881B84E4209628090084BAF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,9 @@
 		881B84A7209627B10084BAF2 = {
 			isa = PBXGroup;
 			children = (
+				881B84E3209627D40084BAF2 /* Controllers */,
+				881B84E2209627CC0084BAF2 /* Views */,
+				881B84E1209627BE0084BAF2 /* Services */,
 				881B84B2209627B10084BAF2 /* Machrou3kom */,
 				881B84C7209627B20084BAF2 /* Machrou3komTests */,
 				881B84D2209627B20084BAF2 /* Machrou3komUITests */,
@@ -103,6 +108,7 @@
 				881B84BA209627B20084BAF2 /* Assets.xcassets */,
 				881B84BC209627B20084BAF2 /* LaunchScreen.storyboard */,
 				881B84BF209627B20084BAF2 /* Info.plist */,
+				881B84E4209628090084BAF2 /* GoogleService-Info.plist */,
 			);
 			path = Machrou3kom;
 			sourceTree = "<group>";
@@ -123,6 +129,27 @@
 				881B84D5209627B20084BAF2 /* Info.plist */,
 			);
 			path = Machrou3komUITests;
+			sourceTree = "<group>";
+		};
+		881B84E1209627BE0084BAF2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		881B84E2209627CC0084BAF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		881B84E3209627D40084BAF2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				881B84BE209627B20084BAF2 /* LaunchScreen.storyboard in Resources */,
+				881B84E52096280A0084BAF2 /* GoogleService-Info.plist in Resources */,
 				881B84BB209627B20084BAF2 /* Assets.xcassets in Resources */,
 				881B84B9209627B10084BAF2 /* Main.storyboard in Resources */,
 			);
