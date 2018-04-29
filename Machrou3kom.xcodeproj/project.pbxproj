@@ -21,6 +21,7 @@
 		886999352096393D00B370A4 /* ChooseCountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886999342096393D00B370A4 /* ChooseCountryViewController.swift */; };
 		8869993920963A4C00B370A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993820963A4C00B370A4 /* HomeViewController.swift */; };
 		8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */; };
+		8869994820964FA800B370A4 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8869994720964FA800B370A4 /* Auth0.plist */; };
 		C524B86E41A56D714D564B76 /* Pods_Machrou3komUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531A73630DFF5A645E11667B /* Pods_Machrou3komUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		886999342096393D00B370A4 /* ChooseCountryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCountryViewController.swift; sourceTree = "<group>"; };
 		8869993820963A4C00B370A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
+		8869994720964FA800B370A4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		B583C4D5E8607F616B539535 /* Pods_Machrou3kom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Machrou3kom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5C7AF8473D52A57AB07703 /* Pods-Machrou3kom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Machrou3kom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Machrou3kom/Pods-Machrou3kom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +149,7 @@
 				881B84BC209627B20084BAF2 /* LaunchScreen.storyboard */,
 				881B84BF209627B20084BAF2 /* Info.plist */,
 				881B84E4209628090084BAF2 /* GoogleService-Info.plist */,
+				8869994720964FA800B370A4 /* Auth0.plist */,
 			);
 			path = Machrou3kom;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8869994820964FA800B370A4 /* Auth0.plist in Resources */,
 				881B84BE209627B20084BAF2 /* LaunchScreen.storyboard in Resources */,
 				881B84E52096280A0084BAF2 /* GoogleService-Info.plist in Resources */,
 				881B84BB209627B20084BAF2 /* Assets.xcassets in Resources */,
@@ -343,12 +347,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Machrou3kom/Pods-Machrou3kom-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Auth0/Auth0.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SimpleKeychain/SimpleKeychain.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Auth0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleKeychain.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

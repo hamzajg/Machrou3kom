@@ -7,8 +7,18 @@
 //
 
 import Foundation
-import FirebaseCore
+import FirebaseDatabase
 
 class AppServices {
+    
+    var ref:DatabaseReference?
+    
+    func GetAllPost() {
+        ref = Database.database().reference()
+        ref?.child("Posts").observe(.childAdded, with: {(snapshot) in
+            let post = snapshot.value
+            print(post)
+        })
+    }
     
 }

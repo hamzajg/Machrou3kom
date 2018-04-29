@@ -1,0 +1,6 @@
+framework module Pods_Machrou3komUITests {
+  umbrella header "Pods-Machrou3komUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

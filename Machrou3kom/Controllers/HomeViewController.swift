@@ -21,7 +21,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let appServices = AppServices()
+        appServices.GetAllPost()
         // Do any additional setup after loading the view.
     }
 
