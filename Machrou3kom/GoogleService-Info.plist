@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>167371795379-p7lg0fjcv38iuh3ik0laksespk7sikns.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.167371795379-p7lg0fjcv38iuh3ik0laksespk7sikns</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBnzi0c8j2Gyt_UomWetn4BW9NyudxJwKI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>167371795379</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hamzajg.Machrou3kom</string>
+	<key>PROJECT_ID</key>
+	<string>machrou3kom-1321f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>machrou3kom-1321f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:167371795379:ios:615794ecc9cf6f8d</string>
+	<key>DATABASE_URL</key>
+	<string>https://machrou3kom-1321f.firebaseio.com</string>
+</dict>
+</plist>
