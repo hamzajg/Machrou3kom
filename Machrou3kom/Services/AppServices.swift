@@ -15,9 +15,17 @@ class AppServices {
     
     func GetAllPost() {
         ref = Database.database().reference()
-        ref?.child("Posts").observe(.childAdded, with: {(snapshot) in
-            let post = snapshot.value
-            print(post)
+        ref?.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
+            let data = snapshot.value
+            print(data! as? [String])
+//            do {
+//                let json = try? JSONEncoder().encode(data! as? String)
+//                print(json)
+//                let post = try? JSONDecoder().decode(Post.self, from: json!)
+//                print(post)
+//            } catch let jsonErr {
+//                print("GetAllPost Error serializing json: ", jsonErr)
+//            }
         })
     }
     
