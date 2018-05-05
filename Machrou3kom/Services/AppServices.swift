@@ -13,20 +13,22 @@ class AppServices {
     
     var ref:DatabaseReference?
     
-    func GetAllPost() {
+    func GetAllPostAsync(completed: @escaping ([Post]) -> ()){
+        var posts = [Post]()
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
+                for p in snapshot.children {
+                    let post = Post(snapshot: p as! DataSnapshot)
+                    posts.append(post)
+                }
+                completed(posts)
+            })
+        }
+    }
+    func LikePoat(postId:String, id:Int) {
         ref = Database.database().reference()
-        ref?.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
-            let data = snapshot.value
-            print(data! as? [String])
-//            do {
-//                let json = try? JSONEncoder().encode(data! as? String)
-//                print(json)
-//                let post = try? JSONDecoder().decode(Post.self, from: json!)
-//                print(post)
-//            } catch let jsonErr {
-//                print("GetAllPost Error serializing json: ", jsonErr)
-//            }
-        })
+        self.ref?.child("Posts").child(postId).setValue(["like": id])
     }
     
 }

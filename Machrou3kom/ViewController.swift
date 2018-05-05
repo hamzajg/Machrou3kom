@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBAction func signInBtnAction(_ sender: UIButton) {
         Auth0
             .webAuth()
-            .scope("openid profile")
+            .scope("openid instagram")
             .audience("https://machrou3kom.auth0.com/userinfo")
             .start {
                 switch $0 {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
                 case .success(let credentials):
                     // Do something with credentials e.g.: save them.
                     // Auth0 will automatically dismiss the login page
-                    //print("Credentials: \(credentials)")
+                    print("Credentials: \(credentials.scope)")
                     let defaults = UserDefaults.standard
                     if let country = defaults.string(forKey: "country")
                     {

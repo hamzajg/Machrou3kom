@@ -10,6 +10,7 @@ target 'Machrou3kom' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Auth0', '~> 1.0'
+    pod 'AlamofireImage', '~> 3.3'
 
   target 'Machrou3komTests' do
     inherit! :search_paths
