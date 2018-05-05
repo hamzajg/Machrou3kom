@@ -22,6 +22,8 @@
 		8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */; };
 		8869994820964FA800B370A4 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8869994720964FA800B370A4 /* Auth0.plist */; };
 		8869994B209673E100B370A4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869994A209673E100B370A4 /* Post.swift */; };
+		88A9770B209E22790013AFCF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770A209E22790013AFCF /* PostViewController.swift */; };
+		88A9770D209E23BB0013AFCF /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770C209E23BB0013AFCF /* NewPostViewController.swift */; };
 		88C5238720971A650022B128 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C5238620971A640022B128 /* GoogleService-Info.plist */; };
 		C524B86E41A56D714D564B76 /* Pods_Machrou3komUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531A73630DFF5A645E11667B /* Pods_Machrou3komUITests.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +72,8 @@
 		8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
 		8869994720964FA800B370A4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		8869994A209673E100B370A4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		88A9770A209E22790013AFCF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		88A9770C209E23BB0013AFCF /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		88C5238620971A640022B128 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B583C4D5E8607F616B539535 /* Pods_Machrou3kom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Machrou3kom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5C7AF8473D52A57AB07703 /* Pods-Machrou3kom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Machrou3kom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Machrou3kom/Pods-Machrou3kom.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			children = (
 				8869993820963A4C00B370A4 /* HomeViewController.swift */,
 				886999342096393D00B370A4 /* ChooseCountryViewController.swift */,
+				88A9770A209E22790013AFCF /* PostViewController.swift */,
+				88A9770C209E23BB0013AFCF /* NewPostViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -442,10 +448,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A9770B209E22790013AFCF /* PostViewController.swift in Sources */,
 				886999352096393D00B370A4 /* ChooseCountryViewController.swift in Sources */,
 				8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */,
 				881B84B6209627B10084BAF2 /* ViewController.swift in Sources */,
 				8869992F2096353F00B370A4 /* AppServices.swift in Sources */,
+				88A9770D209E23BB0013AFCF /* NewPostViewController.swift in Sources */,
 				881B84B4209627B10084BAF2 /* AppDelegate.swift in Sources */,
 				8869994B209673E100B370A4 /* Post.swift in Sources */,
 				8869993920963A4C00B370A4 /* HomeViewController.swift in Sources */,
@@ -626,7 +634,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDHPB9G97E;
 				INFOPLIST_FILE = Machrou3kom/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3kom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -644,7 +655,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDHPB9G97E;
 				INFOPLIST_FILE = Machrou3kom/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3kom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -662,7 +676,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -680,7 +698,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -697,7 +719,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -714,7 +740,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

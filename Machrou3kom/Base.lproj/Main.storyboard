@@ -108,22 +108,31 @@
             </objects>
             <point key="canvasLocation" x="2164" y="1050.224887556222"/>
         </scene>
-        <!--View Controller-->
+        <!--Post View Controller-->
         <scene sceneID="eCx-eO-vmo">
             <objects>
-                <viewController id="Fa8-DY-W8X" sceneMemberID="viewController">
+                <viewController id="Fa8-DY-W8X" customClass="PostViewController" customModule="Machrou3kom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6o9-SS-5Or">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEA-aJ-aW9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEA-aJ-aW9">
                                 <rect key="frame" x="0.0" y="64" width="375" height="187"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-vy-WuX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="kwx-vy-WuX" secondAttribute="trailing" id="MjI-KY-2ip"/>
+                                    <constraint firstItem="kwx-vy-WuX" firstAttribute="top" secondItem="LEA-aJ-aW9" secondAttribute="top" id="fbV-BJ-EWa"/>
+                                    <constraint firstItem="kwx-vy-WuX" firstAttribute="leading" secondItem="LEA-aJ-aW9" secondAttribute="leading" id="gHl-oz-iSB"/>
+                                    <constraint firstAttribute="bottom" secondItem="kwx-vy-WuX" secondAttribute="bottom" id="pVE-E0-Kkr"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uq1-X2-Rd3">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uq1-X2-Rd3">
                                 <rect key="frame" x="0.0" y="259" width="375" height="359"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="العنوان:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g03-et-BiM">
                                         <rect key="frame" x="285" y="8" width="92" height="21"/>
@@ -183,12 +192,22 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uq1-X2-Rd3" firstAttribute="top" secondItem="LEA-aJ-aW9" secondAttribute="bottom" constant="8" symbolic="YES" id="ExB-az-mah"/>
+                            <constraint firstItem="LEA-aJ-aW9" firstAttribute="trailing" secondItem="Uq1-X2-Rd3" secondAttribute="trailing" id="Fuv-xA-A1q"/>
+                            <constraint firstAttribute="trailing" secondItem="LEA-aJ-aW9" secondAttribute="trailing" id="GdA-NM-io6"/>
+                            <constraint firstItem="LEA-aJ-aW9" firstAttribute="leading" secondItem="6o9-SS-5Or" secondAttribute="leading" id="WN3-FJ-GGO"/>
+                            <constraint firstItem="LEA-aJ-aW9" firstAttribute="leading" secondItem="Uq1-X2-Rd3" secondAttribute="leading" id="cQN-Sg-DO1"/>
+                            <constraint firstAttribute="bottom" secondItem="LEA-aJ-aW9" secondAttribute="bottom" constant="416" id="kaW-Ra-tnA"/>
+                            <constraint firstItem="LEA-aJ-aW9" firstAttribute="top" secondItem="X7j-BE-YSC" secondAttribute="top" id="oai-LQ-2Pr"/>
+                            <constraint firstItem="Uq1-X2-Rd3" firstAttribute="bottom" secondItem="X7j-BE-YSC" secondAttribute="bottom" id="qXl-Ps-4ZR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="X7j-BE-YSC"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xr6-CH-Opf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4185" y="496"/>
+            <point key="canvasLocation" x="4184.8000000000002" y="495.20239880059972"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="HeE-Yr-b1f">
@@ -273,7 +292,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTQ-0g-8fX">
                                                     <rect key="frame" x="15" y="11" width="34" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button" image="heart-outline-25"/>
+                                                    <state key="normal" image="heart-outline-25"/>
                                                     <connections>
                                                         <action selector="likeBtnAction:" destination="FwT-yN-r6H" eventType="touchUpInside" id="dgz-I0-1xL"/>
                                                     </connections>
@@ -337,10 +356,10 @@
             </objects>
             <point key="canvasLocation" x="3132" y="-278"/>
         </scene>
-        <!--View Controller-->
+        <!--New Post View Controller-->
         <scene sceneID="lrw-Yk-tbP">
             <objects>
-                <viewController id="r7i-Lg-wkg" sceneMemberID="viewController">
+                <viewController id="r7i-Lg-wkg" customClass="NewPostViewController" customModule="Machrou3kom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EaT-nz-YUP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -416,6 +435,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEO-hP-cQj">
                                         <rect key="frame" x="148" y="516" width="79" height="30"/>
                                         <state key="normal" title="حفظ المنشور"/>
+                                        <connections>
+                                            <action selector="addBtnAction:" destination="r7i-Lg-wkg" eventType="touchUpInside" id="62q-c6-weM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -462,6 +484,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CVV-da-izx"/>
                     </view>
+                    <connections>
+                        <outlet property="descTextView" destination="7pC-NN-wWT" id="NPJ-86-Cvu"/>
+                        <outlet property="locationTextField" destination="vyM-Y5-DFc" id="CIq-cG-zF0"/>
+                        <outlet property="phoneNumberTextField" destination="Ze0-Rf-cLv" id="YeN-rP-1Z2"/>
+                        <outlet property="titleTextField" destination="UDU-lC-HHi" id="nmx-4p-8AN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQK-TE-wj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

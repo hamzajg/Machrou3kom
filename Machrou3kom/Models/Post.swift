@@ -25,21 +25,22 @@ class Post {
     let title:String!
     let typePost:String!
     
-    init () {
-        self.itemRef = nil
-        self.itemKey = ""
-        self.adresse = ""
-        self.category_country = ""
+    init (itemRef:DatabaseReference!, itemKey: String!, adresse:String!, catagory_country:String!, description:String!, idCategory:String!,
+          idCountry:String!, numTel:String!, title:String!, post_owner:String!, typePost:String!) {
+        self.itemRef = itemRef
+        self.itemKey = itemKey
+        self.adresse = adresse
+        self.category_country = catagory_country
         self.createdAt = Date()
-        self.description = ""
-        self.idCategory = ""
-        self.idCountry = ""
+        self.description = description
+        self.idCategory = idCategory
+        self.idCountry = idCountry
         self.like = ""
-        self.numTel = ""
+        self.numTel = numTel
         self.photos = []
-        self.post_owner = ""
-        self.title = ""
-        self.typePost = ""
+        self.post_owner = post_owner
+        self.title = title
+        self.typePost = typePost
     }
     
     init (snapshot:DataSnapshot) {
@@ -84,5 +85,10 @@ class Post {
             return nil
             
         }
+    }
+    func toAnyObject() -> Dictionary<String, Any> {
+        return ["adresse": self.adresse, "title": self.title, "numTel": self.numTel, "idCountry": self.idCountry, "idCategory": self.idCategory,
+                "like": self.like, "category_country": self.category_country, "typePost": self.typePost, "photos": self.photos, 
+                "post_owner": self.post_owner, "createdAt": "" ]
     }
  }

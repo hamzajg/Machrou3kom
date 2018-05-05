@@ -26,9 +26,15 @@ class AppServices {
             })
         }
     }
-    func LikePoat(postId:String, id:Int) {
+    
+    func LikePoat(sub:String, id:Int) {
         ref = Database.database().reference()
-        self.ref?.child("Posts").child(postId).setValue(["like": id])
+        self.ref?.child("Posts").child(sub).setValue(["like": id])
+    }
+    
+    func AddNewPoat(sub:String, post:Post) {
+        ref = Database.database().reference()
+        self.ref?.child("Posts").child(sub).setValue(post.toAnyObject())
     }
     
 }

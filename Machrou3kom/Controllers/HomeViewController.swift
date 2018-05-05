@@ -44,6 +44,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Machrou3kom"
         let appServices = AppServices()
 //        activityIndicator.center = self.view.center
 //        activityIndicator.hidesWhenStopped = true
