@@ -20,6 +20,16 @@ class HomePageTableViewCell: UITableViewCell {
     
     @IBAction internal func likeBtnAction(_ sender: UIButton){
         
+        let defaults = UserDefaults.standard
+        
+        // Receive
+        if let profile_sub = defaults.string(forKey: "profile_sub")
+        {
+            print(profile_sub)
+            
+            let appServices = AppServices()
+            appServices.LikePoat(sub1: profile_sub, sub2: profile_sub)
+        }
     }
     override func awakeFromNib() {
         super.awakeFromNib()

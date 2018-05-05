@@ -44,12 +44,13 @@ class ViewController: UIViewController {
                                     let defaults = UserDefaults.standard
                                     
                                     // Store
-                                    defaults.set(profile.sub, forKey: "profile_sub")                                    
+                                    defaults.set(profile.sub, forKey: "profile_sub")
                                     
                                 case .failure(let error):
                                     print("Failed with \(error)")
                                 }
                         }
+                        self.dismiss(animated: true, completion: nil)
                         self.performSegue(withIdentifier: "goHomePage", sender: self)
                     } else {
                         self.performSegue(withIdentifier: "setCountry", sender: self)

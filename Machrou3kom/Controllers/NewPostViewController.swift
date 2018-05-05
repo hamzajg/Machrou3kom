@@ -8,7 +8,23 @@
 
 import UIKit
 
-class NewPostViewController: UIViewController {
+class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    let postTypes = ["محل", "شركة", "منزلي",]
+    var postType:String? = ""
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return postTypes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return postTypes[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        postType = postTypes[row]
+    }
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -33,11 +49,10 @@ class NewPostViewController: UIViewController {
         // Receive
         if let profile_sub = defaults.string(forKey: "profile_sub")
         {
-            print(profile_sub)
-            
             let appServices = AppServices()
-            appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: "Location", catagory_country: "-LBDACWVCIVuWWoI1y9q_-L6fyXUG0z_vXuLJk2hi", description: "Test Desc",
-                                                                idCategory: "-LBDACWVCIVuWWoI1y9q", idCountry: "-L6fyXUG0z_vXuLJk2hi", numTel: "43330099", title: "Test Post", post_owner: "Test", typePost: "شركة"))
+            appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: "-LBDACWVCIVuWWoI1y9q_-L6fyXUG0z_vXuLJk2hi", description: descTextView.text,
+                                                                idCategory: "-LBDACWVCIVuWWoI1y9q", idCountry: "-L6fyXUG0z_vXuLJk2hi", numTel: phoneNumberTextField.text, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
+            
         }
     }
     /*

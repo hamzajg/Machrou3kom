@@ -38,13 +38,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.titleLabel.text = posts[indexPath.row].title
         cell.companyLabel.text = posts[indexPath.row].typePost
         cell.locationLabel.text = posts[indexPath.row].adresse
-        cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
+        if(posts[indexPath.row].getOnePhoto() != nil) {
+            cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
+        }
         return cell
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Machrou3kom"
+        self.title = "الصفَحة الرئيسيّة"
         let appServices = AppServices()
 //        activityIndicator.center = self.view.center
 //        activityIndicator.hidesWhenStopped = true

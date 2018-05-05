@@ -27,14 +27,31 @@ class AppServices {
         }
     }
     
-    func LikePoat(sub:String, id:Int) {
+    func LikePoat(sub1:String, sub2:String) {
         ref = Database.database().reference()
-        self.ref?.child("Posts").child(sub).setValue(["like": id])
+        self.ref?.child("Posts").child(sub1).child("like").setValue([sub2: Date().description])
     }
     
     func AddNewPoat(sub:String, post:Post) {
         ref = Database.database().reference()
-        self.ref?.child("Posts").child(sub).setValue(post.toAnyObject())
+        self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            if !snapshot.hasChild(sub) {
+                self.ref?.child("Posts").child(sub).setValue(post.toAnyObject())
+            }
+        })
+    }
+    func GetAllCategoriesAsync(completed: @escaping ([Category]) -> ()){
+        var categories = [Category]()
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("Categories").observeSingleEvent(of: .value, with: {(snapshot) in
+                for c in snapshot.children {
+                    let category = Category(snapshot: c as! DataSnapshot)
+                    categories.append(category)
+                }
+                completed(categories)
+            })
+        }
     }
     
 }
