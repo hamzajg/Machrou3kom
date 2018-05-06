@@ -36,6 +36,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableItem", for: indexPath) as! HomePageTableViewCell
+        cell.itemProfileSub = posts[indexPath.row].itemKey
         cell.titleLabel.text = posts[indexPath.row].title
         cell.companyLabel.text = posts[indexPath.row].typePost
         cell.locationLabel.text = posts[indexPath.row].adresse

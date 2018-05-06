@@ -9,6 +9,8 @@
 import UIKit
 
 class HomePageTableViewCell: UITableViewCell {
+    
+    var itemProfileSub:String! = ""
 
     @IBOutlet weak internal var homeImageView: UIImageView!
     
@@ -28,7 +30,8 @@ class HomePageTableViewCell: UITableViewCell {
             print(profile_sub)
             
             let appServices = AppServices()
-            appServices.LikePoat(sub1: profile_sub, sub2: profile_sub)
+            appServices.LikePost(sub1: itemProfileSub, sub2: profile_sub)
+            appServices.AddNewNotification(sub1: itemProfileSub, sub2: profile_sub)
         }
     }
     override func awakeFromNib() {

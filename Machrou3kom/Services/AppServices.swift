@@ -72,9 +72,9 @@ class AppServices {
         }
     }
     
-    func LikePoat(sub1:String, sub2:String) {
+    func LikePost(sub1:String, sub2:String) {
         ref = Database.database().reference()
-        self.ref?.child("Posts").child(sub1).child("like").setValue([sub2: Date().description])
+        self.ref?.child("Posts").child(sub1).child("like").updateChildValues([sub2: Date().description])
     }
     
     func AddNewPoat(sub:String, post:Post) {
@@ -84,6 +84,10 @@ class AppServices {
                 self.ref?.child("Posts").child(sub).setValue(post.toAnyObject())
             }
         })
+    }
+    func AddNewNotification(sub1:String, sub2:String) {
+        ref = Database.database().reference()
+        self.ref?.child("notifications").childByAutoId().setValue(["body":"A user has liked your post", "title":"Your post was liked", "userKey":sub2])
     }
     func GetAllCategoriesAsync(completed: @escaping ([Category]) -> ()){
         var categories = [Category]()

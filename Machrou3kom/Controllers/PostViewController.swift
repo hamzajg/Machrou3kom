@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
@@ -18,6 +18,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var postDescLabel: UILabel!
     @IBOutlet weak var postPostedAtLabel: UILabel!
     @IBOutlet weak var postLikesCountLabel: UILabel!
+    @IBOutlet weak var sliderPageControl: UIPageControl!
+    @IBOutlet weak var sliderScrollView: UIScrollView!
     var post:Post! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +30,38 @@ class PostViewController: UIViewController {
             postLocationLabel.text = post.adresse
             postPhoneNumberLabel.text = post.numTel
             postPostedAtLabel.text = post.createdAt.description
-            print(post.getLikesCount())
+            postLikesCountLabel.text = String(post.getLikesCount())
+            
+            self.sliderPageControl.numberOfPages = self.post.photos.count
+            for i in 0..<self.post.photos.count {
+                let p = self.post.photos[i]
+                if let url = URL(string: (p.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))) {
+                    DispatchQueue.global().async {
+                        let data = try? Data(contentsOf: url)
+                        DispatchQueue.main.async {
+                            let imageView = UIImageView(frame: CGRect(x:  self.sliderScrollView.frame.size.width * CGFloat(i), y: 0, width:  self.sliderScrollView.frame.size.width, height:  self.sliderScrollView.frame.size.height))
+                            if data != nil {
+                                imageView.image = UIImage(data: data!)
+                            }
+                            self.sliderScrollView.addSubview(imageView)
+                        }
+                    }
+                }
+                
+                self.sliderScrollView.contentSize = CGSize(width: (self.sliderScrollView.frame.size.width * CGFloat(self.post.photos.count)), height: self.sliderScrollView.frame.size.height)
+                self.sliderScrollView.delegate = self
+
+            }
         }
         // Do any additional setup after loading the view.
     }
 
+    //ScrollView Method
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
+        sliderPageControl.numberOfPages = Int(pageNumber)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
