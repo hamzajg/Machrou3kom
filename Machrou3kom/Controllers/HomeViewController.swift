@@ -48,6 +48,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "الصفَحة الرئيسيّة"
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addStuff))
+        add.tintColor = UIColor.white
+        navigationController?.navigationItem.rightBarButtonItem = add
         let appServices = AppServices()
 //        activityIndicator.center = self.view.center
 //        activityIndicator.hidesWhenStopped = true
@@ -66,9 +69,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.homeTableView.reloadData()
     //            self.activityIndicator.stopAnimating()
                 }
-            }            
+            }
         }
         // Do any additional setup after loading the view.
+    }
+    @objc func addStuff(sender: UIBarButtonItem) {
+        
     }
 
     override func didReceiveMemoryWarning() {
