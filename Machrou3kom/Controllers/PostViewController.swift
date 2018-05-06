@@ -28,6 +28,7 @@ class PostViewController: UIViewController {
             postLocationLabel.text = post.adresse
             postPhoneNumberLabel.text = post.numTel
             postPostedAtLabel.text = post.createdAt.description
+            print(post.getLikesCount())
         }
         // Do any additional setup after loading the view.
     }

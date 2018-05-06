@@ -18,7 +18,7 @@ class Post {
     let description:String!
     let idCategory: String!
     let idCountry:String!
-    let like: String!
+    var like: [String: String]
     let numTel:String!
     let photos: [String]!
     let post_owner:String!
@@ -35,7 +35,7 @@ class Post {
         self.description = description
         self.idCategory = idCategory
         self.idCountry = idCountry
-        self.like = ""
+        self.like = [:]
         self.numTel = numTel
         self.photos = []
         self.post_owner = post_owner
@@ -73,7 +73,10 @@ class Post {
         self.description = ""
         self.idCategory = ""
         self.idCountry = ""
-        self.like = ""
+        self.like = [:]
+        for l in snapshot.childSnapshot(forPath:"like").children {
+            like.updateValue(String((l as? DataSnapshot)?.value is Int16), forKey: ((l as? DataSnapshot)?.key)! )
+        }
         self.numTel = ""
         self.post_owner = ""
     }
@@ -85,6 +88,9 @@ class Post {
             return nil
             
         }
+    }
+    func getLikesCount() -> Int {
+        return like.count
     }
     func toAnyObject() -> Dictionary<String, Any> {
         return ["adresse": self.adresse, "title": self.title, "numTel": self.numTel, "idCountry": self.idCountry, "idCategory": self.idCategory,
