@@ -107,17 +107,13 @@ class AppServices {
             print(error)
             return
             }
-            print(metadata)
-            var url = "https://firebasestorage.googleapis.com/v0/b/" + (metadata?.bucket)! + "/o/images/" + (metadata?.name)! + "?alt=media&token=" + metadata?.downloadTokens;
-            
-            print(url)
+            self.ref = Database.database().reference()
+            self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild(sub) {
+                    self.ref?.child("Posts").child(sub).child("photos").childByAutoId().setValue(["url" : metadata?.downloadURL()?.absoluteString])
+                }
+            })
         })
-        /*ref = Database.database().reference()
-        self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
-            if snapshot.hasChild(sub) {
-                self.ref?.child("Posts").child("photos").setValue(["" : ""])
-            }
-        })*/
     }
     
 }
