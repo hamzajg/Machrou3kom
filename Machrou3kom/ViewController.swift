@@ -31,30 +31,24 @@ class ViewController: UIViewController {
                     // Auth0 will automatically dismiss the login page
                     print("Credentials: \(credentials)")
                     token = credentials.accessToken!
-                    let defaults = UserDefaults.standard
-                    if let country = defaults.string(forKey: "country")
-                    {
-                        Auth0
-                            .authentication()
-                            .userInfo(withAccessToken: token)
-                            .start { result in
-                                switch result {
-                                case .success(let profile):
-                                    print("User Profile: \(profile.sub)")
-                                    let defaults = UserDefaults.standard
-                                    
-                                    // Store
-                                    defaults.set(profile.sub, forKey: "profile_sub")
-                                    
-                                case .failure(let error):
-                                    print("Failed with \(error)")
-                                }
-                        }
-                        self.dismiss(animated: true, completion: nil)
-                        self.performSegue(withIdentifier: "goCategoryPage", sender: self)
-                    } else {
-                        self.performSegue(withIdentifier: "setCountry", sender: self)
+                    Auth0
+                        .authentication()
+                        .userInfo(withAccessToken: token)
+                        .start { result in
+                            switch result {
+                            case .success(let profile):
+                                print("User Profile: \(profile.sub)")
+                                let defaults = UserDefaults.standard
+                                
+                                // Store
+                                defaults.set(profile.sub, forKey: "profile_sub")
+                                
+                            case .failure(let error):
+                                print("Failed with \(error)")
+                            }
                     }
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "goCountryPage", sender: self)
                 }
         }
     }

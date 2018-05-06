@@ -30,7 +30,7 @@ class AppServices {
         var countries = [Country]()
         DispatchQueue.main.async {
             self.ref = Database.database().reference()
-            self.ref?.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
+            self.ref?.child("Countries").observeSingleEvent(of: .value, with: {(snapshot) in
                 for c in snapshot.children {
                     let country = Country(snapshot: c as! DataSnapshot)
                     countries.append(country)
