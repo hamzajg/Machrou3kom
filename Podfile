@@ -9,6 +9,7 @@ target 'Machrou3kom' do
 
     pod 'Firebase/Core'
     pod 'Firebase/Database'
+    pod 'Firebase/Storage'
     pod 'Auth0', '~> 1.0'
     pod 'AlamofireImage', '~> 3.3'
 

@@ -8,9 +8,11 @@
 
 import UIKit
 
-class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
+                                UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let postTypes = ["محل", "شركة", "منزلي",]
     var postType:String? = ""
+    var photos:[UIImage] = []
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -36,6 +38,18 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func photosBtnAction(_ sender: UIButton) {
+        let imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
+        showDetailViewController(imgPicker, sender: Any?.self)
+        
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let originalImage = info["UIImagePickerControllerOriginalImage"] {
+            photos.append(originalImage as! UIImage)
+        }
+        dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -52,6 +66,11 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let appServices = AppServices()
             appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: "-LBDACWVCIVuWWoI1y9q_-L6fyXUG0z_vXuLJk2hi", description: descTextView.text,
                                                                 idCategory: "-LBDACWVCIVuWWoI1y9q", idCountry: "-L6fyXUG0z_vXuLJk2hi", numTel: phoneNumberTextField.text, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
+            for p in photos {
+                if let uploadedData = UIImagePNGRepresentation(p) {
+                    appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)
+                }
+            }
             
         }
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 class AppServices {
     
@@ -96,6 +97,27 @@ class AppServices {
                 completed(categories)
             })
         }
+    }
+    
+    func uploadFileToStorage(sub:String, uploadData:Data?) {
+        print(String(Date().hashValue))
+        let storageRef = Storage.storage().reference().child("images").child(String(Date().hashValue) + ".png")
+        storageRef.putData(uploadData!, metadata: nil, completion: {(metadata, error) in
+            if error != nil {
+            print(error)
+            return
+            }
+            print(metadata)
+            var url = "https://firebasestorage.googleapis.com/v0/b/" + (metadata?.bucket)! + "/o/images/" + (metadata?.name)! + "?alt=media&token=" + metadata?.downloadTokens;
+            
+            print(url)
+        })
+        /*ref = Database.database().reference()
+        self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChild(sub) {
+                self.ref?.child("Posts").child("photos").setValue(["" : ""])
+            }
+        })*/
     }
     
 }
