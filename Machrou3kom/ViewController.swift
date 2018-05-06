@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                                 }
                         }
                         self.dismiss(animated: true, completion: nil)
-                        self.performSegue(withIdentifier: "goHomePage", sender: self)
+                        self.performSegue(withIdentifier: "goCategoryPage", sender: self)
                     } else {
                         self.performSegue(withIdentifier: "setCountry", sender: self)
                     }

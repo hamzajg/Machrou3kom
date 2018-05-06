@@ -9,7 +9,7 @@
 import UIKit
 
 class ChooseCountryViewController: UIViewController {
-    
+    var countries:[Country] = []
     @IBAction func bahrainBtnAction(_ sender: UIButton) {
         print("bahrainBtnAction")
         let defaults = UserDefaults.standard
@@ -38,6 +38,11 @@ class ChooseCountryViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let appServices = AppServices()
+        appServices.GetAllCountriesAsync() {(countries) in
+            self.countries = (countries)
+        }
 
         // Do any additional setup after loading the view.
     }

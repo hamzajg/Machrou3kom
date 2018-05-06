@@ -53,13 +53,20 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "goSubCategory" {
-            if let destination = segue.destination as? CategoryViewController{
+            if let destination = segue.destination as? CategoryViewController {
                 let cell = sender as! UITableViewCell
                 let indexPath = categoryTableView.indexPath(for: cell)
                 let selectedData = categories[(indexPath?.row)!].subCategories
                 destination.title = categories[(indexPath?.row)!].name
                 destination.isSubCategory = true
                 destination.categories = selectedData
+            }
+        } else if segue.identifier == "goHomePage" {
+            if let destination = ((segue.destination as! UITabBarController).viewControllers![0] as? UINavigationController)?.viewControllers.first as? HomeViewController {
+                let cell = sender as! UITableViewCell
+                let indexPath = categoryTableView.indexPath(for: cell)
+                let selectedData = categories[(indexPath?.row)!]
+                destination.category = selectedData
             }
         }
     }

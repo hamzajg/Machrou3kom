@@ -28,6 +28,7 @@ extension UIImageView {
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var homeTableView: UITableView!
     var posts:[Post] = [Post]()
+    var category:Category? = nil
 //    var activityIndicator = UIActivityIndicatorView()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -53,10 +54,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        activityIndicator.activityIndicatorViewStyle = .gray
 //        self.view.addSubview(activityIndicator)
 //        activityIndicator.startAnimating()
-        appServices.GetAllPostAsync() {(posts) in
-            self.posts = (posts)
-            self.homeTableView.reloadData()
-//            self.activityIndicator.stopAnimating()
+        if category != nil {
+            appServices.GetAllPostsByIdCategoryAsync(idCategory: category?.idCategory) {(posts) in
+                self.posts = (posts)
+                self.homeTableView.reloadData()
+    //            self.activityIndicator.stopAnimating()
+            }
+            
         }
         // Do any additional setup after loading the view.
     }
@@ -67,14 +71,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showPostDetails" {
+            if let destination = segue.destination as? PostViewController {
+                let cell = sender as! UITableViewCell
+                let indexPath = homeTableView.indexPath(for: cell)
+                let selectedData = posts[(indexPath?.row)!]
+                destination.post = selectedData
+            }
+        }
+        
     }
-    */
+ 
 
 }

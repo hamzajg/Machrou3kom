@@ -12,15 +12,23 @@ class PostViewController: UIViewController {
 
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitleLabel: UILabel!
-    @IBOutlet weak var postCompanyLabel: UILabel!
+    @IBOutlet weak var postTypeLabel: UILabel!
     @IBOutlet weak var postLocationLabel: UILabel!
     @IBOutlet weak var postPhoneNumberLabel: UILabel!
     @IBOutlet weak var postDescLabel: UILabel!
     @IBOutlet weak var postPostedAtLabel: UILabel!
     @IBOutlet weak var postLikesCountLabel: UILabel!
+    var post:Post! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if post != nil {
+            self.title = post.title
+            postTitleLabel.text = post.title
+            postTypeLabel.text = post.typePost
+            postLocationLabel.text = post.adresse
+            postPhoneNumberLabel.text = post.numTel
+            postPostedAtLabel.text = post.createdAt.description
+        }
         // Do any additional setup after loading the view.
     }
 

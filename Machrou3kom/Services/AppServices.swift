@@ -13,7 +13,7 @@ class AppServices {
     
     var ref:DatabaseReference?
     
-    func GetAllPostAsync(completed: @escaping ([Post]) -> ()){
+    func GetAllPostsAsync(completed: @escaping ([Post]) -> ()){
         var posts = [Post]()
         DispatchQueue.main.async {
             self.ref = Database.database().reference()
@@ -21,6 +21,34 @@ class AppServices {
                 for p in snapshot.children {
                     let post = Post(snapshot: p as! DataSnapshot)
                     posts.append(post)
+                }
+                completed(posts)
+            })
+        }
+    }
+    func GetAllCountriesAsync(completed: @escaping ([Country]) -> ()){
+        var countries = [Country]()
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
+                for c in snapshot.children {
+                    let country = Country(snapshot: c as! DataSnapshot)
+                    countries.append(country)
+                }
+                completed(countries)
+            })
+        }
+    }
+    func GetAllPostsByIdCategoryAsync(idCategory:String!, completed: @escaping ([Post]) -> ()){
+        var posts = [Post]()
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
+                for p in snapshot.children {
+                    if (p as! DataSnapshot).childSnapshot(forPath: "idCategory").value as? String == idCategory {
+                        let post = Post(snapshot: p as! DataSnapshot)
+                        posts.append(post)
+                    }
                 }
                 completed(posts)
             })
