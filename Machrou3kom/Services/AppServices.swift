@@ -54,13 +54,14 @@ class AppServices {
             })
         }
     }
-    func GetAllPostsByIdCategoryAsync(idCategory:String!, completed: @escaping ([Post]) -> ()){
+    func GetAllPostsByIdCategoryAndIdCountryAsync(idCategory:String!, idCountry:String!, completed: @escaping ([Post]) -> ()){
         var posts = [Post]()
         DispatchQueue.main.async {
             self.ref = Database.database().reference()
             self.ref?.child("Posts").observeSingleEvent(of: .value, with: {(snapshot) in
                 for p in snapshot.children {
-                    if (p as! DataSnapshot).childSnapshot(forPath: "idCategory").value as? String == idCategory {
+                    if (p as! DataSnapshot).childSnapshot(forPath: "idCategory").value as? String == idCategory &&
+                        (p as! DataSnapshot).childSnapshot(forPath: "idCountry").value as? String == idCountry {
                         let post = Post(snapshot: p as! DataSnapshot)
                         posts.append(post)
                     }

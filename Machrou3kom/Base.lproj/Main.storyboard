@@ -653,7 +653,7 @@
                                         <connections>
                                             <outlet property="countryImageView" destination="itJ-KG-D58" id="L6g-EH-dkC"/>
                                             <outlet property="countryLabel" destination="Qa4-W4-4xr" id="qcL-l0-PKk"/>
-                                            <segue destination="HXP-ci-LJQ" kind="show" id="jGt-vC-29j"/>
+                                            <segue destination="HXP-ci-LJQ" kind="show" identifier="goCategoryPage" id="jGt-vC-29j"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

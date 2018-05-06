@@ -41,14 +41,26 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "goCategoryPage" {
+            if let destination = segue.destination as? CategoryViewController {
+                let cell = sender as! UITableViewCell
+                let indexPath = countryTableView.indexPath(for: cell)
+                let selectedData = countries[(indexPath?.row)!]
+                let defaults = UserDefaults.standard
+                
+                // Store
+                defaults.set(selectedData.idCountry, forKey: "id_country")
+                
+            }
+        }
     }
-    */
+    
 
 }

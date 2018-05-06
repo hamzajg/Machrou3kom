@@ -55,12 +55,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //        self.view.addSubview(activityIndicator)
 //        activityIndicator.startAnimating()
         if category != nil {
-            appServices.GetAllPostsByIdCategoryAsync(idCategory: category?.idCategory) {(posts) in
+            let defaults = UserDefaults.standard
+            
+            // Receive
+            if let id_country = defaults.string(forKey: "id_country")
+            {
+                print(id_country)
+                appServices.GetAllPostsByIdCategoryAndIdCountryAsync(idCategory: category?.idCategory, idCountry:id_country) {(posts) in
                 self.posts = (posts)
                 self.homeTableView.reloadData()
     //            self.activityIndicator.stopAnimating()
-            }
-            
+                }
+            }            
         }
         // Do any additional setup after loading the view.
     }
