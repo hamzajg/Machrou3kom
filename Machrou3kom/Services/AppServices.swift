@@ -39,6 +39,21 @@ class AppServices {
             })
         }
     }
+    func GetAllNotificationsByUserAsync(user_sub:String!,completed: @escaping ([Notification]) -> ()){
+        var notifications = [Notification]()
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("notifications").observeSingleEvent(of: .value, with: {(snapshot) in
+                for n in snapshot.children {
+                    if (n as! DataSnapshot).childSnapshot(forPath: "userKey").value as? String == user_sub {
+                        let notification = Notification(snapshot: n as! DataSnapshot)
+                        notifications.append(notification)
+                    }
+                }
+                completed(notifications)
+            })
+        }
+    }
     func GetAllPostsByIdCategoryAsync(idCategory:String!, completed: @escaping ([Post]) -> ()){
         var posts = [Post]()
         DispatchQueue.main.async {
