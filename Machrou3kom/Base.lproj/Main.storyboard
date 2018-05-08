@@ -470,6 +470,7 @@
                                         <connections>
                                             <outlet property="companyLabel" destination="odL-OT-Ygx" id="ClI-Ji-PaV"/>
                                             <outlet property="homeImageView" destination="RHZ-7G-Pfx" id="IpK-c1-fYk"/>
+                                            <outlet property="likeBtn" destination="bTQ-0g-8fX" id="sls-wB-a3L"/>
                                             <outlet property="locationLabel" destination="mOg-jP-Hl2" id="dc0-Vb-Ha2"/>
                                             <outlet property="titleLabel" destination="7FQ-4I-DiN" id="Jgo-Af-xll"/>
                                             <segue destination="Fa8-DY-W8X" kind="show" identifier="showPostDetails" id="vvM-N6-9ch"/>
@@ -695,7 +696,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJM-i0-nLO">
-                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryTableViewCell" rowHeight="100" id="JZT-Sn-Dg3" customClass="CountryTableViewCell" customModule="Machrou3kom" customModuleProvider="target">

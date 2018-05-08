@@ -40,6 +40,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.titleLabel.text = posts[indexPath.row].title
         cell.companyLabel.text = posts[indexPath.row].typePost
         cell.locationLabel.text = posts[indexPath.row].adresse
+        if(posts[indexPath.row].getLikesCount() > 0) {
+            cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+        }
         if(posts[indexPath.row].getOnePhoto() != nil) {
             cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
         }

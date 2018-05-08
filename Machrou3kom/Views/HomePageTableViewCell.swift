@@ -20,6 +20,7 @@ class HomePageTableViewCell: UITableViewCell {
     
     @IBOutlet weak internal var locationLabel: UILabel!
     
+    @IBOutlet weak var likeBtn: UIButton!
     @IBAction internal func likeBtnAction(_ sender: UIButton){
         
         let defaults = UserDefaults.standard
@@ -32,6 +33,7 @@ class HomePageTableViewCell: UITableViewCell {
             let appServices = AppServices()
             appServices.LikePost(sub1: itemProfileSub, sub2: profile_sub)
             appServices.AddNewNotification(sub1: itemProfileSub, sub2: profile_sub)
+            likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
         }
     }
     override func awakeFromNib() {
