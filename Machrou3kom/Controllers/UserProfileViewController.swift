@@ -11,7 +11,9 @@ import UIKit
 class UserProfileViewController: UIViewController {
 
     @IBOutlet weak var userProfileImageView: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBAction func saveChangesBtnAction(_ sender: UIButton) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,7 @@ class UserProfileViewController: UIViewController {
         // Receive
         if let profile_sub = defaults.string(forKey: "profile_sub")
         {
-            userNameLabel.text = profile_sub
+            userNameTextField.text = profile_sub
         }
         // Do any additional setup after loading the view.
     }

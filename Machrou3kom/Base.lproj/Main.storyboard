@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-674" y="-701"/>
+            <point key="canvasLocation" x="-770" y="280"/>
         </scene>
         <!--اتصل بنا-->
         <scene sceneID="iZE-jW-xC8">
@@ -63,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krI-vh-OpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2052" y="385"/>
+            <point key="canvasLocation" x="4329" y="161"/>
         </scene>
         <!--إشعارات-->
         <scene sceneID="je4-Ag-KKX">
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37w-n6-A7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="385"/>
+            <point key="canvasLocation" x="3574" y="161"/>
         </scene>
         <!--الملف الشخصي-->
         <scene sceneID="KXv-I2-gjs">
@@ -134,8 +134,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-male-circle-blue-512" translatesAutoresizingMaskIntoConstraints="NO" id="Ecp-t0-uJk">
+                                <rect key="frame" x="122" y="153" width="131" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-nT-SK3">
+                                <rect key="frame" x="143" y="318" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="حفظ التغييرات"/>
+                                <connections>
+                                    <action selector="saveChangesBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="Zdh-v6-9D6"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGv-mt-oml">
-                                <rect key="frame" x="141" y="318" width="92" height="30"/>
+                                <rect key="frame" x="141" y="356" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title=" تسجيل الخروج"/>
                                 <connections>
@@ -143,17 +155,13 @@
                                     <segue destination="BYZ-38-t0r" kind="showDetail" id="r8H-A0-Tcy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hu-fl-gkS">
-                                <rect key="frame" x="16" y="289" width="343" height="21"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWb-UM-UfK">
+                                <rect key="frame" x="16" y="289" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-male-circle-blue-512" translatesAutoresizingMaskIntoConstraints="NO" id="Ecp-t0-uJk">
-                                <rect key="frame" x="122" y="153" width="131" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="faw-qh-1dQ"/>
@@ -167,13 +175,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="userNameLabel" destination="8Hu-fl-gkS" id="j5O-4b-4ks"/>
+                        <outlet property="userNameTextField" destination="bWb-UM-UfK" id="axf-R9-LCt"/>
                         <outlet property="userProfileImageView" destination="Ecp-t0-uJk" id="X06-Qq-5MH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mg1-GS-WYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="768"/>
+            <point key="canvasLocation" x="5061.6000000000004" y="161.46926536731635"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="eCx-eO-vmo">
@@ -659,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQK-TE-wj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4157.6000000000004" y="767.76611694152928"/>
+            <point key="canvasLocation" x="2316" y="1126"/>
         </scene>
         <!--machrou3kom-->
         <scene sceneID="3x1-rg-MoW">
@@ -687,7 +695,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0DN-eV-9v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="-701.19940029985014"/>
+            <point key="canvasLocation" x="2316" y="-891"/>
         </scene>
         <!--Country View Controller-->
         <scene sceneID="US7-CJ-0Pk">
@@ -834,7 +842,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8P-Vw-2UY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1376.8" y="-1796.8515742128936"/>
+            <point key="canvasLocation" x="2316" y="-1759"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q0C-yM-pVN">
@@ -903,8 +911,8 @@
         <image name="user-male-circle-blue-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wyE-aX-sH4"/>
+        <segue reference="Nqi-YP-K2z"/>
         <segue reference="jHJ-Vm-9y4"/>
-        <segue reference="eOT-oK-5iQ"/>
+        <segue reference="r8H-A0-Tcy"/>
     </inferredMetricsTieBreakers>
 </document>
