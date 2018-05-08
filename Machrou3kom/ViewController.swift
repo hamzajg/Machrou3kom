@@ -15,6 +15,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func guestBtnAction(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "goCountryPage", sender: self)
+    }
     @IBAction func signInBtnAction(_ sender: UIButton) {
         var token:String = ""
         Auth0
