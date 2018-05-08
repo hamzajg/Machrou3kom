@@ -664,11 +664,11 @@
         <!--machrou3kom-->
         <scene sceneID="3x1-rg-MoW">
             <objects>
-                <tabBarController title="machrou3kom" id="xZh-Ap-g4M" sceneMemberID="viewController">
+                <tabBarController title="machrou3kom" id="xZh-Ap-g4M" customClass="Machrou3komViewController" customModule="Machrou3kom" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="machrou3kom" id="W42-wd-fnS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wcf-Dq-ruE">
                             <connections>
-                                <segue destination="r7i-Lg-wkg" kind="show" id="wyE-aX-sH4"/>
+                                <segue destination="r7i-Lg-wkg" kind="show" identifier="goNewPostPage" id="wyE-aX-sH4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -682,6 +682,7 @@
                         <segue destination="Ml9-YZ-Ho7" kind="relationship" relationship="viewControllers" id="n75-xV-fLv"/>
                         <segue destination="FOm-GI-L9v" kind="relationship" relationship="viewControllers" id="0WQ-WO-I42"/>
                         <segue destination="IpN-9a-Y1B" kind="relationship" relationship="viewControllers" id="w51-kq-k0X"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="showSignInPage" id="eOT-oK-5iQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0DN-eV-9v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -706,7 +707,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJM-i0-nLO">
-                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryTableViewCell" rowHeight="100" id="JZT-Sn-Dg3" customClass="CountryTableViewCell" customModule="Machrou3kom" customModuleProvider="target">
@@ -904,6 +905,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="wyE-aX-sH4"/>
         <segue reference="jHJ-Vm-9y4"/>
-        <segue reference="OBa-0u-tmf"/>
+        <segue reference="eOT-oK-5iQ"/>
     </inferredMetricsTieBreakers>
 </document>

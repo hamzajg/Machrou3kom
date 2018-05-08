@@ -35,6 +35,24 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "منشور جديد"
+        if !ViewController.isGuest {
+            let appServices = AppServices()
+            let defaults = UserDefaults.standard
+            
+            // Receive
+            if let profile_sub = defaults.string(forKey: "profile_sub")
+            {
+                appServices.GetOnePostByUserAsync(sub: profile_sub) {(post) in
+                    let post = (post)
+                    if post != nil {
+                        self.titleTextField.text = post?.title
+                        self.phoneNumberTextField.text = post?.numTel
+                        self.locationTextField.text = post?.adresse
+                        self.descTextView.text = post?.description
+                    }
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -63,12 +81,17 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Receive
         if let profile_sub = defaults.string(forKey: "profile_sub")
         {
-            let appServices = AppServices()
-            appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: "-LBDACWVCIVuWWoI1y9q_-L6fyXUG0z_vXuLJk2hi", description: descTextView.text,
-                                                                idCategory: "-LBDACWVCIVuWWoI1y9q", idCountry: "-L6fyXUG0z_vXuLJk2hi", numTel: phoneNumberTextField.text, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
-            for p in photos {
-                if let uploadedData = UIImagePNGRepresentation(p) {
-                    appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)
+            if let idCountry = defaults.string(forKey: "id_country") {
+                if let idCategory = defaults.string(forKey: "id_country") {
+                    
+                    let appServices = AppServices()
+                    appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text,
+                                                                        idCategory: idCategory, idCountry: idCountry, numTel: phoneNumberTextField.text, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
+                    for p in photos {
+                        if let uploadedData = UIImagePNGRepresentation(p) {
+                            appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)
+                        }
+                    }
                 }
             }
             

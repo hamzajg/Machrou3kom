@@ -35,7 +35,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func likeBtnAction(_ sender: UIButton, cell:HomePageTableViewCell) {
-        self.performSegue(withIdentifier: "goSignInPage", sender: self)
+        if ViewController.isGuest {
+            self.performSegue(withIdentifier: "goSignInPage", sender: self)
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableItem", for: indexPath) as! HomePageTableViewCell
@@ -58,15 +60,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "الصفَحة الرئيسيّة"
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addStuff))
-        add.tintColor = UIColor.white
-        navigationController?.navigationItem.rightBarButtonItem = add
         let appServices = AppServices()
 //        activityIndicator.center = self.view.center
 //        activityIndicator.hidesWhenStopped = true
 //        activityIndicator.activityIndicatorViewStyle = .gray
 //        self.view.addSubview(activityIndicator)
 //        activityIndicator.startAnimating()
+        if ViewController.isGuest {
+            
+        }
         if category != nil {
             let defaults = UserDefaults.standard
             
@@ -82,9 +84,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         // Do any additional setup after loading the view.
-    }
-    @objc func addStuff(sender: UIBarButtonItem) {
-        
     }
 
     override func didReceiveMemoryWarning() {

@@ -40,6 +40,21 @@ class AppServices {
             })
         }
     }
+    func GetOneCountryByIdCountryAsync(idCountry:String, completed: @escaping (Country?) -> ()){
+        var country:Country?
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("Countries").observeSingleEvent(of: .value, with: {(snapshot) in
+                for c in snapshot.children {
+                    if (c as! DataSnapshot).childSnapshot(forPath: "idCountry").value as? String == idCountry {
+                        let country = Country(snapshot: c as! DataSnapshot)
+                        break
+                    }
+                }
+                completed(country)
+            })
+        }
+    }
     func GetAllNotificationsByUserAsync(user_sub:String!,completed: @escaping ([Notification]) -> ()){
         var notifications = [Notification]()
         DispatchQueue.main.async {
@@ -84,6 +99,18 @@ class AppServices {
                 self.ref?.child("Posts").child(sub).setValue(post.toAnyObject())
             }
         })
+    }
+    func GetOnePostByUserAsync(sub:String, completed: @escaping (Post?) -> ()){
+        var post:Post?
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
+                if !snapshot.hasChild(sub) {
+                    post = Post(snapshot: snapshot)
+                }
+                completed(post)
+            })
+        }
     }
     func AddNewNotification(sub1:String, sub2:String) {
         ref = Database.database().reference()

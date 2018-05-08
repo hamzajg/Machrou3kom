@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A857D65C7530D56D12F1480 /* Pods_Machrou3komTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E2969ED0CC4682B6B09145 /* Pods_Machrou3komTests.framework */; };
 		6595DD995C59B089AF2D456D /* Pods_Machrou3kom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B583C4D5E8607F616B539535 /* Pods_Machrou3kom.framework */; };
+		880EF06620A2545200C19CAD /* Machrou3komViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EF06520A2545200C19CAD /* Machrou3komViewController.swift */; };
 		881B84B4209627B10084BAF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84B3209627B10084BAF2 /* AppDelegate.swift */; };
 		881B84B6209627B10084BAF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84B5209627B10084BAF2 /* ViewController.swift */; };
 		881B84B9209627B10084BAF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881B84B7209627B10084BAF2 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		42E2969ED0CC4682B6B09145 /* Pods_Machrou3komTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Machrou3komTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6C9E4A3B6CCB5C9B7E7E54 /* Pods-Machrou3kom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Machrou3kom.release.xcconfig"; path = "Pods/Target Support Files/Pods-Machrou3kom/Pods-Machrou3kom.release.xcconfig"; sourceTree = "<group>"; };
 		531A73630DFF5A645E11667B /* Pods_Machrou3komUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Machrou3komUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		880EF06520A2545200C19CAD /* Machrou3komViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machrou3komViewController.swift; sourceTree = "<group>"; };
 		881B84B0209627B10084BAF2 /* Machrou3kom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Machrou3kom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		881B84B3209627B10084BAF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		881B84B5209627B10084BAF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				88FD474A209E598E00CC3042 /* CategoryViewController.swift */,
 				88FD4754209E848000CC3042 /* NotificationViewController.swift */,
 				88FD4756209F0C8200CC3042 /* CountryViewController.swift */,
+				880EF06520A2545200C19CAD /* Machrou3komViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				88A9770D209E23BB0013AFCF /* NewPostViewController.swift in Sources */,
 				881B84B4209627B10084BAF2 /* AppDelegate.swift in Sources */,
 				8869994B209673E100B370A4 /* Post.swift in Sources */,
+				880EF06620A2545200C19CAD /* Machrou3komViewController.swift in Sources */,
 				88FD474F209E5AF300CC3042 /* Category.swift in Sources */,
 				88FD4753209E835800CC3042 /* Notification.swift in Sources */,
 				88FD474B209E598E00CC3042 /* CategoryViewController.swift in Sources */,
@@ -672,7 +676,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDHPB9G97E;
 				INFOPLIST_FILE = Machrou3kom/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3kom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -690,7 +697,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FDHPB9G97E;
 				INFOPLIST_FILE = Machrou3kom/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3kom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -708,7 +718,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -726,7 +740,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -743,7 +761,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -760,7 +782,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QEQ6W7KAJ7;
 				INFOPLIST_FILE = Machrou3komUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrou3komUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -67,6 +67,10 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 let indexPath = categoryTableView.indexPath(for: cell)
                 let selectedData = categories[(indexPath?.row)!]
                 destination.category = selectedData
+                let defaults = UserDefaults.standard
+                
+                // Store
+                defaults.set(selectedData.idCategory, forKey: "id_category")
             }
         }
     }
