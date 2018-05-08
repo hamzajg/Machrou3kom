@@ -34,31 +34,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return posts.count
     }
     
-    @objc func likeBtnAction(_ sender: UIButton, cell:HomePageTableViewCell){
-        
-        let defaults = UserDefaults.standard
-        
-        // Receive
-        if let profile_sub = defaults.string(forKey: "profile_sub")
-        {
-            print(profile_sub)
-            if(!ViewController.isGuest) {
-                let appServices = AppServices()
-                appServices.LikePost(sub1: cell.itemProfileSub, sub2: profile_sub)
-                appServices.AddNewNotification(sub1: cell.itemProfileSub, sub2: profile_sub)
-                cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
-            } else {
-                self.performSegue(withIdentifier: "goSignInPage", sender: self)
-            }
-        }
+    @objc func likeBtnAction(_ sender: UIButton, cell:HomePageTableViewCell) {
+        self.performSegue(withIdentifier: "goSignInPage", sender: self)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "homeTableItem", for: indexPath) as! HomePageTableViewCell
         cell.itemProfileSub = posts[indexPath.row].itemKey
         cell.titleLabel.text = posts[indexPath.row].title
         cell.companyLabel.text = posts[indexPath.row].typePost
-        cell.locationLabel.text = posts[indexPath.row].adresse
-        cell.likeBtn.addTarget(self, action: #selector(self.likeBtnAction(_: cell:)), for: .touchUpInside)
+        cell.locationLabel.text = posts[indexPath.row].adresse        
+        if(ViewController.isGuest) {
+            cell.likeBtn.addTarget(self, action: #selector(self.likeBtnAction(_: cell:)), for: .touchUpInside)
+        }
         if(posts[indexPath.row].getLikesCount() > 0) {
             cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
         }
