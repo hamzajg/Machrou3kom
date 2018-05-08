@@ -40,6 +40,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="guestBtn" destination="H2l-z8-EXw" id="FXA-rS-OXL"/>
                         <segue destination="WpJ-ex-OQb" kind="show" identifier="goCountryPage" id="BO0-vT-M1J"/>
                         <segue destination="Yrs-QM-yEv" kind="show" identifier="ShowCategoryPage" id="ocI-Sn-bnZ"/>
                     </connections>
@@ -503,6 +504,7 @@
                     <navigationItem key="navigationItem" id="WY0-Pg-u0a"/>
                     <connections>
                         <outlet property="homeTableView" destination="Ci7-9z-7up" id="Qad-Qm-nlO"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="goSignInPage" id="OBa-0u-tmf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wD8-b7-ph4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -902,5 +904,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="wyE-aX-sH4"/>
         <segue reference="jHJ-Vm-9y4"/>
+        <segue reference="OBa-0u-tmf"/>
     </inferredMetricsTieBreakers>
 </document>

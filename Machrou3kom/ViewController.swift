@@ -9,13 +9,19 @@
 import UIKit
 import Auth0
 class ViewController: UIViewController {
-
+    
+    static var isGuest:Bool = false
+    @IBOutlet weak var guestBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(ViewController.isGuest) {
+            guestBtn.isHidden = true
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     @IBAction func guestBtnAction(_ sender: UIButton) {
+        ViewController.isGuest = true
         self.dismiss(animated: true, completion: nil)
         self.performSegue(withIdentifier: "goCountryPage", sender: self)
     }
@@ -57,10 +63,13 @@ class ViewController: UIViewController {
                     {
                         self.performSegue(withIdentifier: "ShowCategoryPage", sender: self)
                     } else {
-                        self.performSegue(withIdentifier: "goCountryPage", sender: self)
+                        if ViewController.isGuest {
+                            self.performSegue(withIdentifier: "goCountryPage", sender: self)
+                        }
                     }
                 }
         }
+        ViewController.isGuest = false
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

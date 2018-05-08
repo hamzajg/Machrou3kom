@@ -29,11 +29,14 @@ class HomePageTableViewCell: UITableViewCell {
         if let profile_sub = defaults.string(forKey: "profile_sub")
         {
             print(profile_sub)
-            
-            let appServices = AppServices()
-            appServices.LikePost(sub1: itemProfileSub, sub2: profile_sub)
-            appServices.AddNewNotification(sub1: itemProfileSub, sub2: profile_sub)
-            likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+            if(!ViewController.isGuest) {
+                let appServices = AppServices()
+                appServices.LikePost(sub1: itemProfileSub, sub2: profile_sub)
+                appServices.AddNewNotification(sub1: itemProfileSub, sub2: profile_sub)
+                likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+            } else {
+                
+            }
         }
     }
     override func awakeFromNib() {
