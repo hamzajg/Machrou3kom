@@ -29,7 +29,7 @@ class ViewController: UIViewController {
                 case .success(let credentials):
                     // Do something with credentials e.g.: save them.
                     // Auth0 will automatically dismiss the login page
-                    print("Credentials: \(credentials)")
+                    //print("Credentials: \(credentials)")
                     token = credentials.accessToken!
                     Auth0
                         .authentication()
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
                         .start { result in
                             switch result {
                             case .success(let profile):
-                                print("User Profile: \(profile.sub)")
+                                //print("User Profile: \(profile.sub)")
                                 let defaults = UserDefaults.standard
                                 
                                 // Store
@@ -48,7 +48,13 @@ class ViewController: UIViewController {
                             }
                     }
                     self.dismiss(animated: true, completion: nil)
-                    self.performSegue(withIdentifier: "goCountryPage", sender: self)
+                    let defaults = UserDefaults.standard
+                    if (defaults.string(forKey: "id_country") != nil)
+                    {
+                        self.performSegue(withIdentifier: "ShowCategoryPage", sender: self)
+                    } else {
+                        self.performSegue(withIdentifier: "goCountryPage", sender: self)
+                    }
                 }
         }
     }

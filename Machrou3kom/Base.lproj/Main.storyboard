@@ -33,6 +33,7 @@
                     </view>
                     <connections>
                         <segue destination="WpJ-ex-OQb" kind="show" identifier="goCountryPage" id="BO0-vT-M1J"/>
+                        <segue destination="Yrs-QM-yEv" kind="show" identifier="ShowCategoryPage" id="ocI-Sn-bnZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -334,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xr6-CH-Opf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5404" y="-701.19940029985014"/>
+            <point key="canvasLocation" x="6343.1999999999998" y="-701.19940029985014"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="HeE-Yr-b1f">
@@ -406,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYd-u1-He1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="-986.35682158920542"/>
+            <point key="canvasLocation" x="1303.2" y="-986.35682158920542"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="Msz-AW-Glg">
@@ -497,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wD8-b7-ph4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4157.6000000000004" y="-701.19940029985014"/>
+            <point key="canvasLocation" x="5096.8000000000002" y="-701.19940029985014"/>
         </scene>
         <!--New Post View Controller-->
         <scene sceneID="lrw-Yk-tbP">
@@ -674,7 +675,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0DN-eV-9v9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1377" y="-701"/>
+            <point key="canvasLocation" x="2316" y="-701.19940029985014"/>
         </scene>
         <!--Country View Controller-->
         <scene sceneID="US7-CJ-0Pk">
@@ -694,7 +695,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJM-i0-nLO">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryTableViewCell" rowHeight="100" id="JZT-Sn-Dg3" customClass="CountryTableViewCell" customModule="Machrou3kom" customModuleProvider="target">
@@ -720,7 +721,7 @@
                                         <connections>
                                             <outlet property="countryImageView" destination="itJ-KG-D58" id="L6g-EH-dkC"/>
                                             <outlet property="countryLabel" destination="Qa4-W4-4xr" id="qcL-l0-PKk"/>
-                                            <segue destination="HXP-ci-LJQ" kind="show" identifier="goCategoryPage" id="jGt-vC-29j"/>
+                                            <segue destination="HXP-ci-LJQ" kind="show" identifier="goCategoryPage" id="hB8-0T-jjy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -858,7 +859,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoG-Aj-rTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876" y="-701"/>
+            <point key="canvasLocation" x="3815.1999999999998" y="-701.19940029985014"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jP6-vC-G5H">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yrs-QM-yEv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6WI-E5-y7X">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HXP-ci-LJQ" kind="relationship" relationship="rootViewController" id="jHJ-Vm-9y4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lbo-0P-Cw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="-986.35682158920542"/>
         </scene>
     </scenes>
     <resources>
@@ -873,5 +892,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wyE-aX-sH4"/>
+        <segue reference="jHJ-Vm-9y4"/>
     </inferredMetricsTieBreakers>
 </document>
