@@ -41,6 +41,7 @@ class UserProfileViewController: UIViewController {
     }
     
     @IBAction func signOutBtnAction(_ sender: UIButton) {
+        ViewController.isGuest = false
     }
     
     /*

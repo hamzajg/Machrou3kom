@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 
     @IBAction func guestBtnAction(_ sender: UIButton) {
         ViewController.isGuest = true
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
         self.performSegue(withIdentifier: "goCountryPage", sender: self)
     }
     @IBAction func signInBtnAction(_ sender: UIButton) {
@@ -60,12 +60,14 @@ class ViewController: UIViewController {
                             }
                     }
                     self.dismiss(animated: true, completion: nil)
-                    let defaults = UserDefaults.standard
-                    if (defaults.string(forKey: "id_country") != nil)
-                    {
-                        self.performSegue(withIdentifier: "ShowCategoryPage", sender: self)
+                    if ViewController.isGuest {
+                        self.performSegue(withIdentifier: "goCountryPage", sender: self)
                     } else {
-                        if ViewController.isGuest {
+                        let defaults = UserDefaults.standard
+                        if (defaults.string(forKey: "id_country") != nil)
+                        {
+                            self.performSegue(withIdentifier: "ShowCategoryPage", sender: self)
+                        } else {
                             self.performSegue(withIdentifier: "goCountryPage", sender: self)
                         }
                     }
