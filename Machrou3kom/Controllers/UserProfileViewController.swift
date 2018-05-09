@@ -13,6 +13,14 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBAction func saveChangesBtnAction(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        
+        // Receive
+        if let profile_sub = defaults.string(forKey: "profile_sub")
+        {
+            let appServices = AppServices()
+            appServices.UpdateUser(user: User(idUser: profile_sub, full_name: userNameTextField.text, profile_picture: ""))
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

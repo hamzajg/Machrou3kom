@@ -19,6 +19,11 @@ class User {
         self.full_name = nil
         self.profile_picture = nil
     }
+    init(idUser:String!, full_name:String!, profile_picture:String!) {
+        self.idUser = idUser
+        self.full_name = full_name
+        self.profile_picture = profile_picture
+    }
     
     init (snapshot:DataSnapshot) {
         idUser = snapshot.key

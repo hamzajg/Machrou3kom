@@ -52,6 +52,8 @@ class ViewController: UIViewController {
                                 
                                 // Store
                                 defaults.set(profile.sub, forKey: "profile_sub")
+                                let appServices = AppServices()
+                                appServices.AddNewUser(user: User(idUser: profile.sub, full_name: profile.sub, profile_picture: ""))
                                 
                             case .failure(let error):
                                 print("Failed with \(error)")
