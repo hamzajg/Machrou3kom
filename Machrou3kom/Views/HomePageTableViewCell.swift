@@ -30,12 +30,12 @@ class HomePageTableViewCell: UITableViewCell {
         {
             print(profile_sub)
             if(!ViewController.isGuest) {
-                let appServices = AppServices()
-                appServices.LikePost(sub1: itemProfileSub, sub2: profile_sub)
-                appServices.AddNewNotification(sub1: itemProfileSub, sub2: profile_sub)
-                likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
-            } else {
-                
+                if profile_sub != itemProfileSub {
+                    let appServices = AppServices()
+                    appServices.LikePost(sub1: itemProfileSub, sub2: profile_sub)
+                    appServices.AddNewNotification(sub1: itemProfileSub, sub2: profile_sub)
+                    likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+                }
             }
         }
     }
