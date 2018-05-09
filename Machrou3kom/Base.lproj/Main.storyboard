@@ -138,16 +138,8 @@
                                 <rect key="frame" x="122" y="153" width="131" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-nT-SK3">
-                                <rect key="frame" x="143" y="318" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="حفظ التغييرات"/>
-                                <connections>
-                                    <action selector="saveChangesBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="Zdh-v6-9D6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGv-mt-oml">
-                                <rect key="frame" x="141" y="356" width="92" height="30"/>
+                                <rect key="frame" x="139" y="394" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title=" تسجيل الخروج"/>
                                 <connections>
@@ -162,6 +154,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp1-hF-J4z">
+                                <rect key="frame" x="155" y="327" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="تغيير البلد"/>
+                                <connections>
+                                    <action selector="changeCountryBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="Hiy-Mg-fvC"/>
+                                    <segue destination="lSZ-cJ-CCI" kind="showDetail" id="5CY-SS-Wft"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-nT-SK3">
+                                <rect key="frame" x="143" y="365" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="حفظ التغييرات"/>
+                                <connections>
+                                    <action selector="saveChangesBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="Zdh-v6-9D6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="faw-qh-1dQ"/>
@@ -706,7 +715,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر بلدك" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3go-R4-ojY">
-                                <rect key="frame" x="16" y="64" width="343" height="50"/>
+                                <rect key="frame" x="16" y="20" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fgB-vI-Eao"/>
                                 </constraints>
@@ -715,7 +724,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJM-i0-nLO">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryTableViewCell" rowHeight="100" id="JZT-Sn-Dg3" customClass="CountryTableViewCell" customModule="Machrou3kom" customModuleProvider="target">
@@ -911,8 +920,9 @@
         <image name="user-male-circle-blue-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nqi-YP-K2z"/>
+        <segue reference="5CY-SS-Wft"/>
+        <segue reference="wyE-aX-sH4"/>
         <segue reference="jHJ-Vm-9y4"/>
-        <segue reference="r8H-A0-Tcy"/>
+        <segue reference="OBa-0u-tmf"/>
     </inferredMetricsTieBreakers>
 </document>

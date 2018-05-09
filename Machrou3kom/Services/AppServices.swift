@@ -116,13 +116,23 @@ class AppServices {
             }
         })
     }
+    func GetOneUser(sub:String, completed: @escaping (User?) -> ()){
+        var user:User?
+        ref = Database.database().reference()
+        self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChild(sub) {
+                user = User(snapshot: snapshot.childSnapshot(forPath: sub))
+                }
+                completed(user)
+        })
+    }
     func GetOnePostByUserAsync(sub:String, completed: @escaping (Post?) -> ()){
         var post:Post?
         DispatchQueue.main.async {
             self.ref = Database.database().reference()
             self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
-                if !snapshot.hasChild(sub) {
-                    post = Post(snapshot: snapshot)
+                if snapshot.hasChild(sub) {
+                    post = Post(snapshot: snapshot.childSnapshot(forPath: sub))
                 }
                 completed(post)
             })

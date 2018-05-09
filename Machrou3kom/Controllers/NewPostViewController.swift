@@ -45,6 +45,8 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 appServices.GetOnePostByUserAsync(sub: profile_sub) {(post) in
                     let post = (post)
                     if post != nil {
+                        print(post?.itemKey)
+                        print(post?.title)
                         self.titleTextField.text = post?.title
                         self.phoneNumberTextField.text = post?.numTel
                         self.locationTextField.text = post?.adresse

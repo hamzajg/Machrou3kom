@@ -53,7 +53,16 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "goCategoryPage" {
+        if UserProfileViewController.isChangingCountry {
+            let cell = sender as! UITableViewCell
+            let indexPath = countryTableView.indexPath(for: cell)
+            let selectedData = countries[(indexPath?.row)!]
+            let defaults = UserDefaults.standard
+            
+            // Store
+            defaults.set(selectedData.idCountry, forKey: "id_country")
+            dismiss(animated: true, completion: nil)
+        } else if segue.identifier == "goCategoryPage" {
             if let destination = segue.destination as? CategoryViewController {
                 let cell = sender as! UITableViewCell
                 let indexPath = countryTableView.indexPath(for: cell)

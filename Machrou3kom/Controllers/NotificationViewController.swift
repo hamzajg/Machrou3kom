@@ -25,16 +25,21 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appServices = AppServices()
-
-        let defaults = UserDefaults.standard
         
-        // Receive
-        if let profile_sub = defaults.string(forKey: "profile_sub")
-        {
-            appServices.GetAllNotificationsByUserAsync(user_sub: profile_sub) {(notifications) in
-                self.notifications = (notifications)
-                self.notificationTableView.reloadData()
+        if ViewController.isGuest {
+            dismiss(animated: true, completion: nil)
+        } else {
+            let appServices = AppServices()
+
+            let defaults = UserDefaults.standard
+            
+            // Receive
+            if let profile_sub = defaults.string(forKey: "profile_sub")
+            {
+                appServices.GetAllNotificationsByUserAsync(user_sub: profile_sub) {(notifications) in
+                    self.notifications = (notifications)
+                    self.notificationTableView.reloadData()
+                }
             }
         }
         // Do any additional setup after loading the view.

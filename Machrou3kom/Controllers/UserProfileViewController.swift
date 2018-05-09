@@ -9,9 +9,12 @@
 import UIKit
 
 class UserProfileViewController: UIViewController {
-
+    static var isChangingCountry:Bool = false
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
+    @IBAction func changeCountryBtnAction(_ sender: UIButton) {
+        UserProfileViewController.isChangingCountry = true
+    }
     @IBAction func saveChangesBtnAction(_ sender: UIButton) {
         let defaults = UserDefaults.standard
         
@@ -24,13 +27,25 @@ class UserProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let defaults = UserDefaults.standard
-        
-        // Receive
-        if let profile_sub = defaults.string(forKey: "profile_sub")
-        {
-            userNameTextField.text = profile_sub
+        if ViewController.isGuest {
+            dismiss(animated: true, completion: nil)
+        } else {
+            let defaults = UserDefaults.standard
+            
+            // Receive
+            if let profile_sub = defaults.string(forKey: "profile_sub")
+            {
+                
+                let appServices = AppServices()
+                appServices.GetOneUser(sub: profile_sub) {(user) in
+                    let u = (user)
+                    if u != nil {
+                        self.userNameTextField.text = u!.full_name
+                    } else {
+                        self.userNameTextField.text = profile_sub
+                    }
+                }
+            }
         }
         // Do any additional setup after loading the view.
     }
