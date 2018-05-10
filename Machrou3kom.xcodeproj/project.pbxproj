@@ -17,6 +17,7 @@
 		881B84BE209627B20084BAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881B84BC209627B20084BAF2 /* LaunchScreen.storyboard */; };
 		881B84C9209627B20084BAF2 /* Machrou3komTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84C8209627B20084BAF2 /* Machrou3komTests.swift */; };
 		881B84D4209627B20084BAF2 /* Machrou3komUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */; };
+		885DF7FB20A3BBED000A6DFD /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885DF7FA20A3BBED000A6DFD /* Entitlements.plist */; };
 		8869992F2096353F00B370A4 /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869992E2096353F00B370A4 /* AppServices.swift */; };
 		8869993920963A4C00B370A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993820963A4C00B370A4 /* HomeViewController.swift */; };
 		8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */; };
@@ -77,6 +78,7 @@
 		881B84CF209627B20084BAF2 /* Machrou3komUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Machrou3komUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machrou3komUITests.swift; sourceTree = "<group>"; };
 		881B84D5209627B20084BAF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		885DF7FA20A3BBED000A6DFD /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		8869992E2096353F00B370A4 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		8869993820963A4C00B370A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				881B84BF209627B20084BAF2 /* Info.plist */,
 				8869994720964FA800B370A4 /* Auth0.plist */,
 				88C5238620971A640022B128 /* GoogleService-Info.plist */,
+				885DF7FA20A3BBED000A6DFD /* Entitlements.plist */,
 			);
 			path = Machrou3kom;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885DF7FB20A3BBED000A6DFD /* Entitlements.plist in Resources */,
 				8869994820964FA800B370A4 /* Auth0.plist in Resources */,
 				881B84BE209627B20084BAF2 /* LaunchScreen.storyboard in Resources */,
 				88C5238720971A650022B128 /* GoogleService-Info.plist in Resources */,
@@ -597,6 +601,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -657,8 +662,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -687,12 +694,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM8CFU85ZD;
 				INFOPLIST_FILE = Machrou3kom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrouukom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -709,6 +718,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM8CFU85ZD;
 				INFOPLIST_FILE = Machrou3kom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -716,6 +726,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hamzajg.Machrouukom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
