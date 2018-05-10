@@ -45,12 +45,7 @@ class AppServices {
         DispatchQueue.main.async {
             self.ref = Database.database().reference()
             self.ref?.child("Countries").observeSingleEvent(of: .value, with: {(snapshot) in
-                for c in snapshot.children {
-                    if (c as! DataSnapshot).childSnapshot(forPath: "idCountry").value as? String == idCountry {
-                        let country = Country(snapshot: c as! DataSnapshot)
-                        break
-                    }
-                }
+                country = Country(snapshot: snapshot.childSnapshot(forPath: idCountry))
                 completed(country)
             })
         }

@@ -53,11 +53,12 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if UserProfileViewController.isChangingCountry {
+        
+        let defaults = UserDefaults.standard
+        if defaults.string(forKey: "id_country") != nil && !ViewController.isGuest {
             let cell = sender as! UITableViewCell
             let indexPath = countryTableView.indexPath(for: cell)
             let selectedData = countries[(indexPath?.row)!]
-            let defaults = UserDefaults.standard
             
             // Store
             defaults.set(selectedData.idCountry, forKey: "id_country")
@@ -67,7 +68,6 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
                 let cell = sender as! UITableViewCell
                 let indexPath = countryTableView.indexPath(for: cell)
                 let selectedData = countries[(indexPath?.row)!]
-                let defaults = UserDefaults.standard
                 
                 // Store
                 defaults.set(selectedData.idCountry, forKey: "id_country")

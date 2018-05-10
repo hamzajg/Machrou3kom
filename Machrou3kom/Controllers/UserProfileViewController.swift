@@ -9,11 +9,9 @@
 import UIKit
 
 class UserProfileViewController: UIViewController {
-    static var isChangingCountry:Bool = false
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBAction func changeCountryBtnAction(_ sender: UIButton) {
-        UserProfileViewController.isChangingCountry = true
     }
     @IBAction func saveChangesBtnAction(_ sender: UIButton) {
         let defaults = UserDefaults.standard

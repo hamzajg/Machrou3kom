@@ -29,7 +29,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
             postTypeLabel.text = post.typePost
             postLocationLabel.text = post.adresse
             postPhoneNumberLabel.text = post.numTel
-            postPostedAtLabel.text = post.createdAt.description
+            postPostedAtLabel.text = String(post.createdAt.description[..<post.createdAt.description.index(of: "+")!])
             postLikesCountLabel.text = String(post.getLikesCount())
             
             self.sliderPageControl.numberOfPages = self.post.photos.count

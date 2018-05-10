@@ -16,6 +16,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         return categories.count
     }
     
+    @IBOutlet weak var countryFlagBarBtn: UIBarButtonItem!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryTableItem", for: indexPath) as! CategoryTableViewCell
         cell.CategoryNameLabel.text = categories[indexPath.row].name
@@ -27,6 +28,33 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = UserDefaults.standard
+        if let id_country = defaults.string(forKey: "id_country") {
+            
+            let appServices = AppServices()
+            appServices.GetOneCountryByIdCountryAsync(idCountry: id_country) {(country) in
+                let country = (country)
+                if country?.photo != nil {
+                    if let url = URL(string: (country?.photo)!) {
+                        URLSession.shared.dataTask(with: url) { data, response, error in
+                            guard
+                                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                                let data = data, error == nil,
+                                let image = UIImage(data: data)
+                                else { return }
+                            DispatchQueue.main.async() {
+                                if self.countryFlagBarBtn != nil {
+                                    self.countryFlagBarBtn.image = image
+                                    
+                                }
+                            }
+                            }.resume()
+                    }
+                }
+            }
+        }
         if(!isSubCategory) {
             let appServices = AppServices()
             appServices.GetAllCategoriesAsync() {(categories) in
