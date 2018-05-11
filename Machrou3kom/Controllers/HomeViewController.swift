@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if(ViewController.isGuest) {
             cell.likeBtn.addTarget(self, action: #selector(self.likeBtnAction(_: cell:)), for: .touchUpInside)
         }
-        if(posts[indexPath.row].getLikesCount() > 0) {
+        if(posts[indexPath.row].isLiked()) {
             cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
         }
         if(posts[indexPath.row].getOnePhoto() != nil) {

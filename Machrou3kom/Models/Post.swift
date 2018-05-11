@@ -92,6 +92,30 @@ class Post {
     func getLikesCount() -> Int {
         return like.count
     }
+    func isLiked() -> Bool {
+        var resul:Bool = false
+        if ViewController.isGuest {
+            resul = false
+        } else {
+            let defaults = UserDefaults.standard
+            // Receive
+            if let profile_sub = defaults.string(forKey: "profile_sub")
+            {
+                for l in like {
+                    if l.key == profile_sub {
+                        resul = true
+                        break
+                    } else {
+                        resul = false
+                    }
+                }
+            } else {
+                resul = false
+            }
+            
+        }
+        return resul
+    }
     func toAnyObject() -> Dictionary<String, Any> {
         return ["adresse": self.adresse, "title": self.title, "numTel": self.numTel, "idCountry": self.idCountry, "idCategory": self.idCategory,
                 "like": self.like, "category_country": self.category_country, "typePost": self.typePost, "photos": self.photos, 

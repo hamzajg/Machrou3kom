@@ -34,7 +34,9 @@ class AppServices {
             self.ref?.child("Countries").observeSingleEvent(of: .value, with: {(snapshot) in
                 for c in snapshot.children {
                     let country = Country(snapshot: c as! DataSnapshot)
-                    countries.append(country)
+                    if country.active {
+                        countries.append(country)
+                    }
                 }
                 completed(countries)
             })
