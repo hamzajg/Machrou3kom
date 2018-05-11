@@ -11,6 +11,7 @@ import UIKit
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var categoryTableView: UITableView!
     var categories:[Category] = [Category]()
+    var country:Country!
     var isSubCategory:Bool = false
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
@@ -26,6 +27,9 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    @objc func openUrlLink(_ sender: UIButton) {
+        UIApplication.shared.openURL(URL(string: country.ads[self.country.ads.count - 1].link)!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,9 +38,9 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             
             let appServices = AppServices()
             appServices.GetOneCountryByIdCountryAsync(idCountry: id_country) {(country) in
-                let country = (country)
-                if country?.photo != nil {
-                    if let url = URL(string: (country?.photo)!) {
+                self.country = (country)
+                if self.country?.ads != nil {
+                    if let url = URL(string: (self.country.ads[self.country.ads.count - 1].img)) {
                         URLSession.shared.dataTask(with: url) { data, response, error in
                             guard
                                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
@@ -45,10 +49,15 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                                 let image = UIImage(data: data)
                                 else { return }
                             DispatchQueue.main.async() {
-                                if self.countryFlagBarBtn != nil {
-                                    self.countryFlagBarBtn.image = image
-                                    
-                                }
+                                let adsBtn = UIButton()
+                                adsBtn.setImage(image, for: .normal)
+                                adsBtn.frame = CGRect(x: self.view.frame.size.width - 50, y: 64, width: 50, height: 50)
+                                adsBtn.addTarget(self, action: #selector(self.openUrlLink(_:)), for: .touchUpInside)
+                                self.view.addSubview(adsBtn)
+//                                if self.countryFlagBarBtn != nil {
+//                                    self.countryFlagBarBtn.image = image
+//
+//                                }
                             }
                             }.resume()
                     }

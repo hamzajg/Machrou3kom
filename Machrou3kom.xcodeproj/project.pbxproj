@@ -23,6 +23,7 @@
 		8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */; };
 		8869994820964FA800B370A4 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8869994720964FA800B370A4 /* Auth0.plist */; };
 		8869994B209673E100B370A4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869994A209673E100B370A4 /* Post.swift */; };
+		8875755720A63F2900016B6B /* CountryAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875755620A63F2900016B6B /* CountryAd.swift */; };
 		88A9770B209E22790013AFCF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770A209E22790013AFCF /* PostViewController.swift */; };
 		88A9770D209E23BB0013AFCF /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770C209E23BB0013AFCF /* NewPostViewController.swift */; };
 		88C5238720971A650022B128 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C5238620971A640022B128 /* GoogleService-Info.plist */; };
@@ -84,6 +85,7 @@
 		8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
 		8869994720964FA800B370A4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		8869994A209673E100B370A4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8875755620A63F2900016B6B /* CountryAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryAd.swift; sourceTree = "<group>"; };
 		889C554D20A2F8E700029CEF /* Machrou3kom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Machrou3kom.entitlements; sourceTree = "<group>"; };
 		88A9770A209E22790013AFCF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		88A9770C209E23BB0013AFCF /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				88FD4750209E737100CC3042 /* Country.swift */,
 				88FD4752209E835800CC3042 /* Notification.swift */,
 				880EF06720A25DAA00C19CAD /* User.swift */,
+				8875755620A63F2900016B6B /* CountryAd.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				8869993920963A4C00B370A4 /* HomeViewController.swift in Sources */,
 				88FD4757209F0C8200CC3042 /* CountryViewController.swift in Sources */,
 				88FD474D209E59E900CC3042 /* CategoryTableViewCell.swift in Sources */,
+				8875755720A63F2900016B6B /* CountryAd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

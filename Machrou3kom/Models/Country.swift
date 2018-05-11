@@ -14,14 +14,14 @@ class Country {
     let name: String!
     let photo: String!
     let active: Bool!
-    let ads: [Any]
+    let ads: [CountryAd]!
     
     init() {
         self.idCountry = nil
         self.name = nil
         self.photo = nil
         self.active = nil
-        self.ads = [Any]()
+        self.ads = [CountryAd]()
     }
     
     init(snapshot:DataSnapshot) {
@@ -41,7 +41,11 @@ class Country {
         } else {
             self.active = nil
         }
-        self.ads = [Any]()
+        self.ads = [CountryAd]()
+        for a in snapshot.childSnapshot(forPath:"ads").children {
+            let ad = CountryAd(snapshot: a as! DataSnapshot)
+                ads.append(ad)
+        }
     }
     
 }

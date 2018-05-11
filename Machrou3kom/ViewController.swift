@@ -8,6 +8,7 @@
 
 import UIKit
 import Auth0
+
 class ViewController: UIViewController {
     
     static var isGuest:Bool = false
