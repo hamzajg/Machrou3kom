@@ -14,14 +14,29 @@ class UserProfileViewController: UIViewController {
     @IBAction func changeCountryBtnAction(_ sender: UIButton) {
     }
     @IBAction func saveChangesBtnAction(_ sender: UIButton) {
-        let defaults = UserDefaults.standard
-        
-        // Receive
-        if let profile_sub = defaults.string(forKey: "profile_sub")
-        {
-            let appServices = AppServices()
-            appServices.UpdateUser(user: User(idUser: profile_sub, full_name: userNameTextField.text, profile_picture: ""))
-        }
+            
+            let defaults = UserDefaults.standard
+            
+            // Receive
+            if let profile_sub = defaults.string(forKey: "profile_sub")
+            {
+                let appServices = AppServices()
+                do {
+                    try appServices.UpdateUser(user: User(idUser: profile_sub, full_name: userNameTextField.text, profile_picture: ""))
+                    let alert = UIAlertController(title: self.title, message: "تم حفظ التغييرات بنجاح", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true)
+            } catch {
+                
+                let alert = UIAlertController(title: self.title, message: "خطأ في حفظ التغييرات", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                
+                self.present(alert, animated: true)
+            }
+            }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

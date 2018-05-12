@@ -175,15 +175,6 @@
                                 <rect key="frame" x="122" y="153" width="131" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGv-mt-oml">
-                                <rect key="frame" x="139" y="394" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title=" تسجيل الخروج"/>
-                                <connections>
-                                    <action selector="signOutBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="WTa-qC-ZNS"/>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="r8H-A0-Tcy"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWb-UM-UfK">
                                 <rect key="frame" x="16" y="289" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -192,20 +183,51 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp1-hF-J4z">
-                                <rect key="frame" x="155" y="327" width="60" height="30"/>
+                                <rect key="frame" x="104" y="327" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="تغيير البلد"/>
+                                <color key="backgroundColor" red="0.16078431372549021" green="0.48627450980392156" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="تغيير البلد">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="changeCountryBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="Hiy-Mg-fvC"/>
                                     <segue destination="lSZ-cJ-CCI" kind="showDetail" id="5CY-SS-Wft"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-nT-SK3">
-                                <rect key="frame" x="143" y="365" width="88" height="30"/>
+                                <rect key="frame" x="104" y="365" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="حفظ التغييرات"/>
+                                <color key="backgroundColor" red="0.37911783784706693" green="0.8193087133054201" blue="0.24996803139045384" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="حفظ التغييرات">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveChangesBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="Zdh-v6-9D6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGv-mt-oml">
+                                <rect key="frame" x="104" y="403" width="168" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" تسجيل الخروج"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signOutBtnAction:" destination="IpN-9a-Y1B" eventType="touchUpInside" id="WTa-qC-ZNS"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="r8H-A0-Tcy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1004,6 +1026,6 @@
         <segue reference="5CY-SS-Wft"/>
         <segue reference="Nqi-YP-K2z"/>
         <segue reference="hB8-0T-jjy"/>
-        <segue reference="OBa-0u-tmf"/>
+        <segue reference="r8H-A0-Tcy"/>
     </inferredMetricsTieBreakers>
 </document>
