@@ -19,18 +19,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fej-Kf-Ujp">
-                                <rect key="frame" x="142" y="299" width="91" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fej-Kf-Ujp">
+                                <rect key="frame" x="104" y="292" width="175" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="تسجيل الدخول"/>
+                                <color key="backgroundColor" red="0.16078431372549021" green="0.48627450980392156" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="تسجيل الدخول" image="instagram-25-white">
+                                    <color key="titleColor" red="0.99366477523754859" green="1" blue="0.96293236367209756" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signInBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="81Y-lz-Kn1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2l-z8-EXw">
-                                <rect key="frame" x="148" y="337" width="79" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2l-z8-EXw">
+                                <rect key="frame" x="104" y="340" width="175" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="دخول كضيف"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title=" الدخول كضيف" image="user-25">
+                                    <color key="titleColor" red="0.1803921568627451" green="0.49803921568627452" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.16078431372549021" green="0.48627450980392156" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="guestBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8WW-Gm-3zn"/>
                                 </connections>
@@ -47,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-770" y="280"/>
+            <point key="canvasLocation" x="-770.39999999999998" y="279.31034482758622"/>
         </scene>
         <!--اتصل بنا-->
         <scene sceneID="iZE-jW-xC8">
@@ -283,6 +306,10 @@
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart-outline-filled-25" translatesAutoresizingMaskIntoConstraints="NO" id="Oc3-br-Kex">
                                                 <rect key="frame" x="315" y="3" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instagram-25" translatesAutoresizingMaskIntoConstraints="NO" id="f8k-Z3-vFZ">
+                                                <rect key="frame" x="8" y="2" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -534,7 +561,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-GL-shQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="828"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="العنوان:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIC-8J-ENC">
                                         <rect key="frame" x="17" y="58" width="340" height="21"/>
@@ -543,11 +570,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDU-lC-HHi">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDU-lC-HHi">
                                         <rect key="frame" x="8" y="87" width="352" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="r7i-Lg-wkg" id="U8R-vc-QUa"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="رقم الهاتف:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6go-D5-Bw5">
                                         <rect key="frame" x="8" y="125" width="352" height="21"/>
@@ -555,11 +585,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ze0-Rf-cLv">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ze0-Rf-cLv">
                                         <rect key="frame" x="15" y="147" width="342" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="r7i-Lg-wkg" id="N3M-j6-rSK"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المكان:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UvI-2p-ogN">
                                         <rect key="frame" x="4" y="185" width="353" height="21"/>
@@ -567,11 +600,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-Y5-DFc">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vyM-Y5-DFc">
                                         <rect key="frame" x="11" y="214" width="352" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="r7i-Lg-wkg" id="QOw-hV-7IG"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الفئة:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKs-uG-7Mf">
                                         <rect key="frame" x="23.5" y="252" width="336.5" height="21"/>
@@ -595,7 +631,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7pC-NN-wWT">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="7pC-NN-wWT">
                                         <rect key="frame" x="40.5" y="412" width="320" height="84"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -603,6 +639,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="r7i-Lg-wkg" id="j2R-Dc-4Jt"/>
+                                        </connections>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7c-sb-lpx">
                                         <rect key="frame" x="307" y="0.0" width="50" height="50"/>
@@ -613,8 +652,20 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEO-hP-cQj">
-                                        <rect key="frame" x="161" y="504" width="79" height="30"/>
-                                        <state key="normal" title="حفظ المنشور"/>
+                                        <rect key="frame" x="105" y="534" width="190" height="30"/>
+                                        <color key="backgroundColor" red="0.025626584186972935" green="0.87930282360406087" blue="0.014102210367127097" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="HN4-Dg-tUs"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="zVw-Yo-eAD"/>
+                                        </constraints>
+                                        <state key="normal" title="حفظ الإعلان">
+                                            <color key="titleColor" red="0.98873599371267085" green="1" blue="0.96637251601255958" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="addBtnAction:" destination="r7i-Lg-wkg" eventType="touchUpInside" id="62q-c6-weM"/>
                                         </connections>
@@ -630,13 +681,13 @@
                                     <constraint firstItem="6go-D5-Bw5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze0-Rf-cLv" secondAttribute="leading" constant="-7" id="Ddo-1j-XoN"/>
                                     <constraint firstItem="6go-D5-Bw5" firstAttribute="top" secondItem="UDU-lC-HHi" secondAttribute="bottom" constant="8" symbolic="YES" id="EH8-13-8IS"/>
                                     <constraint firstItem="UDU-lC-HHi" firstAttribute="leading" secondItem="xKD-GL-shQ" secondAttribute="leadingMargin" id="Iv7-cQ-WQL"/>
-                                    <constraint firstItem="7pC-NN-wWT" firstAttribute="centerX" secondItem="GEO-hP-cQj" secondAttribute="centerX" id="JDk-p3-esN"/>
+                                    <constraint firstItem="7pC-NN-wWT" firstAttribute="centerX" secondItem="GEO-hP-cQj" secondAttribute="centerX" constant="0.5" id="JDk-p3-esN"/>
                                     <constraint firstItem="Ze0-Rf-cLv" firstAttribute="top" secondItem="6go-D5-Bw5" secondAttribute="bottom" constant="1" id="JPq-up-Juu"/>
                                     <constraint firstItem="UDU-lC-HHi" firstAttribute="trailing" secondItem="xKD-GL-shQ" secondAttribute="trailingMargin" constant="-7" id="Kpw-kd-Mw5"/>
                                     <constraint firstItem="UvI-2p-ogN" firstAttribute="leading" secondItem="vyM-Y5-DFc" secondAttribute="leading" constant="-7" id="NIq-dE-BuP"/>
                                     <constraint firstItem="GzX-sP-ePD" firstAttribute="trailing" secondItem="7pC-NN-wWT" secondAttribute="trailing" id="R3k-Af-mqk"/>
                                     <constraint firstItem="Ze0-Rf-cLv" firstAttribute="leading" secondItem="UvI-2p-ogN" secondAttribute="leading" constant="11" id="RMg-yt-hFf"/>
-                                    <constraint firstItem="GEO-hP-cQj" firstAttribute="bottom" secondItem="xKD-GL-shQ" secondAttribute="bottomMargin" constant="-286" id="Rmk-FF-bw7"/>
+                                    <constraint firstItem="GEO-hP-cQj" firstAttribute="bottom" secondItem="xKD-GL-shQ" secondAttribute="bottomMargin" constant="-31" id="Rmk-FF-bw7"/>
                                     <constraint firstItem="fKs-uG-7Mf" firstAttribute="top" secondItem="vyM-Y5-DFc" secondAttribute="bottom" constant="8" symbolic="YES" id="VC1-AF-k8P"/>
                                     <constraint firstItem="UvI-2p-ogN" firstAttribute="top" secondItem="Ze0-Rf-cLv" secondAttribute="bottom" constant="8" symbolic="YES" id="ZHG-bz-aJH"/>
                                     <constraint firstItem="UDU-lC-HHi" firstAttribute="centerX" secondItem="xKD-GL-shQ" secondAttribute="centerX" constant="-3.5" id="b8d-Zo-8tI"/>
@@ -649,7 +700,7 @@
                                     <constraint firstItem="7pC-NN-wWT" firstAttribute="top" secondItem="mcJ-Z4-eTI" secondAttribute="bottom" constant="8" symbolic="YES" id="k54-vm-j0R"/>
                                     <constraint firstItem="UDU-lC-HHi" firstAttribute="top" secondItem="xKD-GL-shQ" secondAttribute="top" constant="87" id="pRt-Ag-iqY"/>
                                     <constraint firstItem="6go-D5-Bw5" firstAttribute="centerX" secondItem="Ze0-Rf-cLv" secondAttribute="centerX" constant="-2" id="pgo-co-4cE"/>
-                                    <constraint firstItem="GEO-hP-cQj" firstAttribute="top" secondItem="7pC-NN-wWT" secondAttribute="bottom" constant="8" id="q1O-N7-3il"/>
+                                    <constraint firstItem="GEO-hP-cQj" firstAttribute="top" secondItem="7pC-NN-wWT" secondAttribute="bottom" constant="38" id="q1O-N7-3il"/>
                                     <constraint firstItem="UvI-2p-ogN" firstAttribute="trailing" secondItem="fKs-uG-7Mf" secondAttribute="trailing" constant="-3" id="tYK-NS-LGr"/>
                                     <constraint firstItem="Ze0-Rf-cLv" firstAttribute="trailing" secondItem="UvI-2p-ogN" secondAttribute="trailing" id="yXp-Wi-95u"/>
                                 </constraints>
@@ -657,9 +708,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xKD-GL-shQ" firstAttribute="leading" secondItem="CVV-da-izx" secondAttribute="leading" id="Ed2-Do-v3h"/>
+                            <constraint firstItem="xKD-GL-shQ" firstAttribute="bottom" secondItem="CVV-da-izx" secondAttribute="bottom" id="SVw-Uh-AUT"/>
                             <constraint firstItem="xKD-GL-shQ" firstAttribute="leading" secondItem="EaT-nz-YUP" secondAttribute="leading" id="U0y-s0-fCt"/>
-                            <constraint firstItem="xKD-GL-shQ" firstAttribute="bottom" secondItem="CVV-da-izx" secondAttribute="bottom" constant="225" id="VTI-DS-ttu"/>
+                            <constraint firstItem="xKD-GL-shQ" firstAttribute="bottom" secondItem="CVV-da-izx" secondAttribute="bottom" id="VTI-DS-ttu"/>
                             <constraint firstItem="xKD-GL-shQ" firstAttribute="top" secondItem="CVV-da-izx" secondAttribute="top" id="qKx-jH-IVb"/>
+                            <constraint firstItem="xKD-GL-shQ" firstAttribute="top" secondItem="CVV-da-izx" secondAttribute="top" id="sRa-9w-kqp"/>
+                            <constraint firstItem="xKD-GL-shQ" firstAttribute="trailing" secondItem="CVV-da-izx" secondAttribute="trailing" id="vA0-sA-qZw"/>
                             <constraint firstAttribute="trailing" secondItem="xKD-GL-shQ" secondAttribute="trailing" id="vxl-7f-JFy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CVV-da-izx"/>
@@ -668,12 +723,13 @@
                         <outlet property="descTextView" destination="7pC-NN-wWT" id="NPJ-86-Cvu"/>
                         <outlet property="locationTextField" destination="vyM-Y5-DFc" id="CIq-cG-zF0"/>
                         <outlet property="phoneNumberTextField" destination="Ze0-Rf-cLv" id="YeN-rP-1Z2"/>
+                        <outlet property="scrollView" destination="xKD-GL-shQ" id="iV1-qJ-0xo"/>
                         <outlet property="titleTextField" destination="UDU-lC-HHi" id="nmx-4p-8AN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQK-TE-wj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="1126"/>
+            <point key="canvasLocation" x="2316" y="1125.7871064467768"/>
         </scene>
         <!--machrou3kom-->
         <scene sceneID="3x1-rg-MoW">
@@ -908,6 +964,8 @@
         <image name="heart-outline-25" width="25" height="25"/>
         <image name="heart-outline-filled-25" width="25" height="25"/>
         <image name="home-25" width="25" height="25"/>
+        <image name="instagram-25" width="25" height="25"/>
+        <image name="instagram-25-white" width="25" height="25"/>
         <image name="marker-25" width="25" height="25"/>
         <image name="notification-25" width="25" height="25"/>
         <image name="user-25" width="25" height="25"/>

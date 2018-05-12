@@ -95,6 +95,20 @@ class AppServices {
         self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
             if !snapshot.hasChild(sub) {
                 self.ref?.child("Posts").child(sub).setValue(post.toAnyObject())
+            } else {
+                if let ep:Post! = Post(snapshot: snapshot.childSnapshot(forPath: sub)) {
+                    if ep.title != post.title {
+                        self.ref?.child("Posts").child(sub).child("title").setValue(post.title)
+                    } else if ep.numTel != post.numTel {
+                        self.ref?.child("Posts").child(sub).child("numTel").setValue(post.numTel)
+                    } else if ep.adresse != post.adresse {
+                        self.ref?.child("Posts").child(sub).child("adresse").setValue(post.adresse)
+                    } else if ep.typePost != post.typePost {
+                        self.ref?.child("Posts").child(sub).child("typePost").setValue(post.typePost)
+                    } else if ep.description != post.description {
+                        self.ref?.child("Posts").child(sub).child("description").setValue(post.description)
+                    }
+                }
             }
         })
     }

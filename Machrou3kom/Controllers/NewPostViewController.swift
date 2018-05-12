@@ -9,7 +9,7 @@
 import UIKit
 
 class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
-                                UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+                                UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     let postTypes = ["محل", "شركة", "منزلي",]
     var postType:String? = ""
     var photos:[UIImage] = []
@@ -28,6 +28,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         postType = postTypes[row]
     }
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -46,7 +47,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     let post = (post)
                     if post != nil {
                         self.titleTextField.text = post?.title
-                        self.phoneNumberTextField.text = "\(post?.numTel)"
+                        self.phoneNumberTextField.text = "\(post?.numTel as! Int)"
                         self.locationTextField.text = post?.adresse
                         self.descTextView.text = post?.description
                     }
@@ -73,7 +74,28 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Dispose of any resources that can be recreated.
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 220), animated: true)
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == "\n") {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     @IBAction func addBtnAction(_ sender: UIButton) {
         
         let defaults = UserDefaults.standard
@@ -83,14 +105,25 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         {
             if let idCountry = defaults.string(forKey: "id_country") {
                 if let idCategory = defaults.string(forKey: "id_country") {
-                    
-                    let appServices = AppServices()
-                    appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text,
-                                                                        idCategory: idCategory, idCountry: idCountry, numTel: Int(phoneNumberTextField.text!)!, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
-                    for p in photos {
-                        if let uploadedData = UIImagePNGRepresentation(p) {
-                            appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)
+                    do {
+                        let appServices = AppServices()
+                        try appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text, idCategory: idCategory, idCountry: idCountry, numTel: Int(phoneNumberTextField.text!)!, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
+                        for p in photos {
+                            if let uploadedData = UIImagePNGRepresentation(p) {
+                                appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)
+                            }
                         }
+                        let alert = UIAlertController(title: self.title, message: ".تم حفظ الإعلان بنجاح", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        
+                        self.present(alert, animated: true)
+                    } catch {
+                        let alert = UIAlertController(title: self.title, message: ".هناك مشكلة في حفظ الإعلان", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        
+                        self.present(alert, animated: true)
                     }
                 }
             }

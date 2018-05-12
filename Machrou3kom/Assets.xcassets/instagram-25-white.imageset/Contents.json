@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "instagram-25-white.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "1200px-Flag_of_Kuwait.svg.png",
       "scale" : "2x"
     },
     {
