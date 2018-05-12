@@ -19,14 +19,14 @@ class Post {
     let idCategory: String!
     let idCountry:String!
     var like: [String: String]
-    let numTel:String!
+    let numTel:Int
     let photos: [String]!
     let post_owner:String!
     let title:String!
     let typePost:String!
     
     init (itemRef:DatabaseReference!, itemKey: String!, adresse:String!, catagory_country:String!, description:String!, idCategory:String!,
-          idCountry:String!, numTel:String!, title:String!, post_owner:String!, typePost:String!) {
+          idCountry:String!, numTel:Int, title:String!, post_owner:String!, typePost:String!) {
         self.itemRef = itemRef
         self.itemKey = itemKey
         self.adresse = adresse
@@ -68,16 +68,41 @@ class Post {
             self.typePost = ""
         }
         
-        self.category_country = ""
-        self.createdAt = Date()
-        self.description = ""
-        self.idCategory = ""
-        self.idCountry = ""
+        if let category_country = snapshot.childSnapshot(forPath:"category_country").value as? String {
+            self.category_country = category_country
+        } else {
+            self.category_country = ""
+        }
+        if let createdAt = snapshot.childSnapshot(forPath:"createdAt").value as? Date {
+            self.createdAt = createdAt
+        } else {
+            self.createdAt = Date()
+        }
+        if let description = snapshot.childSnapshot(forPath:"description").value as? String {
+            self.description = description
+        } else {
+            self.description = ""
+        }
+        if let idCategory = snapshot.childSnapshot(forPath:"idCategory").value as? String {
+            self.idCategory = idCategory
+        } else {
+            self.idCategory = ""
+        }
+        if let idCountry = snapshot.childSnapshot(forPath:"idCountry").value as? String {
+            self.idCountry = idCountry
+        } else {
+            self.idCountry = ""
+        }
         self.like = [:]
         for l in snapshot.childSnapshot(forPath:"like").children {
             like.updateValue(String((l as? DataSnapshot)?.value is Int16), forKey: ((l as? DataSnapshot)?.key)! )
         }
-        self.numTel = ""
+        
+        if let numTel = snapshot.childSnapshot(forPath:"numTel").value as? Int {
+            self.numTel = numTel
+        } else {
+            self.numTel = 00000000
+        }
         self.post_owner = ""
     }
     

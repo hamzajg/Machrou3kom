@@ -20,7 +20,12 @@ class ViewController: UIViewController {
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        viewDidLoad()
+    }
     @IBAction func guestBtnAction(_ sender: UIButton) {
         ViewController.isGuest = true
         //self.dismiss(animated: true, completion: nil)

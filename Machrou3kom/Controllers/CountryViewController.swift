@@ -56,13 +56,13 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let defaults = UserDefaults.standard
         if defaults.string(forKey: "id_country") != nil && !ViewController.isGuest {
+            dismiss(animated: true, completion: nil)
             let cell = sender as! UITableViewCell
             let indexPath = countryTableView.indexPath(for: cell)
             let selectedData = countries[(indexPath?.row)!]
             
             // Store
             defaults.set(selectedData.idCountry, forKey: "id_country")
-            dismiss(animated: true, completion: nil)
         } else if segue.identifier == "goCategoryPage" {
             if let destination = segue.destination as? CategoryViewController {
                 let cell = sender as! UITableViewCell

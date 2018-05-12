@@ -45,10 +45,8 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 appServices.GetOnePostByUserAsync(sub: profile_sub) {(post) in
                     let post = (post)
                     if post != nil {
-                        print(post?.itemKey)
-                        print(post?.title)
                         self.titleTextField.text = post?.title
-                        self.phoneNumberTextField.text = post?.numTel
+                        self.phoneNumberTextField.text = "\(post?.numTel)"
                         self.locationTextField.text = post?.adresse
                         self.descTextView.text = post?.description
                     }
@@ -88,7 +86,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     
                     let appServices = AppServices()
                     appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text,
-                                                                        idCategory: idCategory, idCountry: idCountry, numTel: phoneNumberTextField.text, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
+                                                                        idCategory: idCategory, idCountry: idCountry, numTel: Int(phoneNumberTextField.text!)!, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
                     for p in photos {
                         if let uploadedData = UIImagePNGRepresentation(p) {
                             appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)

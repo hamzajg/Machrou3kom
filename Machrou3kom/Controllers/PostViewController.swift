@@ -28,7 +28,8 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
             postTitleLabel.text = post.title
             postTypeLabel.text = post.typePost
             postLocationLabel.text = post.adresse
-            postPhoneNumberLabel.text = post.numTel
+            postDescLabel.text = post.description
+            postPhoneNumberLabel.text = "\(post.numTel)"
             postPostedAtLabel.text = String(post.createdAt.description[..<post.createdAt.description.index(of: "+")!])
             postLikesCountLabel.text = String(post.getLikesCount())
             

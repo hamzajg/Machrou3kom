@@ -99,7 +99,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 destination.categories = selectedData
             }
         } else if segue.identifier == "goHomePage" {
-            if let destination = ((segue.destination as! UITabBarController).viewControllers![0] as? UINavigationController)?.viewControllers.first as? HomeViewController {
+            if let destination = (segue.destination as! UITabBarController).viewControllers?.first as? HomeViewController {
                 let cell = sender as! UITableViewCell
                 let indexPath = categoryTableView.indexPath(for: cell)
                 let selectedData = categories[(indexPath?.row)!]
