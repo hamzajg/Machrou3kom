@@ -75,18 +75,32 @@
         <!--اتصل بنا-->
         <scene sceneID="iZE-jW-xC8">
             <objects>
-                <viewController id="Ml9-YZ-Ho7" sceneMemberID="viewController">
+                <viewController id="Ml9-YZ-Ho7" customClass="ContactUsViewController" customModule="Machrou3kom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3vE-2M-hLF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="top" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m2o-Pn-2vk">
+                                <rect key="frame" x="0.0" y="20" width="375" height="401"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ePS-XC-Gzj" firstAttribute="trailing" secondItem="m2o-Pn-2vk" secondAttribute="trailing" id="6to-YK-Gqv"/>
+                            <constraint firstItem="ePS-XC-Gzj" firstAttribute="bottom" secondItem="m2o-Pn-2vk" secondAttribute="bottom" constant="197" id="fOk-iO-s3E"/>
+                            <constraint firstItem="m2o-Pn-2vk" firstAttribute="top" secondItem="ePS-XC-Gzj" secondAttribute="top" id="iu4-eV-SJa"/>
+                            <constraint firstItem="m2o-Pn-2vk" firstAttribute="leading" secondItem="ePS-XC-Gzj" secondAttribute="leading" id="vrC-eo-kW0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ePS-XC-Gzj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="اتصل بنا" image="communication-25" id="D2y-sp-ODc"/>
+                    <connections>
+                        <outlet property="vStackView" destination="m2o-Pn-2vk" id="UyS-6A-wWz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krI-vh-OpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4329" y="161"/>
+            <point key="canvasLocation" x="4328.8000000000002" y="160.56971514242881"/>
         </scene>
         <!--إشعارات-->
         <scene sceneID="je4-Ag-KKX">
@@ -97,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DFv-jW-Kde">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationTableCellView" textLabel="muS-Uj-xsE" detailTextLabel="3fc-La-xKO" style="IBUITableViewCellStyleSubtitle" id="bPM-N1-OAa">
@@ -224,13 +238,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEA-aJ-aW9">
-                                <rect key="frame" x="0.0" y="64" width="375" height="187"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="231"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-Gx-pUT">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                     </scrollView>
                                     <pageControl opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Qjg-Da-hpg">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="37"/>
+                                        <rect key="frame" x="0.0" y="194" width="375" height="37"/>
                                         <color key="backgroundColor" red="0.76157994923857864" green="0.76157994923857864" blue="0.76157994923857864" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </pageControl>
                                 </subviews>
@@ -388,7 +402,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="165" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ImP-X8-UGt">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryTableItem" rowHeight="165" id="OsR-gW-LWj" customClass="CategoryTableViewCell" customModule="Machrou3kom" customModuleProvider="target">
@@ -463,7 +477,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ci7-9z-7up">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="right" semanticContentAttribute="forceRightToLeft" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeTableItem" rowHeight="125" id="FwT-yN-r6H" customClass="HomePageTableViewCell" customModule="Machrou3kom" customModuleProvider="target">
@@ -561,7 +575,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-GL-shQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="العنوان:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIC-8J-ENC">
                                         <rect key="frame" x="17" y="58" width="340" height="21"/>
@@ -768,7 +782,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر بلدك" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3go-R4-ojY">
-                                <rect key="frame" x="16" y="64" width="343" height="50"/>
+                                <rect key="frame" x="16" y="20" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fgB-vI-Eao"/>
                                 </constraints>
@@ -777,7 +791,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KJM-i0-nLO">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="countryTableViewCell" rowHeight="100" id="JZT-Sn-Dg3" customClass="CountryTableViewCell" customModule="Machrou3kom" customModuleProvider="target">
@@ -843,7 +857,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="165" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AiU-pS-hSF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryTableItem" rowHeight="165" id="SFA-LI-CTN" customClass="CategoryTableViewCell" customModule="Machrou3kom" customModuleProvider="target">
@@ -972,9 +986,9 @@
         <image name="user-male-circle-blue-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jk7-Vt-twN"/>
-        <segue reference="wyE-aX-sH4"/>
+        <segue reference="5CY-SS-Wft"/>
+        <segue reference="Nqi-YP-K2z"/>
         <segue reference="hB8-0T-jjy"/>
-        <segue reference="OBa-0u-tmf"/>
+        <segue reference="r8H-A0-Tcy"/>
     </inferredMetricsTieBreakers>
 </document>

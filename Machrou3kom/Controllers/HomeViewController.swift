@@ -75,7 +75,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             // Receive
             if let id_country = defaults.string(forKey: "id_country")
             {
-                print(id_country)
                 appServices.GetAllPostsByIdCategoryAndIdCountryAsync(idCategory: category?.idCategory, idCountry:id_country) {(posts) in
                 self.posts = (posts)
                 self.homeTableView.reloadData()

@@ -18,6 +18,8 @@
 		881B84C9209627B20084BAF2 /* Machrou3komTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84C8209627B20084BAF2 /* Machrou3komTests.swift */; };
 		881B84D4209627B20084BAF2 /* Machrou3komUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */; };
 		885DF7FB20A3BBED000A6DFD /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885DF7FA20A3BBED000A6DFD /* Entitlements.plist */; };
+		886719F320A7467800321490 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886719F220A7467800321490 /* Social.swift */; };
+		886719F520A7488100321490 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886719F420A7488100321490 /* ContactUsViewController.swift */; };
 		8869992F2096353F00B370A4 /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869992E2096353F00B370A4 /* AppServices.swift */; };
 		8869993920963A4C00B370A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993820963A4C00B370A4 /* HomeViewController.swift */; };
 		8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */; };
@@ -80,6 +82,8 @@
 		881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machrou3komUITests.swift; sourceTree = "<group>"; };
 		881B84D5209627B20084BAF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		885DF7FA20A3BBED000A6DFD /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		886719F220A7467800321490 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		886719F420A7488100321490 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		8869992E2096353F00B370A4 /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		8869993820963A4C00B370A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8869993A20963AD300B370A4 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 				88FD4754209E848000CC3042 /* NotificationViewController.swift */,
 				88FD4756209F0C8200CC3042 /* CountryViewController.swift */,
 				880EF06520A2545200C19CAD /* Machrou3komViewController.swift */,
+				886719F420A7488100321490 /* ContactUsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				88FD4752209E835800CC3042 /* Notification.swift */,
 				880EF06720A25DAA00C19CAD /* User.swift */,
 				8875755620A63F2900016B6B /* CountryAd.swift */,
+				886719F220A7467800321490 /* Social.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -501,6 +507,7 @@
 				88A9770B209E22790013AFCF /* PostViewController.swift in Sources */,
 				88FD4755209E848000CC3042 /* NotificationViewController.swift in Sources */,
 				88FD4749209E486800CC3042 /* UserProfileViewController.swift in Sources */,
+				886719F320A7467800321490 /* Social.swift in Sources */,
 				8869993B20963AD300B370A4 /* HomePageTableViewCell.swift in Sources */,
 				881B84B6209627B10084BAF2 /* ViewController.swift in Sources */,
 				880EF06820A25DAA00C19CAD /* User.swift in Sources */,
@@ -516,6 +523,7 @@
 				88FD4757209F0C8200CC3042 /* CountryViewController.swift in Sources */,
 				88FD474D209E59E900CC3042 /* CategoryTableViewCell.swift in Sources */,
 				8875755720A63F2900016B6B /* CountryAd.swift in Sources */,
+				886719F520A7488100321490 /* ContactUsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

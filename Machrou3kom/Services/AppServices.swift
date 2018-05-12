@@ -85,6 +85,20 @@ class AppServices {
         }
     }
     
+    func GetAllSocialsAsync(completed: @escaping ([Social]) -> ()){
+        var socials = [Social]()
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("social").observeSingleEvent(of: .value, with: {(snapshot) in
+                for s in snapshot.children {
+                    let social = Social(snapshot: s as! DataSnapshot)
+                    socials.append(social)
+                }
+                completed(socials)
+            })
+        }
+    }
+    
     func LikePost(sub1:String, sub2:String) {
         ref = Database.database().reference()
         self.ref?.child("Posts").child(sub1).child("like").updateChildValues([sub2: Date().description])
