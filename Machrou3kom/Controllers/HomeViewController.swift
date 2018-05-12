@@ -44,7 +44,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.itemProfileSub = posts[indexPath.row].itemKey
         cell.titleLabel.text = posts[indexPath.row].title
         cell.companyLabel.text = posts[indexPath.row].typePost
-        cell.locationLabel.text = posts[indexPath.row].adresse        
+        cell.locationLabel.text = posts[indexPath.row].adresse
+        cell.likeBtn.setTitle(posts[indexPath.row].getLikesCount() == 0 ? "" : String(posts[indexPath.row].getLikesCount()), for: .normal)
         if(ViewController.isGuest) {
             cell.likeBtn.addTarget(self, action: #selector(self.likeBtnAction(_: cell:)), for: .touchUpInside)
         }

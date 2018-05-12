@@ -129,25 +129,20 @@ class Post {
     }
     func isLiked() -> Bool {
         var resul:Bool = false
-        if ViewController.isGuest {
-            resul = false
-        } else {
-            let defaults = UserDefaults.standard
-            // Receive
-            if let profile_sub = defaults.string(forKey: "profile_sub")
-            {
-                for l in like {
-                    if l.key == profile_sub {
-                        resul = true
-                        break
-                    } else {
-                        resul = false
-                    }
+        let defaults = UserDefaults.standard
+        // Receive
+        if let profile_sub = defaults.string(forKey: "profile_sub")
+        {
+            for l in like {
+                if l.key == profile_sub {
+                    resul = true
+                    break
+                } else {
+                    resul = false
                 }
-            } else {
-                resul = false
             }
-            
+        } else {
+            resul = false
         }
         return resul
     }
