@@ -76,7 +76,17 @@ class Post {
         if let createdAt = snapshot.childSnapshot(forPath:"createdAt").value as? Date {
             self.createdAt = createdAt
         } else {
-            self.createdAt = Date()
+            if let createdAt = snapshot.childSnapshot(forPath:"createdAt").value as? String {
+                let df = DateFormatter()
+                df.dateFormat = "dd MM yyyy hh:mm:ss +zzzz"
+                self.createdAt = df.date(from: createdAt)
+            } else {
+                if let createdAt = snapshot.childSnapshot(forPath:"createdAt").value as? Int64 {
+                    self.createdAt = Date(timeIntervalSince1970: (TimeInterval(createdAt / 1000)))
+            } else {
+                self.createdAt = Date()
+                }
+            }
         }
         if let description = snapshot.childSnapshot(forPath:"description").value as? String {
             self.description = description
