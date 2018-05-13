@@ -28,13 +28,14 @@ class HomePageTableViewCell: UITableViewCell {
         // Receive
         if let profile_sub = defaults.string(forKey: "profile_sub")
         {
-            print(profile_sub)
             if(!ViewController.isGuest) {
                 if profile_sub != itemProfileSub {
                     let appServices = AppServices()
                     appServices.LikePost(sub1: itemProfileSub, sub2: profile_sub)
                     appServices.AddNewNotification(sub1: itemProfileSub, sub2: profile_sub)
                     likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+                    let likeCount = likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((likeBtn.titleLabel?.text)!)
+                    likeBtn.setTitle(String(likeCount! + 1), for: .normal)
                 }
             }
         }

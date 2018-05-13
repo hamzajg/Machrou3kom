@@ -36,7 +36,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func likeBtnAction(_ sender: UIButton, cell:HomePageTableViewCell) {
         if ViewController.isGuest {
-            self.performSegue(withIdentifier: "goSignInPage", sender: self)
+            let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخصوصية", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "حسنا", style: .default, handler: {(action:UIAlertAction!) in
+                self.performSegue(withIdentifier: "goSignInPage", sender: self)                
+            }))
+            alert.addAction(UIAlertAction(title: "لا أريد", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,6 +58,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         if(posts[indexPath.row].isLiked()) {
             cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+        } else {
+            cell.likeBtn.setImage(UIImage(named: "heart-outline-25"), for: .normal)
         }
         if(posts[indexPath.row].getOnePhoto() != nil) {
             cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)

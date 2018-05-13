@@ -21,21 +21,41 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var sliderScrollView: UIScrollView!
     var post:Post! = nil
     @IBOutlet weak var likeBtn: UIButton!
+    @IBAction func callBtnAction(_ sender: UIButton) {
+        guard let number = URL(string: "tel://" + String(post.numTel)) else { return }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(number)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(number)
+        }
+    }
     @IBAction func likeBtnAction(_ sender: UIButton) {
-        let defaults = UserDefaults.standard
         
-        // Receive
-        if let profile_sub = defaults.string(forKey: "profile_sub")
-        {
-            print(profile_sub)
-            if(!ViewController.isGuest) {
+        if(!ViewController.isGuest) {
+            let defaults = UserDefaults.standard
+            
+            // Receive
+            if let profile_sub = defaults.string(forKey: "profile_sub")
+            {
                 if profile_sub != post.itemKey {
                     let appServices = AppServices()
                     appServices.LikePost(sub1: post.itemKey, sub2: profile_sub)
                     appServices.AddNewNotification(sub1: post.itemKey, sub2: profile_sub)
                     likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+                    let likeCount = likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((likeBtn.titleLabel?.text)!)
+                    likeBtn.setTitle(String(likeCount! + 1), for: .normal)
                 }
             }
+        } else {
+            let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخصوصية", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "حسنا", style: .default, handler: {(action:UIAlertAction!) in
+                self.performSegue(withIdentifier: "goSignInPage", sender: self)
+            }))
+            alert.addAction(UIAlertAction(title: "لا أريد", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         }
     }
     override func viewDidLoad() {
@@ -48,6 +68,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
             postDescLabel.text = post.description
             postPhoneNumberLabel.text = "\(post.numTel)"
             postPostedAtLabel.text = String(post.createdAt.description[..<post.createdAt.description.index(of: "+")!])
+            postPostedAtLabel.text!.removeLast(4)
             likeBtn.setTitle(post.getLikesCount() == 0 ? "" : String(post.getLikesCount()), for: .normal)
             if post.getLikesCount() > 0 {
                 likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
@@ -80,7 +101,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
-        sliderPageControl.numberOfPages = Int(pageNumber)
+        sliderPageControl.currentPage = Int(pageNumber)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

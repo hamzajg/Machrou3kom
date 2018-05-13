@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var guestBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        SessionManager.logOut()
         if(ViewController.isGuest) {
             guestBtn.isHidden = true
         }
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "goCountryPage", sender: self)
     }
     @IBAction func signInBtnAction(_ sender: UIButton) {
-        var token:String = ""
+        // Create an instance of the credentials manager for storing credentials
         Auth0
             .webAuth()
             .connection("instagram")
@@ -46,25 +47,7 @@ class ViewController: UIViewController {
                     // Do something with credentials e.g.: save them.
                     // Auth0 will automatically dismiss the login page
                     //print("Credentials: \(credentials)")
-                    token = credentials.accessToken!
-                    Auth0
-                        .authentication()
-                        .userInfo(withAccessToken: token)
-                        .start { result in
-                            switch result {
-                            case .success(let profile):
-                                //print("User Profile: \(profile.sub)")
-                                let defaults = UserDefaults.standard
-                                
-                                // Store
-                                defaults.set(profile.sub, forKey: "profile_sub")
-                                let appServices = AppServices()
-                                appServices.AddNewUser(user: User(idUser: profile.sub, full_name: profile.sub, profile_picture: ""))
-                                
-                            case .failure(let error):
-                                print("Failed with \(error)")
-                            }
-                    }
+                    SessionManager.credentialsManager.store(credentials: credentials)
                     self.dismiss(animated: true, completion: nil)
                     if ViewController.isGuest {
                         self.performSegue(withIdentifier: "goCountryPage", sender: self)

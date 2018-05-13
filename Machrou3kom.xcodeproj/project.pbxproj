@@ -26,6 +26,7 @@
 		8869994820964FA800B370A4 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8869994720964FA800B370A4 /* Auth0.plist */; };
 		8869994B209673E100B370A4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8869994A209673E100B370A4 /* Post.swift */; };
 		8875755720A63F2900016B6B /* CountryAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8875755620A63F2900016B6B /* CountryAd.swift */; };
+		887BA27620A85A4500C45339 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887BA27520A85A4500C45339 /* SessionManager.swift */; };
 		88A9770B209E22790013AFCF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770A209E22790013AFCF /* PostViewController.swift */; };
 		88A9770D209E23BB0013AFCF /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770C209E23BB0013AFCF /* NewPostViewController.swift */; };
 		88C5238720971A650022B128 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C5238620971A640022B128 /* GoogleService-Info.plist */; };
@@ -90,6 +91,7 @@
 		8869994720964FA800B370A4 /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		8869994A209673E100B370A4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8875755620A63F2900016B6B /* CountryAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryAd.swift; sourceTree = "<group>"; };
+		887BA27520A85A4500C45339 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		889C554D20A2F8E700029CEF /* Machrou3kom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Machrou3kom.entitlements; sourceTree = "<group>"; };
 		88A9770A209E22790013AFCF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		88A9770C209E23BB0013AFCF /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				8869994720964FA800B370A4 /* Auth0.plist */,
 				88C5238620971A640022B128 /* GoogleService-Info.plist */,
 				885DF7FA20A3BBED000A6DFD /* Entitlements.plist */,
+				887BA27520A85A4500C45339 /* SessionManager.swift */,
 			);
 			path = Machrou3kom;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FD4759209F0C9500CC3042 /* CountryTableViewCell.swift in Sources */,
+				887BA27620A85A4500C45339 /* SessionManager.swift in Sources */,
 				88FD4751209E737100CC3042 /* Country.swift in Sources */,
 				88A9770B209E22790013AFCF /* PostViewController.swift in Sources */,
 				88FD4755209E848000CC3042 /* NotificationViewController.swift in Sources */,
