@@ -31,7 +31,15 @@ class Machrou3komViewController: UITabBarController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "goNewPostPage" {
             if ViewController.isGuest {
-                self.performSegue(withIdentifier: "showSignInPage", sender: self)
+                
+                let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخاصية", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "حسنا", style: .default, handler: {(action:UIAlertAction!) in
+                    self.performSegue(withIdentifier: "showSignInPage", sender: self)
+                }))
+                alert.addAction(UIAlertAction(title: "لا أريد", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
             }
         }
     }

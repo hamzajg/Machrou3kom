@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func likeBtnAction(_ sender: UIButton, cell:HomePageTableViewCell) {
         if ViewController.isGuest {
-            let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخصوصية", preferredStyle: .alert)
+            let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخاصية", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "حسنا", style: .default, handler: {(action:UIAlertAction!) in
                 self.performSegue(withIdentifier: "goSignInPage", sender: self)                

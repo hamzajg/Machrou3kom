@@ -48,7 +48,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
         } else {
-            let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخصوصية", preferredStyle: .alert)
+            let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخاصية", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "حسنا", style: .default, handler: {(action:UIAlertAction!) in
                 self.performSegue(withIdentifier: "goSignInPage", sender: self)
