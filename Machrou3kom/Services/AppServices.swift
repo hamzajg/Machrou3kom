@@ -85,7 +85,7 @@ class AppServices {
         }
     }
     
-    func GetAllSocialsAsync(completed: @escaping ([Social]) -> ()){
+    func GetAllSocialsAsync(completed: @escaping ([Social]) -> ()) {
         var socials = [Social]()
         DispatchQueue.main.async {
             self.ref = Database.database().reference()
@@ -99,9 +99,16 @@ class AppServices {
         }
     }
     
-    func LikePost(sub1:String, sub2:String) {
+    func LikePost(sub1:String, sub2:String, completed: @escaping (Bool) -> ()) {
+        var result:Bool = false
         ref = Database.database().reference()
-        self.ref?.child("Posts").child(sub1).child("like").updateChildValues([sub2: Date().description])
+        self.ref?.child("Posts").child(sub1).child("like").observeSingleEvent(of: .value, with: {(snapshot) in
+            if !snapshot.childSnapshot(forPath: sub2).exists() {
+                self.ref?.child("Posts").child(sub1).child("like").updateChildValues([sub2: Date().description])
+                result = true
+            }
+            completed(result)
+        })
     }
     
     func AddNewPoat(sub:String, post:Post) {

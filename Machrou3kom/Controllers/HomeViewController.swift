@@ -58,6 +58,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         if(posts[indexPath.row].isLiked()) {
             cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+        }
+        if(posts[indexPath.row].getLikesCount() > 0) {
+            cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
         } else {
             cell.likeBtn.setImage(UIImage(named: "heart-outline-25"), for: .normal)
         }

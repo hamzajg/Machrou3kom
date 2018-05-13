@@ -40,11 +40,15 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
             {
                 if profile_sub != post.itemKey {
                     let appServices = AppServices()
-                    appServices.LikePost(sub1: post.itemKey, sub2: profile_sub)
-                    appServices.AddNewNotification(sub1: post.itemKey, sub2: profile_sub)
-                    likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
-                    let likeCount = likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((likeBtn.titleLabel?.text)!)
-                    likeBtn.setTitle(String(likeCount! + 1), for: .normal)
+                    appServices.LikePost(sub1: post.itemKey, sub2: profile_sub) {(result) in
+                        let b = (result)
+                        if b {appServices.AddNewNotification(sub1: self.post.itemKey, sub2: profile_sub)
+                            self.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+                            let likeCount = self.likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((self.likeBtn.titleLabel?.text)!)
+                            self.likeBtn.setTitle(String(likeCount! + 1), for: .normal)
+                            sender.pulsate()
+                        }
+                    }
                 }
             }
         } else {
@@ -92,6 +96,13 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
                 self.sliderScrollView.contentSize = CGSize(width: (self.sliderScrollView.frame.size.width * CGFloat(self.post.photos.count)), height: self.sliderScrollView.frame.size.height)
                 self.sliderScrollView.delegate = self
 
+            }
+            
+            let appServices = AppServices()
+            appServices.GetOnePostByUserAsync(sub: post.itemKey) {(post) in
+                let p = (post)
+                let c = p?.getLikesCount()
+                self.likeBtn.setTitle(c! == 0 ? "" : "\(c!)", for: .normal)
             }
         }
         // Do any additional setup after loading the view.
