@@ -15,6 +15,8 @@ class Post {
     let adresse: String!
     let category_country: String!
     let createdAt: Date!
+    let date_start: Date!
+    let date_end: Date!
     let description:String!
     let idCategory: String!
     let idCountry:String!
@@ -32,6 +34,8 @@ class Post {
         self.adresse = adresse
         self.category_country = catagory_country
         self.createdAt = Date()
+        self.date_start = Date()
+        self.date_end = Date()
         self.description = description
         self.idCategory = idCategory
         self.idCountry = idCountry
@@ -83,8 +87,38 @@ class Post {
             } else {
                 if let createdAt = snapshot.childSnapshot(forPath:"createdAt").value as? Int64 {
                     self.createdAt = Date(timeIntervalSince1970: (TimeInterval(createdAt / 1000)))
+                } else {
+                    self.createdAt = Date()
+                }
+            }
+        }
+        if let date_start = snapshot.childSnapshot(forPath:"date_start").value as? Date {
+            self.date_start = date_start
+        } else {
+            if let date_start = snapshot.childSnapshot(forPath:"date_start").value as? String {
+                let df = DateFormatter()
+                df.dateFormat = "dd MM yyyy hh:mm:ss +zzzz"
+                self.date_start = df.date(from: date_start)
             } else {
-                self.createdAt = Date()
+                if let date_start = snapshot.childSnapshot(forPath:"date_start").value as? Int64 {
+                    self.date_start = Date(timeIntervalSince1970: (TimeInterval(date_start / 1000)))
+                } else {
+                    self.date_start = nil
+                }
+            }
+        }
+        if let date_end = snapshot.childSnapshot(forPath:"date_end").value as? Date {
+            self.date_end = date_end
+        } else {
+            if let date_end = snapshot.childSnapshot(forPath:"date_end").value as? String {
+                let df = DateFormatter()
+                df.dateFormat = "dd MM yyyy hh:mm:ss +zzzz"
+                self.date_end = df.date(from: date_end)
+            } else {
+                if let date_end = snapshot.childSnapshot(forPath:"date_end").value as? Int64 {
+                    self.date_end = Date(timeIntervalSince1970: (TimeInterval(date_end / 1000)))
+                } else {
+                    self.date_end = nil
                 }
             }
         }
@@ -126,6 +160,9 @@ class Post {
     }
     func getLikesCount() -> Int {
         return like.count
+    }
+    func isAvailable() -> Bool {
+        return date_end != nil && date_end > Date()
     }
     func isLiked() -> Bool {
         var resul:Bool = false

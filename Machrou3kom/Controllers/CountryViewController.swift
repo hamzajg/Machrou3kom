@@ -27,12 +27,26 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let defaults = UserDefaults.standard
+        let selectedData = countries[indexPath.row]
+        
+        // Store
+        defaults.set(selectedData.idCountry, forKey: "id_country")
+        let viewController: UITabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Machrou3komViewController
+        
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.pushViewController(viewController, animated: true)
+        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+        viewController.navigationController?.navigationItem.leftBarButtonItem = backButton
+    }
+    
 
     @IBOutlet weak var countryTableView: UITableView!
     var countries:[Country] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addNavBarImageView()
         let appServices = AppServices()
         appServices.GetAllCountriesAsync() {(countries) in
             self.countries = (countries)
@@ -40,6 +54,23 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
 
+    
+    func addNavBarImageView() {
+        
+        let navController = navigationController!
+        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let imageView = UIImageView(image: image)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        
+        let bannerX = bannerWidth / 2 - image.size.width / 2
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,28 +84,18 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
         let defaults = UserDefaults.standard
-        if defaults.string(forKey: "id_country") != nil && !ViewController.isGuest {
-            dismiss(animated: true, completion: nil)
-            let cell = sender as! UITableViewCell
-            let indexPath = countryTableView.indexPath(for: cell)
-            let selectedData = countries[(indexPath?.row)!]
-            
-            // Store
-            defaults.set(selectedData.idCountry, forKey: "id_country")
-        } else if segue.identifier == "goCategoryPage" {
-            if let destination = segue.destination as? CategoryViewController {
-                let cell = sender as! UITableViewCell
-                let indexPath = countryTableView.indexPath(for: cell)
-                let selectedData = countries[(indexPath?.row)!]
-                
-                // Store
-                defaults.set(selectedData.idCountry, forKey: "id_country")
-                
-            }
-        }
+//        if defaults.string(forKey: "id_country") != nil && !ViewController.isGuest {
+//            let cell = sender as! UITableViewCell
+//            let indexPath = countryTableView.indexPath(for: cell)
+//            let selectedData = countries[(indexPath?.row)!]
+//
+//            // Store
+//            defaults.set(selectedData.idCountry, forKey: "id_country")
+//        } else if segue.identifier == "goCategoryPage" {
+//            if let destination = segue.destination as? CategoryViewController {
+//            }
+        //}
     }
-    
 
 }

@@ -12,10 +12,28 @@ class Machrou3komViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addNavBarImageView()
         // Do any additional setup after loading the view.
     }
-
+    
+    func addNavBarImageView() {
+        
+        let navController = navigationController!
+        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let imageView = UIImageView(image: image)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        
+        let bannerX = bannerWidth / 2 - image.size.width / 2
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+//        let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
+//        navigationItem.leftBarButtonItem = backButton
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -64,15 +64,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             cell.likeBtn.setImage(UIImage(named: "heart-outline-25"), for: .normal)
         }
+        cell.pinedLabel.isHidden = !posts[indexPath.row].isAvailable()
         if(posts[indexPath.row].getOnePhoto() != nil) {
             cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
         }
         return cell
     }
+    func addNavBarImageView() {
+        
+        let navController = navigationController!
+        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let imageView = UIImageView(image: image)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        
+        let bannerX = bannerWidth / 2 - image.size.width / 2
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "الصفَحة الرئيسيّة"
+        addNavBarImageView()
         let appServices = AppServices()
 //        activityIndicator.center = self.view.center
 //        activityIndicator.hidesWhenStopped = true
@@ -119,6 +136,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let indexPath = homeTableView.indexPath(for: cell)
                 let selectedData = posts[(indexPath?.row)!]
                 destination.post = selectedData
+            }
+        } else if segue.identifier == "goNewPostPage" {
+            if ViewController.isGuest {
+                
+                let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخاصية", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "حسنا", style: .default, handler: {(action:UIAlertAction!) in
+                    self.performSegue(withIdentifier: "goSignInPage", sender: self)
+                }))
+                alert.addAction(UIAlertAction(title: "لا أريد", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
             }
         }
         

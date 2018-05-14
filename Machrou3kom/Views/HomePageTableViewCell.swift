@@ -21,6 +21,7 @@ class HomePageTableViewCell: UITableViewCell {
     @IBOutlet weak internal var locationLabel: UILabel!
     
     @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var pinedLabel: UILabel!
     @IBAction internal func likeBtnAction(_ sender: UIButton){
         
         let defaults = UserDefaults.standard

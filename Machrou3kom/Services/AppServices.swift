@@ -79,7 +79,7 @@ class AppServices {
                         posts.append(post)
                     }
                 }
-                posts = posts.sorted(by: {$0.getLikesCount() > $1.getLikesCount()})
+                posts = posts.sorted(by: {($0.getLikesCount() > $1.getLikesCount()) || $0.isAvailable()})
                 completed(posts)
             })
         }

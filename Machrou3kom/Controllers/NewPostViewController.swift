@@ -33,9 +33,25 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descTextView: UITextView!
+    func addNavBarImageView() {
+        
+        let navController = navigationController!
+        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let imageView = UIImageView(image: image)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        
+        let bannerX = bannerWidth / 2 - image.size.width / 2
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "منشور جديد"
+        addNavBarImageView()
         if !ViewController.isGuest {
             let appServices = AppServices()
             let defaults = UserDefaults.standard
@@ -107,7 +123,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 if let idCategory = defaults.string(forKey: "id_country") {
                     do {
                         let appServices = AppServices()
-                        try appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text, idCategory: idCategory, idCountry: idCountry, numTel: Int(phoneNumberTextField.text!)!, title: titleTextField.text, post_owner: profile_sub, typePost: postType))
+                        try appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text, idCategory: idCategory, idCountry: idCountry, numTel: Int(phoneNumberTextField.text!)!, title: titleTextField.text, post_owner: SessionManager.profile.name, typePost: postType))
                         for p in photos {
                             if let uploadedData = UIImagePNGRepresentation(p) {
                                 appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)

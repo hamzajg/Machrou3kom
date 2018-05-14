@@ -30,9 +30,25 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func openUrlLink(_ sender: UIButton) {
         UIApplication.shared.openURL(URL(string: country.ads[self.country.ads.count - 1].link)!)
     }
+    func addNavBarImageView() {
+        
+        let navController = navigationController!
+        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let imageView = UIImageView(image: image)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        
+        let bannerX = bannerWidth / 2 - image.size.width / 2
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addNavBarImageView()
         let defaults = UserDefaults.standard
         if let id_country = defaults.string(forKey: "id_country") {
             
@@ -99,7 +115,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 destination.categories = selectedData
             }
         } else if segue.identifier == "goHomePage" {
-            if let destination = (segue.destination as! UITabBarController).viewControllers?.first as? HomeViewController {
+            if let destination = segue.destination as? HomeViewController {
                 let cell = sender as! UITableViewCell
                 let indexPath = categoryTableView.indexPath(for: cell)
                 let selectedData = categories[(indexPath?.row)!]

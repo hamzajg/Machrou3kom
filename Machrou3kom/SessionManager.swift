@@ -10,14 +10,18 @@ import Foundation
 import Auth0
 
 class SessionManager {
-    
-    static var credentialsManager: CredentialsManager! = CredentialsManager(authentication: Auth0.authentication())
+    static var profile:UserInfo!
+    static var credentialsManager: CredentialsManager!
     init() {
         
     }
+    static func storeCredentials(credentials: Credentials) {
+        credentialsManager = CredentialsManager(authentication: Auth0.authentication())
+        credentialsManager.store(credentials: credentials)
+    }
     static func getUserInfoProfile() -> (UserInfo?) {
         var userInfo:UserInfo!
-        credentialsManager.credentials { error, credentials in
+        SessionManager.credentialsManager.credentials { error, credentials in
             guard error == nil, let credentials = credentials else {
                 // Handle error
                 print("Error: \(error)")
@@ -53,6 +57,8 @@ class SessionManager {
         return userInfo
     }
     static func logOut() {
-        credentialsManager.clear()
+        if credentialsManager != nil {
+            credentialsManager.clear()
+        }
     }
 }

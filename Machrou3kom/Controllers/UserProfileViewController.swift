@@ -10,59 +10,42 @@ import UIKit
 
 class UserProfileViewController: UIViewController {
     @IBOutlet weak var userProfileImageView: UIImageView!
-    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBAction func changeCountryBtnAction(_ sender: UIButton) {
     }
-    @IBAction func saveChangesBtnAction(_ sender: UIButton) {
-            
-            let defaults = UserDefaults.standard
-            
-            // Receive
-            if let profile_sub = defaults.string(forKey: "profile_sub")
-            {
-                let appServices = AppServices()
-                do {
-                    try appServices.UpdateUser(user: User(idUser: profile_sub, full_name: userNameTextField.text, profile_picture: ""))
-                    let alert = UIAlertController(title: self.title, message: "تم حفظ التغييرات بنجاح", preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    
-                    self.present(alert, animated: true)
-            } catch {
-                
-                let alert = UIAlertController(title: self.title, message: "خطأ في حفظ التغييرات", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                
-                self.present(alert, animated: true)
-            }
-            }
+    func addNavBarImageView() {
+        
+        let navController = navigationController!
+        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let imageView = UIImageView(image: image)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        
+        let bannerX = bannerWidth / 2 - image.size.width / 2
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNavBarImageView()
+        
         if ViewController.isGuest {
             dismiss(animated: true, completion: nil)
-        } else {
-            let defaults = UserDefaults.standard
-            
-            // Receive
-            if let profile_sub = defaults.string(forKey: "profile_sub")
-            {
-                
-                let appServices = AppServices()
-                appServices.GetOneUser(sub: profile_sub) {(user) in
-                    let u = (user)
-                    if u != nil {
-                        self.userNameTextField.text = u!.full_name
-                    } else {
-                        self.userNameTextField.text = profile_sub
-                    }
-                }
-            }
+        } else if SessionManager.profile != nil {
+            userNameLabel.text = SessionManager.profile.name
+            userProfileImageView.downloadedFrom(url: SessionManager.profile.picture!)
+            userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width / 2
+            userProfileImageView.clipsToBounds = true
         }
         // Do any additional setup after loading the view.
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        print(SessionManager.profile?.name)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
