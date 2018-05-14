@@ -42,10 +42,17 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
                     let appServices = AppServices()
                     appServices.LikePost(sub1: post.itemKey, sub2: profile_sub) {(result) in
                         let b = (result)
-                        if b {appServices.AddNewNotification(sub1: self.post.itemKey, sub2: profile_sub)
+                        if b {
+                            appServices.AddNewNotification(sub1: self.post.itemKey, sub2: profile_sub)
                             self.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+                            
                             let likeCount = self.likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((self.likeBtn.titleLabel?.text)!)
                             self.likeBtn.setTitle(String(likeCount! + 1), for: .normal)
+                            sender.pulsate()
+                        } else {
+                            self.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
+                            let likeCount = self.likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((self.likeBtn.titleLabel?.text)!)
+                            self.likeBtn.setTitle(String(likeCount! - 1), for: .normal)
                             sender.pulsate()
                         }
                     }
@@ -92,8 +99,10 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
             postPostedAtLabel.text = String(post.createdAt.description[..<post.createdAt.description.index(of: "+")!])
             postPostedAtLabel.text!.removeLast(4)
             likeBtn.setTitle(post.getLikesCount() == 0 ? "" : String(post.getLikesCount()), for: .normal)
-            if post.getLikesCount() > 0 {
-                likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+            if(self.post.isLiked()) {
+                self.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+            } else {
+                self.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
             }
             self.sliderPageControl.numberOfPages = self.post.photos.count
             for i in 0..<self.post.photos.count {
@@ -131,6 +140,9 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         sliderPageControl.currentPage = Int(pageNumber)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

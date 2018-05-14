@@ -54,15 +54,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.locationLabel.text = posts[indexPath.row].adresse
         cell.likeBtn.setTitle(posts[indexPath.row].getLikesCount() == 0 ? "" : String(posts[indexPath.row].getLikesCount()), for: .normal)
         if(ViewController.isGuest) {
-            cell.likeBtn.addTarget(self, action: #selector(self.likeBtnAction(_: cell:)), for: .touchUpInside)
-        }
-        if(posts[indexPath.row].isLiked()) {
-            cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
-        }
-        if(posts[indexPath.row].getLikesCount() > 0) {
-            cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+            cell.likeBtn.addTarget(self, action: #selector(self.likeBtnAction(_: cell:)), for: .touchUpInside)            
+            cell.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
         } else {
-            cell.likeBtn.setImage(UIImage(named: "heart-outline-25"), for: .normal)
+            if(posts[indexPath.row].isLiked()) {
+                cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+            } else {
+                cell.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
+            }
         }
         cell.pinedLabel.isHidden = !posts[indexPath.row].isAvailable()
         if(posts[indexPath.row].getOnePhoto() != nil) {

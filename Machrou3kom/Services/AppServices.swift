@@ -106,6 +106,9 @@ class AppServices {
             if !snapshot.childSnapshot(forPath: sub2).exists() {
                 self.ref?.child("Posts").child(sub1).child("like").updateChildValues([sub2: Date().description])
                 result = true
+            } else {
+                self.ref?.child("Posts").child(sub1).child("like").child(sub2).removeValue()
+                result = false
             }
             completed(result)
         })
