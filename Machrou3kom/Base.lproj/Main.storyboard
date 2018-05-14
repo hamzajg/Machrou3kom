@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Machrou3kom" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingIn" id="BYZ-38-t0r" customClass="ViewController" customModule="Machrou3kom" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,6 +254,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="pXY-Xe-a41"/>
                     <connections>
+                        <outlet property="changeCountryBtn" destination="dp1-hF-J4z" id="aav-Oj-Ja1"/>
+                        <outlet property="signOutBtn" destination="tGv-mt-oml" id="hkg-KF-xaa"/>
+                        <outlet property="updatePostBtn" destination="yJ6-nT-SK3" id="sfR-Wk-XfP"/>
                         <outlet property="userNameLabel" destination="oz0-rW-mst" id="9Bt-G0-4QX"/>
                         <outlet property="userProfileImageView" destination="Ecp-t0-uJk" id="X06-Qq-5MH"/>
                     </connections>
@@ -1090,6 +1093,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="a9v-dl-0wq"/>
-        <segue reference="bur-h7-agI"/>
+        <segue reference="r8H-A0-Tcy"/>
     </inferredMetricsTieBreakers>
 </document>

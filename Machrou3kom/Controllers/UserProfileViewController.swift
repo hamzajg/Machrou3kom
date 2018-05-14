@@ -11,6 +11,9 @@ import UIKit
 class UserProfileViewController: UIViewController {
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var updatePostBtn: UIButton!
+    @IBOutlet weak var changeCountryBtn: UIButton!
+    @IBOutlet weak var signOutBtn: UIButton!
     @IBAction func changeCountryBtnAction(_ sender: UIButton) {
     }
     func addNavBarImageView() {
@@ -34,8 +37,19 @@ class UserProfileViewController: UIViewController {
         addNavBarImageView()
         
         if ViewController.isGuest {
-            dismiss(animated: true, completion: nil)
+            userNameLabel.isHidden = true
+            userProfileImageView.isHidden = true
+            changeCountryBtn.isHidden = true
+            updatePostBtn.isHidden = true
+            signOutBtn.isHidden = true
+            let viewController: ViewController = self.storyboard?.instantiateViewController(withIdentifier: "SingIn") as! ViewController
+            self.navigationController?.pushViewController(viewController, animated: true)
         } else if SessionManager.profile != nil {
+            userNameLabel.isHidden = false
+            userProfileImageView.isHidden = false
+            changeCountryBtn.isHidden = false
+            updatePostBtn.isHidden = false
+            signOutBtn.isHidden = false
             userNameLabel.text = SessionManager.profile.name
             userProfileImageView.downloadedFrom(url: SessionManager.profile.picture!)
             userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width / 2
@@ -44,7 +58,7 @@ class UserProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        print(SessionManager.profile?.name)
+        viewDidLoad()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
