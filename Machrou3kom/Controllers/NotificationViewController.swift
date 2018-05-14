@@ -42,7 +42,14 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         addNavBarImageView()
         if ViewController.isGuest {
-            dismiss(animated: true, completion: nil)
+            let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخاصية", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "حسنا", style: .default, handler: {(action:UIAlertAction!) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "لا أريد", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         } else {
             let appServices = AppServices()
 

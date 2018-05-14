@@ -34,28 +34,28 @@ addNavBarImageView()
         let appServices = AppServices()
         appServices.GetAllSocialsAsync() {(socials) in
             self.socials = (socials)
-            self.vStackView.addArrangedSubview(UIButton(type: UIButtonType.custom))
             for s in self.socials {
                 let btn = UIButton(type: UIButtonType.custom)
                 btn.frame = CGRect(x: 0, y: 10, width: 150, height: 27)
                 btn.restorationIdentifier = s.name
-                btn.setTitle(" Mshro3com_app", for: .normal)
+                btn.setTitle(String(s.name.prefix(1)).capitalized + String(s.name.dropFirst()), for: .normal)
+                btn.semanticContentAttribute = .forceRightToLeft
+                btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 150, bottom: 0, right: 0)
+                btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+                btn.layer.cornerRadius = 8.0;
+                btn.layer.masksToBounds = false;
+                //btn.layer.borderWidth = 1.0;
+                btn.contentHorizontalAlignment = .right;
+                btn.layer.shadowColor = UIColor.gray.cgColor;
+                btn.layer.shadowOpacity = 0.8;
+                btn.layer.shadowRadius = 5;
+                btn.layer.shadowOffset = CGSize(width: 3.0, height: 3.0);
                 btn.addTarget(self, action: #selector(self.openUrlLink(_:)), for: .touchUpInside)
+                btn.setTitleColor(UIColor.gray, for: .normal)
                 btn.layer.cornerRadius = 5
                 btn.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
-                if s.name.lowercased() == "facebook" {
-                    btn.backgroundColor = UIColor(red: 63/255, green: 81/255, blue: 181/255, alpha: 1)
-                    btn.setImage(UIImage(named: s.name.lowercased() + "-25-colored"), for: .normal)
-                } else if s.name.lowercased() == "twitter" {
-                    btn.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
-                    btn.setImage(UIImage(named: s.name.lowercased() + "-25-white"), for: .normal)
-                } else if s.name.lowercased() == "snapchat" {
-                    btn.backgroundColor = UIColor(red: 255/255, green: 252/255, blue: 0/255, alpha: 1)
-                    btn.setImage(UIImage(named: s.name.lowercased() + "-25-colored"), for: .normal)
-                } else if s.name.lowercased() == "instagram" {
-                    btn.backgroundColor = UIColor(red: 76/255, green: 76/255, blue: 76/255, alpha: 1)
-                    btn.setImage(UIImage(named: s.name.lowercased() + "-25-white"), for: .normal)
-                }
+                btn.backgroundColor = UIColor.white
+                btn.setImage(UIImage(named: s.name.lowercased()), for: .normal)
                 self.vStackView.addArrangedSubview(btn)
             }
         }
