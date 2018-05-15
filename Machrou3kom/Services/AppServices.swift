@@ -123,15 +123,20 @@ class AppServices {
                 if let ep:Post! = Post(snapshot: snapshot.childSnapshot(forPath: sub)) {
                     if ep.title != post.title {
                         self.ref?.child("Posts").child(sub).child("title").setValue(post.title)
-                    } else if ep.numTel != post.numTel {
+                    }
+                    if ep.numTel != post.numTel {
                         self.ref?.child("Posts").child(sub).child("numTel").setValue(post.numTel)
-                    } else if ep.adresse != post.adresse {
+                    }
+                    if ep.adresse != post.adresse {
                         self.ref?.child("Posts").child(sub).child("adresse").setValue(post.adresse)
-                    } else if ep.typePost != post.typePost {
+                    }
+                    if ep.typePost != post.typePost {
                         self.ref?.child("Posts").child(sub).child("typePost").setValue(post.typePost)
-                    } else if ep.description != post.description {
+                    }
+                    if ep.description != post.description {
                         self.ref?.child("Posts").child(sub).child("description").setValue(post.description)
-                    } else if ep.post_owner != post.post_owner {
+                    }
+                    if ep.post_owner != post.post_owner {
                         self.ref?.child("Posts").child(sub).child("post_owner").setValue(post.post_owner)
                     }
                 }

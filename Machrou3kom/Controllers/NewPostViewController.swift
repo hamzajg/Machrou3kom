@@ -141,7 +141,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 if let idCategory = defaults.string(forKey: "id_country") {
                     do {
                         let appServices = AppServices()
-                        try appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text, idCategory: idCategory, idCountry: idCountry, numTel: Int(phoneNumberTextField.text!)!, title: titleTextField.text, post_owner: SessionManager.profile.name, typePost: postType))
+                        try appServices.AddNewPoat(sub: profile_sub, post: Post(itemRef: nil, itemKey: "", adresse: locationTextField.text, catagory_country: idCategory + "_" + idCountry, description: descTextView.text, idCategory: idCategory, idCountry: idCountry, numTel: Int(phoneNumberTextField.text!)!, title: titleTextField.text, post_owner: SessionManager.profile.nickname, typePost: postType))
                         for p in photos {
                             if let uploadedData = UIImagePNGRepresentation(p) {
                                 appServices.uploadFileToStorage(sub: profile_sub, uploadData: uploadedData)

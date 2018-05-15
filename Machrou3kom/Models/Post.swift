@@ -147,7 +147,11 @@ class Post {
         } else {
             self.numTel = 00000000
         }
-        self.post_owner = ""
+        if let post_owner = snapshot.childSnapshot(forPath:"post_owner").value as? String {
+            self.post_owner = post_owner
+        } else {
+            self.post_owner = ""
+        }
     }
     
     func getOnePhoto() -> String? {

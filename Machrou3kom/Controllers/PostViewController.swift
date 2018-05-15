@@ -31,7 +31,9 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     @IBAction func intagramBtnAction(_ sender: UIButton) {
-        UIApplication.shared.openURL(URL(string:"https://www.instagram.com/" + post.post_owner)!)
+        if let url = URL(string:"https://www.instagram.com/" + post.post_owner!) {            
+            UIApplication.shared.openURL(url)
+        }
         
     }
     @IBAction func likeBtnAction(_ sender: UIButton) {
