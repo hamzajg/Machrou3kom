@@ -14,7 +14,14 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var updatePostBtn: UIButton!
     @IBOutlet weak var changeCountryBtn: UIButton!
     @IBOutlet weak var signOutBtn: UIButton!
+    static var isChangingCountry:Bool = false
     @IBAction func changeCountryBtnAction(_ sender: UIButton) {
+        UserProfileViewController.isChangingCountry = true
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "goCountryPage", sender: self)
+        }
+
     }
     func addNavBarImageView() {
         

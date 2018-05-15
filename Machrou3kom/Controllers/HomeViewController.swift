@@ -64,8 +64,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         cell.pinedLabel.isHidden = !posts[indexPath.row].isAvailable()
+        if posts[indexPath.row].isAvailable() {
+            //let tborder = CALayer()
+            let bborder = CALayer()
+            let lborder = CALayer()
+            let rborder = CALayer()
+            let width = CGFloat(5.0)
+            //tborder.borderColor = UIColor.orange.cgColor
+            //tborder.frame = CGRect(x: 0, y: 0, width:  cell.frame.size.width, height: width)
+            bborder.borderColor = UIColor.orange.cgColor
+            bborder.frame = CGRect(x: 0, y: cell.frame.size.height - width, width:  cell.frame.size.width, height: cell.frame.size.height)
+            lborder.borderColor = UIColor.orange.cgColor
+            lborder.frame = CGRect(x: 0, y: 0, width: width, height: cell.frame.size.height)
+            rborder.borderColor = UIColor.orange.cgColor
+            rborder.frame = CGRect(x: cell.frame.size.width - width, y: 0, width: width, height: cell.frame.size.height)
+
+            //tborder.borderWidth = width
+            bborder.borderWidth = width
+            lborder.borderWidth = width
+            rborder.borderWidth = width
+            //cell.layer.addSublayer(tborder)
+            cell.layer.addSublayer(bborder)
+            cell.layer.addSublayer(lborder)
+            cell.layer.addSublayer(rborder)
+            cell.layer.cornerRadius = 10
+            cell.layer.masksToBounds = true
+        }
         if(posts[indexPath.row].getOnePhoto() != nil) {
             cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
+            cell.homeImageView.contentMode = .scaleAspectFill
         }
         return cell
     }

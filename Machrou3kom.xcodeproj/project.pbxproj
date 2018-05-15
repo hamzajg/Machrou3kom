@@ -31,6 +31,7 @@
 		88A9770B209E22790013AFCF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770A209E22790013AFCF /* PostViewController.swift */; };
 		88A9770D209E23BB0013AFCF /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9770C209E23BB0013AFCF /* NewPostViewController.swift */; };
 		88C5238720971A650022B128 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C5238620971A640022B128 /* GoogleService-Info.plist */; };
+		88D3CA3520AA4C30002220CA /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3CA3420AA4C30002220CA /* CardView.swift */; };
 		88E79EDB20A32B4300D7A7F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E79EDA20A32B4300D7A7F7 /* Assets.xcassets */; };
 		88FD4749209E486800CC3042 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD4748209E486800CC3042 /* UserProfileViewController.swift */; };
 		88FD474B209E598E00CC3042 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD474A209E598E00CC3042 /* CategoryViewController.swift */; };
@@ -98,6 +99,7 @@
 		88A9770A209E22790013AFCF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		88A9770C209E23BB0013AFCF /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		88C5238620971A640022B128 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		88D3CA3420AA4C30002220CA /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		88E79EDA20A32B4300D7A7F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88FD4748209E486800CC3042 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		88FD474A209E598E00CC3042 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				88FD474C209E59E900CC3042 /* CategoryTableViewCell.swift */,
 				88FD4758209F0C9500CC3042 /* CountryTableViewCell.swift */,
 				887BA27720A882F400C45339 /* UIButtonAnimationExt.swift */,
+				88D3CA3420AA4C30002220CA /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				88A9770D209E23BB0013AFCF /* NewPostViewController.swift in Sources */,
 				881B84B4209627B10084BAF2 /* AppDelegate.swift in Sources */,
 				8869994B209673E100B370A4 /* Post.swift in Sources */,
+				88D3CA3520AA4C30002220CA /* CardView.swift in Sources */,
 				880EF06620A2545200C19CAD /* Machrou3komViewController.swift in Sources */,
 				88FD474F209E5AF300CC3042 /* Category.swift in Sources */,
 				887BA27820A882F400C45339 /* UIButtonAnimationExt.swift in Sources */,

@@ -33,12 +33,19 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Store
         defaults.set(selectedData.idCountry, forKey: "id_country")
-        let viewController: UITabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Machrou3komViewController
-        
-        self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.pushViewController(viewController, animated: true)
-        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
-        viewController.navigationController?.navigationItem.leftBarButtonItem = backButton
+        if !UserProfileViewController.isChangingCountry {
+            let viewController: UITabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Machrou3komViewController
+            
+            self.navigationController?.navigationBar.isHidden = true
+            self.navigationController?.pushViewController(viewController, animated: true)
+            let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+            viewController.navigationController?.navigationItem.leftBarButtonItem = backButton
+        } else {
+            DispatchQueue.main.async {
+                UserProfileViewController.isChangingCountry = false
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
 

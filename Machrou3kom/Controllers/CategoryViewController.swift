@@ -23,7 +23,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         cell.CategoryNameLabel.text = categories[indexPath.row].name
         if(categories[indexPath.row].photo != nil) {
             cell.CategoryImageView.downloadedFrom(link: (categories[indexPath.row].photo?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
+            cell.CategoryImageView.contentMode = .scaleToFill
         }
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        cell.selectedBackgroundView = bgColorView
         return cell
     }
     
@@ -56,26 +60,31 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
             appServices.GetOneCountryByIdCountryAsync(idCountry: id_country) {(country) in
                 self.country = (country)
                 if self.country?.ads != nil {
-                    if let url = URL(string: (self.country.ads[self.country.ads.count - 1].img)) {
-                        URLSession.shared.dataTask(with: url) { data, response, error in
-                            guard
-                                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                                let data = data, error == nil,
-                                let image = UIImage(data: data)
-                                else { return }
-                            DispatchQueue.main.async() {
-                                let adsBtn = UIButton()
-                                adsBtn.setImage(image, for: .normal)
-                                adsBtn.frame = CGRect(x: self.view.frame.size.width - 50, y: 64, width: 50, height: 50)
-                                adsBtn.addTarget(self, action: #selector(self.openUrlLink(_:)), for: .touchUpInside)
-                                self.view.addSubview(adsBtn)
-//                                if self.countryFlagBarBtn != nil {
-//                                    self.countryFlagBarBtn.image = image
-//
-//                                }
-                            }
+                    if self.country.ads.count > 0 {
+                        if let url = URL(string: (self.country.ads[self.country.ads.count - 1].img)) {
+                            URLSession.shared.dataTask(with: url) { data, response, error in
+                                guard
+                                    let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                                    let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                                    let data = data, error == nil,
+                                    let image = UIImage(data: data)
+                                    else { return }
+                                DispatchQueue.main.async() {
+                                    let adsBtn = UIButton()
+                                    adsBtn.setImage(image, for: .normal)
+                                    adsBtn.frame = CGRect(x: 5, y: 3, width: self.view.frame.size.width - 15, height: 100)
+                                    adsBtn.addTarget(self, action: #selector(self.openUrlLink(_:)), for: .touchUpInside)
+                                    //self.view.addSubview(adsBtn)
+                                    self.categoryTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 105))
+                                    self.categoryTableView.tableHeaderView?.addSubview(adsBtn)
+    //                                if self.countryFlagBarBtn != nil {
+    //                                    self.countryFlagBarBtn.image = image
+    //
+    //                                }
+                            
+                                }
                             }.resume()
+                        }
                     }
                 }
             }
@@ -92,6 +101,10 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

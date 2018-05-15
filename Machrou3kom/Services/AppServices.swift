@@ -131,6 +131,8 @@ class AppServices {
                         self.ref?.child("Posts").child(sub).child("typePost").setValue(post.typePost)
                     } else if ep.description != post.description {
                         self.ref?.child("Posts").child(sub).child("description").setValue(post.description)
+                    } else if ep.post_owner != post.post_owner {
+                        self.ref?.child("Posts").child(sub).child("post_owner").setValue(post.post_owner)
                     }
                 }
             }

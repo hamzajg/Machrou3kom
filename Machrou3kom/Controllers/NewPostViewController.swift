@@ -11,7 +11,7 @@ import UIKit
 class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
                                 UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     let postTypes = ["محل", "شركة", "منزلي",]
-    var postType:String? = ""
+    var postType:String? = "محل"
     var photos:[UIImage] = []
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -33,6 +33,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var descTextView: UITextView!
+    var isChanged:Bool = false
     func addNavBarImageView() {
         
         let navController = navigationController!
@@ -99,6 +100,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        isChanged = true
         if(text == "\n") {
             textView.resignFirstResponder()
             return false
@@ -106,6 +108,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return true
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        isChanged = true
         if (string == "\n") {
             textField.resignFirstResponder()
             return false
@@ -113,6 +116,21 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return true
     }
     @IBAction func addBtnAction(_ sender: UIButton) {
+        if isChanged {
+            let alert = UIAlertController(title: "تأكيد التغييرات", message: " هل ترغب حقًا في حفظ التغييرات", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "تأكيد", style: .default, handler:{ (action:UIAlertAction!) in
+                self.savePost()
+            }))
+            alert.addAction(UIAlertAction(title: "إلغاء", style: .cancel, handler:nil))
+            
+            self.present(alert, animated: true)
+        } else {
+            savePost()
+        }
+    }
+    
+    func savePost() {
         
         let defaults = UserDefaults.standard
         
@@ -146,6 +164,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         }
     }
+    
     /*
     // MARK: - Navigation
 
