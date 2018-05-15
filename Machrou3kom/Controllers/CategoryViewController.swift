@@ -10,6 +10,8 @@ import UIKit
 
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var categoryTableView: UITableView!
+    let appServices = AppServices()
+    let defaults = UserDefaults.standard
     var categories:[Category] = [Category]()
     var country:Country!
     var isSubCategory:Bool = false
@@ -34,31 +36,76 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func openUrlLink(_ sender: UIButton) {
         UIApplication.shared.openURL(URL(string: country.ads[self.country.ads.count - 1].link)!)
     }
-    func addNavBarImageView() {
+    func addNavBarManyImageView() {
         
+        // Only execute the code if there's a navigation controller
+        if self.navigationController == nil {
+            return
+        }
         let navController = navigationController!
-        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
-        let imageView = UIImageView(image: image)
+        
+        // Create a navView to add to the navigation bar
+        let navView = UIView()
+        
+        let logo = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let logoView = UIImageView(image: logo)
         
         let bannerWidth = navController.navigationBar.frame.size.width
-        let bannerHeight = navController.navigationBar.frame.size.height
+        let bannerHeight = navController.navigationBar.frame.size.height + 30
         
-        let bannerX = bannerWidth / 2 - image.size.width / 2
-        let bannerY = bannerHeight / 2 - image.size.height / 2
+        let bannerX = bannerWidth / 2 - logo.size.width / 2
+        let bannerY = bannerHeight / 2 - logo.size.height / 2
         
-        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
-        imageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = imageView
+        navView.frame = CGRect(x: -10, y: -10, width: bannerWidth, height: bannerHeight)
+        logoView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        logoView.contentMode = .scaleAspectFit
+        logoView.center = navView.center
+        // Add both the label and image view to the navView
+        navView.addSubview(logoView)
+        if CountryViewController.countryImageView != nil {
+            CountryViewController.countryImageView.frame = CGRect(x: 250,  y: 10, width: 40, height: 30)
+            CountryViewController.countryImageView.layer.cornerRadius = (CountryViewController.countryImageView.frame.size.width / 2) - 3
+            CountryViewController.countryImageView.contentMode = .scaleToFill
+            CountryViewController.countryImageView.layer.borderWidth = 2
+            CountryViewController.countryImageView.layer.borderColor = UIColor.white.cgColor
+            CountryViewController.countryImageView.clipsToBounds = true
+            navView.addSubview(CountryViewController.countryImageView)
+        }
+        
+        // Set the navigation bar's navigation item's titleView to the navView
+        self.navigationItem.titleView = navView
+        
+        // Set the navView's frame to fit within the titleView
+        navView.sizeToFit()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNavBarImageView()
-        let defaults = UserDefaults.standard
+        addNavBarManyImageView()
+        if(!isSubCategory) {
+            loadCountryAd()
+            appServices.GetAllCategoriesAsync() {(categories) in
+                self.categories = (categories)
+                self.categoryTableView.reloadData()
+            }
+        } else {
+            self.categoryTableView.reloadData()
+        }
+        // Do any additional setup after loading the view.
+    }
+    
+    func loadCountryAd() {
+        
         if let id_country = defaults.string(forKey: "id_country") {
-            
-            let appServices = AppServices()
             appServices.GetOneCountryByIdCountryAsync(idCountry: id_country) {(country) in
                 self.country = (country)
+                if CountryViewController.countryImageView == nil {
+                    
+                    // Create the image view
+                    CountryViewController.countryImageView = UIImageView()
+                    //image.image = UIImage(named: "call")
+                    CountryViewController.countryImageView.downloadedFrom(link: (country?.photo)!)
+                    self.addNavBarManyImageView()
+                }
                 if self.country?.ads != nil {
                     if self.country.ads.count > 0 {
                         if let url = URL(string: (self.country.ads[self.country.ads.count - 1].img)) {
@@ -74,14 +121,10 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                                     adsBtn.setImage(image, for: .normal)
                                     adsBtn.frame = CGRect(x: 5, y: 3, width: self.view.frame.size.width - 15, height: 100)
                                     adsBtn.addTarget(self, action: #selector(self.openUrlLink(_:)), for: .touchUpInside)
-                                    //self.view.addSubview(adsBtn)
+                                    
                                     self.categoryTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 105))
                                     self.categoryTableView.tableHeaderView?.addSubview(adsBtn)
-    //                                if self.countryFlagBarBtn != nil {
-    //                                    self.countryFlagBarBtn.image = image
-    //
-    //                                }
-                            
+                                    
                                 }
                             }.resume()
                         }
@@ -89,18 +132,8 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         }
-        if(!isSubCategory) {
-            let appServices = AppServices()
-            appServices.GetAllCategoriesAsync() {(categories) in
-                self.categories = (categories)
-                self.categoryTableView.reloadData()
-            }
-        } else {
-            self.categoryTableView.reloadData()
-        }
-        // Do any additional setup after loading the view.
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         viewDidLoad()
     }
@@ -123,9 +156,9 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 let cell = sender as! UITableViewCell
                 let indexPath = categoryTableView.indexPath(for: cell)
                 let selectedData = categories[(indexPath?.row)!].subCategories
-                destination.title = categories[(indexPath?.row)!].name
                 destination.isSubCategory = true
                 destination.categories = selectedData
+                // Create a navView to add to the navigation bar
             }
         } else if segue.identifier == "goHomePage" {
             if let destination = segue.destination as? HomeViewController {
@@ -133,7 +166,6 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 let indexPath = categoryTableView.indexPath(for: cell)
                 let selectedData = categories[(indexPath?.row)!]
                 destination.category = selectedData
-                let defaults = UserDefaults.standard
                 
                 // Store
                 defaults.set(selectedData.idCategory, forKey: "id_category")
@@ -143,3 +175,4 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
 
 }
+

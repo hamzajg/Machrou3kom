@@ -190,6 +190,6 @@ class Post {
     func toAnyObject() -> Dictionary<String, Any> {
         return ["adresse": self.adresse, "title": self.title, "numTel": self.numTel, "idCountry": self.idCountry, "idCategory": self.idCategory,
                 "like": self.like, "category_country": self.category_country, "typePost": self.typePost, "photos": self.photos, 
-                "post_owner": self.post_owner, "createdAt": self.createdAt.description ]
+                "post_owner": self.post_owner, "createdAt": self.createdAt.timeIntervalSince1970 ]
     }
  }

@@ -23,16 +23,11 @@ class Machrou3komViewController: UITabBarController {
         let imageView = UIImageView(image: image)
         
         let bannerWidth = navController.navigationBar.frame.size.width
-        let bannerHeight = navController.navigationBar.frame.size.height
+        let bannerHeight = navController.navigationBar.frame.size.height + 30
         
-        let bannerX = bannerWidth / 2 - image.size.width / 2
-        let bannerY = bannerHeight / 2 - image.size.height / 2
-        
-        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.frame = CGRect(x: -10, y: -10, width: bannerWidth, height: bannerHeight)
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
-//        let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
-//        navigationItem.leftBarButtonItem = backButton
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

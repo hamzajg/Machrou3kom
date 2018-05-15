@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var appNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNavBarImageView()
+        addNavBarManyImageView()
         SessionManager.logOut()
         if(ViewController.isGuest) {
             guestBtn.isHidden = true
@@ -93,24 +93,38 @@ class ViewController: UIViewController {
         }
     }
     
-    func addNavBarImageView() {
-        if navigationController != nil {
-            let navController = navigationController!
-            let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
-            let imageView = UIImageView(image: image)
-            
-            let bannerWidth = navController.navigationBar.frame.size.width
-            let bannerHeight = navController.navigationBar.frame.size.height
-            
-            let bannerX = bannerWidth / 2 - image.size.width / 2
-            let bannerY = bannerHeight / 2 - image.size.height / 2
-            
-            imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
-            imageView.contentMode = .scaleAspectFit
-            navigationItem.titleView = imageView
-            let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
-            navigationItem.leftBarButtonItem = backButton
+    
+    func addNavBarManyImageView() {
+        
+        // Only execute the code if there's a navigation controller
+        if self.navigationController == nil {
+            return
         }
+        let navController = navigationController!
+        
+        // Create a navView to add to the navigation bar
+        let navView = UIView()
+        
+        let logo = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let logoView = UIImageView(image: logo)
+        
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height + 30
+        
+        let bannerX = bannerWidth / 2 - logo.size.width / 2
+        let bannerY = bannerHeight / 2 - logo.size.height / 2
+        navView.frame = CGRect(x: -30, y: -10, width: bannerWidth, height: bannerHeight)
+        logoView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        logoView.contentMode = .scaleAspectFit
+        logoView.center = navView.center
+        // Add both the label and image view to the navView
+        navView.addSubview(logoView)
+        
+        // Set the navigation bar's navigation item's titleView to the navView
+        self.navigationItem.titleView = navView
+        
+        // Set the navView's frame to fit within the titleView
+        navView.sizeToFit()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

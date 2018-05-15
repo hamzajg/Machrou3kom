@@ -22,25 +22,49 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    func addNavBarImageView() {
+    func addNavBarManyImageView() {
         
+        // Only execute the code if there's a navigation controller
+        if self.navigationController == nil {
+            return
+        }
         let navController = navigationController!
-        let image = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
-        let imageView = UIImageView(image: image)
+        
+        // Create a navView to add to the navigation bar
+        let navView = UIView()
+        
+        let logo = #imageLiteral(resourceName: "finalmashroukom-horiz-1")
+        let logoView = UIImageView(image: logo)
         
         let bannerWidth = navController.navigationBar.frame.size.width
-        let bannerHeight = navController.navigationBar.frame.size.height
+        let bannerHeight = navController.navigationBar.frame.size.height + 30
         
-        let bannerX = bannerWidth / 2 - image.size.width / 2
-        let bannerY = bannerHeight / 2 - image.size.height / 2
+        let bannerX = bannerWidth / 2 - logo.size.width / 2
+        let bannerY = bannerHeight / 2 - logo.size.height / 2
+        navView.frame = CGRect(x: -10, y: -10, width: bannerWidth, height: bannerHeight)
+        logoView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        logoView.contentMode = .scaleAspectFit
+        logoView.center = navView.center
+        // Setting the image frame so that it's immediately before the text:
+        CountryViewController.countryImageView.frame = CGRect(x: 250, y: 10, width: 40, height: 30)
+        CountryViewController.countryImageView.contentMode = .scaleToFill
+        CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2 - 3
+        CountryViewController.countryImageView.layer.borderWidth = 2
+        CountryViewController.countryImageView.layer.borderColor = UIColor.white.cgColor
+        CountryViewController.countryImageView.clipsToBounds = true
+        // Add both the label and image view to the navView
+        navView.addSubview(logoView)
+        navView.addSubview(CountryViewController.countryImageView)
         
-        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
-        imageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = imageView
+        // Set the navigation bar's navigation item's titleView to the navView
+        self.navigationItem.titleView = navView
+        
+        // Set the navView's frame to fit within the titleView
+        navView.sizeToFit()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        addNavBarImageView()
+        addNavBarManyImageView()
         if ViewController.isGuest {
             let alert = UIAlertController(title: self.title, message: "يجب عليك تسجيل الدخول لاستخدام هذه الخاصية", preferredStyle: .alert)
             
@@ -65,6 +89,10 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
