@@ -8,6 +8,7 @@
 
 import UIKit
 import Auth0
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -66,6 +67,7 @@ class ViewController: UIViewController {
                             case .success(let profile):
                                 SessionManager.profile = profile
                                 ViewController.isGuest = false
+                                Messaging.messaging().subscribe(toTopic: profile.sub.replacingOccurrences(of: "|", with: "", options: .literal, range: nil))
                                 let defaults = UserDefaults.standard
                                 if (defaults.string(forKey: "id_country") != nil)
                                 {

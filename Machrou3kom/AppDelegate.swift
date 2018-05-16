@@ -165,6 +165,7 @@ extension AppDelegate : MessagingDelegate {
         // Receive
         if let profile_sub = defaults.string(forKey: "profile_sub")
         {
+            print(profile_sub.replacingOccurrences(of: "|", with: "", options: .literal, range: nil))
             Messaging.messaging().subscribe(toTopic: profile_sub.replacingOccurrences(of: "|", with: "", options: .literal, range: nil))
         }
         
