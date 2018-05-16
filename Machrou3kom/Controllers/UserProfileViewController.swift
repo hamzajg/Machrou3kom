@@ -43,7 +43,7 @@ class UserProfileViewController: UIViewController {
         
         let bannerX = bannerWidth / 2 - logo.size.width / 2
         let bannerY = bannerHeight / 2 - logo.size.height / 2
-        navView.frame = CGRect(x: 0, y: -10, width: bannerWidth, height: bannerHeight)
+        navView.frame = CGRect(x: -10, y: -10, width: bannerWidth, height: bannerHeight)
         logoView.frame = CGRect(x: bannerX + 20, y: bannerY, width: bannerWidth, height: bannerHeight)
         logoView.contentMode = .scaleAspectFit
         logoView.center = navView.center

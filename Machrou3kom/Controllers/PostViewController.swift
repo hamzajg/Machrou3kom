@@ -49,7 +49,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
                     appServices.LikePost(sub1: post.itemKey, sub2: profile_sub) {(result) in
                         let b = (result)
                         if b {
-                            //appServices.AddNewNotification(sub1: self.post.itemKey, sub2: profile_sub)
+                            appServices.AddNewNotification(sub1: self.post.itemKey, sub2: profile_sub)
                             self.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
                             
                             let likeCount = self.likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((self.likeBtn.titleLabel?.text)!)

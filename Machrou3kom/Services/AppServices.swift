@@ -183,7 +183,7 @@ class AppServices {
     }
     func AddNewNotification(sub1:String, sub2:String) {
         ref = Database.database().reference()
-        self.ref?.child("notifications").childByAutoId().setValue(["body":"A user has liked your post", "title":"Your post was liked", "userKey":sub2])
+        self.ref?.child("notifications").childByAutoId().setValue(["body":"تحصل إعلانك على إعجاب جديد", "title":"أعجب أحدهم بإعلانك","type": "like","time":Date().timeIntervalSince1970, "userKey":sub1.replacingOccurrences(of: "|", with: "", options: .literal, range: nil)])
     }
     func GetAllCategoriesAsync(completed: @escaping ([Category]) -> ()){
         var categories = [Category]()
