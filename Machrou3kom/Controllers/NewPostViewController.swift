@@ -62,7 +62,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Setting the image frame so that it's immediately before the text:
         CountryViewController.countryImageView.frame = CGRect(x: 250, y: 10, width: 40, height: 30)
         CountryViewController.countryImageView.contentMode = .scaleToFill
-        CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2
+//        CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2 - 3
         CountryViewController.countryImageView.layer.borderWidth = 2
         CountryViewController.countryImageView.layer.borderColor = UIColor.white.cgColor
         CountryViewController.countryImageView.clipsToBounds = true
@@ -89,7 +89,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 appServices.GetOnePostByUserAsync(sub: profile_sub) {(post) in
                     let post = (post)
                     if post != nil {
-                        self.saveBtn.titleLabel?.text = "تعديل الإعلان"
+                        self.saveBtn.setTitle("تعديل الإعلان", for: .normal)
                         self.titleTextField.text = post?.title
                         self.phoneNumberTextField.text = "\(post?.numTel as! Int)"
                         self.locationTextField.text = post?.adresse

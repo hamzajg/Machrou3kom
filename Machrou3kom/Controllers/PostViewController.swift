@@ -102,7 +102,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
         // Setting the image frame so that it's immediately before the text:
         CountryViewController.countryImageView.frame = CGRect(x: 250, y: 10, width: 40, height: 30)
         CountryViewController.countryImageView.contentMode = .scaleToFill
-        CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2-3
+//        CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2-3
         CountryViewController.countryImageView.layer.borderWidth = 2
         CountryViewController.countryImageView.layer.borderColor = UIColor.white.cgColor
         CountryViewController.countryImageView.clipsToBounds = true

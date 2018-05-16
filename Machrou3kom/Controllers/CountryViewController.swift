@@ -45,7 +45,7 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
             self.navigationController?.navigationBar.isHidden = true
             self.navigationController?.pushViewController(viewController, animated: true)
             let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(UIWebView.goBack))
-            viewController.navigationController?.navigationItem.leftBarButtonItem = backButton
+            (viewController.childViewControllers.first! as? UINavigationController)!.childViewControllers.first?.navigationController?.navigationItem.leftBarButtonItem = backButton
         } else {
             DispatchQueue.main.async {
                 UserProfileViewController.isChangingCountry = false
@@ -74,7 +74,7 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let bannerX = bannerWidth / 2 - logo.size.width / 2
         let bannerY = bannerHeight / 2 - logo.size.height / 2
-        navView.frame = CGRect(x: -10, y: -10, width: bannerWidth, height: bannerHeight)
+        navView.frame = CGRect(x: 0, y: -10, width: bannerWidth, height: bannerHeight)
         logoView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
         logoView.contentMode = .scaleAspectFit
         logoView.center = navView.center
@@ -84,7 +84,7 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
             
             CountryViewController.countryImageView.frame = CGRect(x: 250, y: 10, width: 40, height: 30)
             CountryViewController.countryImageView.contentMode = .scaleToFill
-            CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2 - 3
+//            CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2 - 3
             CountryViewController.countryImageView.layer.borderWidth = 2
             CountryViewController.countryImageView.layer.borderColor = UIColor.white.cgColor
             CountryViewController.countryImageView.clipsToBounds = true

@@ -43,14 +43,14 @@ class UserProfileViewController: UIViewController {
         
         let bannerX = bannerWidth / 2 - logo.size.width / 2
         let bannerY = bannerHeight / 2 - logo.size.height / 2
-        navView.frame = CGRect(x: -10, y: -10, width: bannerWidth, height: bannerHeight)
-        logoView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        navView.frame = CGRect(x: 0, y: -10, width: bannerWidth, height: bannerHeight)
+        logoView.frame = CGRect(x: bannerX + 20, y: bannerY, width: bannerWidth, height: bannerHeight)
         logoView.contentMode = .scaleAspectFit
         logoView.center = navView.center
         // Setting the image frame so that it's immediately before the text:
         CountryViewController.countryImageView.frame = CGRect(x: 250, y: 10, width: 40, height: 30)
         CountryViewController.countryImageView.contentMode = .scaleToFill
-        CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2 - 3
+//        CountryViewController.countryImageView.layer.cornerRadius = CountryViewController.countryImageView.frame.size.width / 2 - 3
         CountryViewController.countryImageView.layer.borderWidth = 2
         CountryViewController.countryImageView.layer.borderColor = UIColor.white.cgColor
         CountryViewController.countryImageView.clipsToBounds = true
