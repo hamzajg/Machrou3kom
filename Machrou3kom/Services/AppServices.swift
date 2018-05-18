@@ -176,6 +176,7 @@ class AppServices {
             self.ref?.child("Posts").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(sub) {
                     post = Post(snapshot: snapshot.childSnapshot(forPath: sub))
+                    print(post)
                 }
                 completed(post)
             })

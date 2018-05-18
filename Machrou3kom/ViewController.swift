@@ -69,6 +69,8 @@ class ViewController: UIViewController {
                                 ViewController.isGuest = false
                                 Messaging.messaging().subscribe(toTopic: profile.sub.replacingOccurrences(of: "|", with: "", options: .literal, range: nil))
                                 let defaults = UserDefaults.standard
+                                // Store
+                                defaults.set(SessionManager.profile.sub, forKey: "profile_sub")
                                 if (defaults.string(forKey: "id_country") != nil)
                                 {
                                     DispatchQueue.main.async {

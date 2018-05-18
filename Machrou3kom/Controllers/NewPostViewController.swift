@@ -13,6 +13,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     let postTypes = ["محل", "شركة", "منزلي",]
     var postType:String? = "محل"
     var photos:[UIImage] = []
+    var post:Post!
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -87,13 +88,13 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             if let profile_sub = defaults.string(forKey: "profile_sub")
             {
                 appServices.GetOnePostByUserAsync(sub: profile_sub) {(post) in
-                    let post = (post)
-                    if post != nil {
+                    self.post = (post)
+                    if self.post != nil {
                         self.saveBtn.setTitle("تعديل الإعلان", for: .normal)
-                        self.titleTextField.text = post?.title
-                        self.phoneNumberTextField.text = "\(post?.numTel as! Int)"
-                        self.locationTextField.text = post?.adresse
-                        self.descTextView.text = post?.description
+                        self.titleTextField.text = self.post?.title
+                        self.phoneNumberTextField.text = "\(self.post?.numTel as! Int)"
+                        self.locationTextField.text = self.post?.adresse
+                        self.descTextView.text = self.post?.description
                     }
                 }
             }
@@ -143,7 +144,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return true
     }
     @IBAction func addBtnAction(_ sender: UIButton) {
-        if isChanged {
+        if isChanged && post != nil {
             let alert = UIAlertController(title: "تأكيد التغييرات", message: " هل ترغب حقًا في حفظ التغييرات", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "تأكيد", style: .default, handler:{ (action:UIAlertAction!) in
@@ -153,6 +154,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             self.present(alert, animated: true)
         } else {
+            print(post)
             savePost()
         }
     }
@@ -189,6 +191,12 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 }
             }
             
+        } else {            
+            let alert = UIAlertController(title: self.title, message: ".هناك مشكلة في حفظ الإعلان", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
         }
     }
     
