@@ -17,6 +17,9 @@
 		881B84BE209627B20084BAF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881B84BC209627B20084BAF2 /* LaunchScreen.storyboard */; };
 		881B84C9209627B20084BAF2 /* Machrou3komTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84C8209627B20084BAF2 /* Machrou3komTests.swift */; };
 		881B84D4209627B20084BAF2 /* Machrou3komUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */; };
+		883E899720B37C0E0098C268 /* Cairo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 883E899420B37C080098C268 /* Cairo-Black.ttf */; };
+		883E899820B37C0E0098C268 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 883E899520B37C0A0098C268 /* Cairo-Bold.ttf */; };
+		883E899920B37C0E0098C268 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 883E899620B37C0C0098C268 /* Cairo-Regular.ttf */; };
 		885DF7FB20A3BBED000A6DFD /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885DF7FA20A3BBED000A6DFD /* Entitlements.plist */; };
 		886719F320A7467800321490 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886719F220A7467800321490 /* Social.swift */; };
 		886719F520A7488100321490 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886719F420A7488100321490 /* ContactUsViewController.swift */; };
@@ -84,6 +87,9 @@
 		881B84CF209627B20084BAF2 /* Machrou3komUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Machrou3komUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		881B84D3209627B20084BAF2 /* Machrou3komUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machrou3komUITests.swift; sourceTree = "<group>"; };
 		881B84D5209627B20084BAF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		883E899420B37C080098C268 /* Cairo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Black.ttf"; sourceTree = "<group>"; };
+		883E899520B37C0A0098C268 /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Bold.ttf"; sourceTree = "<group>"; };
+		883E899620B37C0C0098C268 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cairo-Regular.ttf"; sourceTree = "<group>"; };
 		885DF7FA20A3BBED000A6DFD /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		886719F220A7467800321490 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		886719F420A7488100321490 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 		881B84B2209627B10084BAF2 /* Machrou3kom */ = {
 			isa = PBXGroup;
 			children = (
+				883E899320B37BD80098C268 /* Fonts */,
 				889C554D20A2F8E700029CEF /* Machrou3kom.entitlements */,
 				88699949209673D100B370A4 /* Models */,
 				8869992D2096352F00B370A4 /* Services */,
@@ -215,6 +222,16 @@
 				881B84D5209627B20084BAF2 /* Info.plist */,
 			);
 			path = Machrou3komUITests;
+			sourceTree = "<group>";
+		};
+		883E899320B37BD80098C268 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				883E899420B37C080098C268 /* Cairo-Black.ttf */,
+				883E899520B37C0A0098C268 /* Cairo-Bold.ttf */,
+				883E899620B37C0C0098C268 /* Cairo-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		88699925209634A100B370A4 /* Controllers */ = {
@@ -390,12 +407,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883E899920B37C0E0098C268 /* Cairo-Regular.ttf in Resources */,
 				885DF7FB20A3BBED000A6DFD /* Entitlements.plist in Resources */,
 				8869994820964FA800B370A4 /* Auth0.plist in Resources */,
 				881B84BE209627B20084BAF2 /* LaunchScreen.storyboard in Resources */,
 				88C5238720971A650022B128 /* GoogleService-Info.plist in Resources */,
 				881B84B9209627B10084BAF2 /* Main.storyboard in Resources */,
 				88E79EDB20A32B4300D7A7F7 /* Assets.xcassets in Resources */,
+				883E899820B37C0E0098C268 /* Cairo-Bold.ttf in Resources */,
+				883E899720B37C0E0098C268 /* Cairo-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,7 +38,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>25</string>
+	<string>26</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -54,6 +54,10 @@
 	<string>Not used</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>For Post Photos</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -77,5 +81,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>item 0</key>
+	<string>Cairo-Black.ttf</string>
+	<key>item 1</key>
+	<string>Cairo-Bold.ttf</string>
+	<key>item 2</key>
+	<string>Cairo-Regular.ttf</string>
 </dict>
 </plist>
