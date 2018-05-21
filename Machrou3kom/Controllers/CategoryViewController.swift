@@ -88,8 +88,17 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 self.categoryTableView.reloadData()
             }
         } else {
+            if self.categories.count == 0 {
+             
+                let alert = UIAlertController(title: self.title, message: "هذه الصفحة لا تحتوي على أي بيانات", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "حسنا", style: .cancel, handler: nil))
+                
+                self.present(alert, animated: true)
+            }
             self.categoryTableView.reloadData()
         }
+        
         // Do any additional setup after loading the view.
     }
     

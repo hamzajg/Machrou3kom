@@ -129,10 +129,12 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
             postPostedAtLabel.text = String(post.createdAt.description[..<post.createdAt.description.index(of: "+")!])
             postPostedAtLabel.text!.removeLast(4)
             likeBtn.setTitle(post.getLikesCount() == 0 ? "" : String(post.getLikesCount()), for: .normal)
-            if(self.post.isLiked()) {
-                self.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
-            } else {
+            if(ViewController.isGuest) {
                 self.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
+            } else if(self.post.isLiked()) {
+                    self.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
+                } else {
+                    self.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
             }
             self.sliderPageControl.numberOfPages = self.post.photos.count
             for i in 0..<self.post.photos.count {

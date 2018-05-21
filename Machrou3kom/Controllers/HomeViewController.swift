@@ -13,6 +13,7 @@ import AlamofireImage
 extension UIImageView {
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode
+        image = nil
         Alamofire.request(url).responseImage { response in            
             if let image = response.result.value {
                 self.image = image
@@ -156,6 +157,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             {
                 appServices.GetAllPostsByIdCategoryAndIdCountryAsync(idCategory: category?.idCategory, idCountry:id_country) {(posts) in
                 self.posts = (posts)
+                    
+                if self.posts.count == 0 {
+                    
+                    let alert = UIAlertController(title: self.title, message: "هذه الصفحة لا تحتوي على أي بيانات", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "حسنا", style: .cancel, handler: nil))
+                    
+                    self.present(alert, animated: true)
+                }
                 self.homeTableView.reloadData()
     //            self.activityIndicator.stopAnimating()
                 }

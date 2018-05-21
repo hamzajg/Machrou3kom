@@ -16,7 +16,7 @@ class CountryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryTableViewCell", for: indexPath) as! CountryTableViewCell
-        //cell.countryLabel.text = countries[indexPath.row].name
+        cell.countryLabel.text = countries[indexPath.row].name
         if(countries[indexPath.row].photo != nil) {
             cell.countryImageView.downloadedFrom(link: (countries[indexPath.row].photo?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
             cell.countryImageView?.layer.cornerRadius = (cell.countryImageView?.frame.size.width)! / 3
