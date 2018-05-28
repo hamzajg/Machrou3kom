@@ -117,7 +117,11 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 if self.country?.ads != nil {
                     if self.country.ads.count > 0 {
-                        if let url = URL(string: (self.country.ads[self.country.ads.count - 1].img)) {
+                        let ad = self.country.ads[self.country.ads.count - 1]
+                        if Date(timeIntervalSince1970: (TimeInterval(ad.time / 1000))).compare(Date()) == .orderedAscending {
+                            return
+                        }
+                        if let url = URL(string: (ad.img)) {
                             URLSession.shared.dataTask(with: url) { data, response, error in
                                 guard
                                     let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,

@@ -13,7 +13,7 @@ class CountryAd {
     let idAd: String!
     let img: String!
     let link: String!
-    let time:Int32!
+    let time:Int64!
     
     init() {
         self.idAd = nil
@@ -35,7 +35,7 @@ class CountryAd {
         } else {
             self.link = ""
         }
-        if let time = snapshot.childSnapshot(forPath:"time").value as? Int32 {
+        if let time = snapshot.childSnapshot(forPath:"time").value as? Int64 {
             self.time = time
         } else {
             self.time = 0

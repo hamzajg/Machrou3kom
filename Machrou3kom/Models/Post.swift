@@ -20,7 +20,7 @@ class Post {
     let description:String!
     let idCategory: String!
     let idCountry:String!
-    var like: [String: String]
+    var like: [String: Any]
     let numTel:Int
     let photos: [String]!
     let post_owner:String!

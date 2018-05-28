@@ -104,7 +104,7 @@ class AppServices {
         ref = Database.database().reference()
         self.ref?.child("Posts").child(sub1).child("like").observeSingleEvent(of: .value, with: {(snapshot) in
             if !snapshot.childSnapshot(forPath: sub2).exists() {
-                self.ref?.child("Posts").child(sub1).child("like").updateChildValues([sub2: Date().description])
+                self.ref?.child("Posts").child(sub1).child("like").updateChildValues([sub2: Date().timeIntervalSince1970])
                 result = true
             } else {
                 self.ref?.child("Posts").child(sub1).child("like").child(sub2).removeValue()
