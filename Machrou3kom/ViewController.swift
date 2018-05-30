@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarManyImageView()
-        SessionManager.logOut()
         if(ViewController.isGuest) {
             guestBtn.isHidden = true
             welcomeLabel.isHidden = true
@@ -54,6 +53,7 @@ class ViewController: UIViewController {
                     // Auth0 will automatically dismiss the login page
                     //print("Credentials: \(credentials)")
                     token = credentials.accessToken!
+                    SessionManager.credentials = credentials
                     DispatchQueue.main.async {
                         if self.navigationController == nil {
                             self.dismiss(animated: true, completion: nil)

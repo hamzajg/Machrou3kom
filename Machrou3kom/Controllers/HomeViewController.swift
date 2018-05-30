@@ -94,6 +94,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
             cell.homeImageView.contentMode = .scaleAspectFill
         }
+        cell.semanticContentAttribute = .forceLeftToRight
         return cell
     }
     func addNavBarManyImageView() {

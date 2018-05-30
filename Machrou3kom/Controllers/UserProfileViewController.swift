@@ -68,6 +68,8 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
         addNavBarManyImageView()
         
+        userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width / 2
+        userProfileImageView.clipsToBounds = true
         if ViewController.isGuest {
             userNameLabel.isHidden = true
             userProfileImageView.isHidden = true
@@ -84,8 +86,6 @@ class UserProfileViewController: UIViewController {
             signOutBtn.isHidden = false
             userNameLabel.text = SessionManager.profile.name
             userProfileImageView.downloadedFrom(url: SessionManager.profile.picture!)
-            userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width / 2
-            userProfileImageView.clipsToBounds = true
         }
         // Do any additional setup after loading the view.
     }

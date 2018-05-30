@@ -11,6 +11,7 @@ import Auth0
 
 class SessionManager {
     static var profile:UserInfo!
+    static var credentials: Credentials?
     static var credentialsManager: CredentialsManager!
     init() {
         
@@ -56,9 +57,12 @@ class SessionManager {
         }
         return userInfo
     }
-    static func logOut() {
-        if credentialsManager != nil {
-            credentialsManager.clear()
-        }
+    static func logOut() -> Bool {
+        // Remove credentials from KeyChain
+        self.credentials = nil
+        // Clear session from browser
+        let webAuth = Auth0.webAuth()
+        webAuth.clearSession(federated: true) { _ in }
+        return self.credentialsManager.clear()
     }
 }
