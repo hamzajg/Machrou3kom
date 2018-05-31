@@ -202,7 +202,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="user-male-circle-blue-512" translatesAutoresizingMaskIntoConstraints="NO" id="Ecp-t0-uJk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="user-male-circle-blue-512" translatesAutoresizingMaskIntoConstraints="NO" id="Ecp-t0-uJk" customClass="CircleImageView" customModule="Machrou3kom" customModuleProvider="target">
                                 <rect key="frame" x="141" y="140" width="92" height="90"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz0-rW-mst">
@@ -524,7 +524,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-Wr-ctd" customClass="CardView" customModule="Machrou3kom" customModuleProvider="target">
-                                                    <rect key="frame" x="7" y="10" width="361" height="158"/>
+                                                    <rect key="frame" x="7" y="10" width="360" height="158"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pPx-nT-QBM">
                                                             <rect key="frame" x="8" y="8" width="345" height="113"/>
@@ -554,7 +554,7 @@
                                                 <constraint firstItem="1Sl-Wr-ctd" firstAttribute="leading" secondItem="Sb5-j0-nt6" secondAttribute="leading" constant="7" id="H67-c5-ACS"/>
                                                 <constraint firstAttribute="bottom" secondItem="1Sl-Wr-ctd" secondAttribute="bottom" constant="12" id="XXg-7q-LJt"/>
                                                 <constraint firstItem="1Sl-Wr-ctd" firstAttribute="top" secondItem="Sb5-j0-nt6" secondAttribute="top" constant="10" id="fjy-H2-gbZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="1Sl-Wr-ctd" secondAttribute="trailing" constant="7" id="laQ-8F-u9r"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Sl-Wr-ctd" secondAttribute="trailing" constant="8" id="laQ-8F-u9r"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -757,7 +757,7 @@
         <scene sceneID="lrw-Yk-tbP">
             <objects>
                 <viewController id="r7i-Lg-wkg" customClass="NewPostViewController" customModule="Machrou3kom" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EaT-nz-YUP">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="EaT-nz-YUP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -945,9 +945,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="itJ-KG-D58">
-                                                    <rect key="frame" x="197" y="11" width="132" height="78"/>
+                                                    <rect key="frame" x="197" y="15" width="117" height="68"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="132" id="lKa-mG-iUO"/>
+                                                        <constraint firstAttribute="width" constant="117" id="lKa-mG-iUO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa4-W4-4xr">
@@ -960,11 +960,11 @@
                                             <constraints>
                                                 <constraint firstItem="Qa4-W4-4xr" firstAttribute="leading" secondItem="XQz-uC-wXB" secondAttribute="leadingMargin" constant="6" id="BHW-yD-lJB"/>
                                                 <constraint firstItem="itJ-KG-D58" firstAttribute="leading" secondItem="Qa4-W4-4xr" secondAttribute="trailing" constant="8" symbolic="YES" id="EZ6-55-AQC"/>
-                                                <constraint firstItem="itJ-KG-D58" firstAttribute="centerY" secondItem="Qa4-W4-4xr" secondAttribute="centerY" id="NG0-3T-4T3"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="itJ-KG-D58" secondAttribute="trailing" constant="31" id="bRD-ZN-Xpo"/>
-                                                <constraint firstItem="itJ-KG-D58" firstAttribute="centerY" secondItem="XQz-uC-wXB" secondAttribute="centerY" id="dEp-ed-wQH"/>
+                                                <constraint firstItem="itJ-KG-D58" firstAttribute="centerY" secondItem="Qa4-W4-4xr" secondAttribute="centerY" constant="-1" id="NG0-3T-4T3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="itJ-KG-D58" secondAttribute="trailing" constant="46" id="bRD-ZN-Xpo"/>
+                                                <constraint firstItem="itJ-KG-D58" firstAttribute="centerY" secondItem="XQz-uC-wXB" secondAttribute="centerY" constant="-1" id="dEp-ed-wQH"/>
                                                 <constraint firstItem="Qa4-W4-4xr" firstAttribute="top" secondItem="XQz-uC-wXB" secondAttribute="topMargin" constant="4" id="ptS-fQ-Jo4"/>
-                                                <constraint firstItem="itJ-KG-D58" firstAttribute="bottom" secondItem="XQz-uC-wXB" secondAttribute="bottomMargin" id="tNZ-yG-WWr"/>
+                                                <constraint firstItem="itJ-KG-D58" firstAttribute="bottom" secondItem="XQz-uC-wXB" secondAttribute="bottomMargin" constant="-6" id="tNZ-yG-WWr"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qa4-W4-4xr" secondAttribute="trailingMargin" id="xSm-bU-a94"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1021,16 +1021,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYO-EH-LYR" customClass="CardView" customModule="Machrou3kom" customModuleProvider="target">
-                                                    <rect key="frame" x="7" y="10" width="349" height="158"/>
+                                                    <rect key="frame" x="7" y="10" width="360" height="158"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Oo-vx-e8z">
-                                                            <rect key="frame" x="8" y="8" width="333" height="117"/>
+                                                            <rect key="frame" x="8" y="8" width="344" height="117"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="117" id="Gs5-v7-iZX"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXD-45-HWq">
-                                                            <rect key="frame" x="8" y="129" width="333" height="21"/>
+                                                            <rect key="frame" x="8" y="129" width="344" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="Bgx-Dz-hWu"/>
                                                             </constraints>
@@ -1052,7 +1052,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="QYO-EH-LYR" secondAttribute="bottom" constant="1" id="0aN-Rz-Cxl"/>
-                                                <constraint firstItem="QYO-EH-LYR" firstAttribute="centerX" secondItem="ggT-W0-0E3" secondAttribute="centerX" constant="-6" id="5NK-To-1aj"/>
+                                                <constraint firstItem="QYO-EH-LYR" firstAttribute="centerX" secondItem="ggT-W0-0E3" secondAttribute="centerX" constant="-0.5" id="5NK-To-1aj"/>
                                                 <constraint firstItem="QYO-EH-LYR" firstAttribute="top" secondItem="ggT-W0-0E3" secondAttribute="topMargin" constant="-1" id="7o1-hT-Qdv"/>
                                                 <constraint firstItem="QYO-EH-LYR" firstAttribute="leading" secondItem="ggT-W0-0E3" secondAttribute="leadingMargin" constant="-8" id="f8F-Nd-lhz"/>
                                             </constraints>
@@ -1218,8 +1218,8 @@
         <image name="user-male-circle-blue-512" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cOY-lB-AeA"/>
-        <segue reference="Pcd-eH-JfB"/>
-        <segue reference="OBa-0u-tmf"/>
+        <segue reference="ukG-tE-Ssd"/>
+        <segue reference="a9v-dl-0wq"/>
+        <segue reference="r8H-A0-Tcy"/>
     </inferredMetricsTieBreakers>
 </document>

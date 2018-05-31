@@ -67,25 +67,22 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarManyImageView()
-        
-        userProfileImageView.layer.cornerRadius = userProfileImageView.frame.size.width / 2
-        userProfileImageView.clipsToBounds = true
         if ViewController.isGuest {
-            userNameLabel.isHidden = true
-            userProfileImageView.isHidden = true
-            changeCountryBtn.isHidden = true
-            updatePostBtn.isHidden = true
-            signOutBtn.isHidden = true
+            self.userNameLabel.isHidden = true
+            self.userProfileImageView.isHidden = true
+            self.changeCountryBtn.isHidden = true
+            self.updatePostBtn.isHidden = true
+            self.signOutBtn.isHidden = true
             let viewController: ViewController = self.storyboard?.instantiateViewController(withIdentifier: "SingIn") as! ViewController
-            self.navigationController?.setViewControllers([viewController], animated: true) 
+            self.navigationController?.setViewControllers([viewController], animated: true)
         } else if SessionManager.profile != nil {
-            userNameLabel.isHidden = false
-            userProfileImageView.isHidden = false
-            changeCountryBtn.isHidden = false
-            updatePostBtn.isHidden = false
-            signOutBtn.isHidden = false
-            userNameLabel.text = SessionManager.profile.name
-            userProfileImageView.downloadedFrom(url: SessionManager.profile.picture!)
+            self.userNameLabel.isHidden = false
+            self.userProfileImageView.isHidden = false
+            self.changeCountryBtn.isHidden = false
+            self.updatePostBtn.isHidden = false
+            self.signOutBtn.isHidden = false
+            self.userNameLabel.text = SessionManager.profile.name
+            self.userProfileImageView.downloadedFrom(url: SessionManager.profile.picture!)
         }
         // Do any additional setup after loading the view.
     }
@@ -99,6 +96,7 @@ class UserProfileViewController: UIViewController {
     
     @IBAction func signOutBtnAction(_ sender: UIButton) {
         ViewController.isGuest = false
+        SessionManager.logOut()
     }
     
     /*
