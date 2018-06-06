@@ -199,6 +199,20 @@ class AppServices {
             })
         }
     }
+    func IsPostOfWeek(completed: @escaping (Bool) -> ()){
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+            self.ref?.child("Settings").observeSingleEvent(of: .value, with: {(snapshot) in
+                if let postOfWeek = snapshot.childSnapshot(forPath: "post_of_week").value {
+                    
+                    print(postOfWeek)
+                    completed(postOfWeek as! Bool)
+                } else {
+                    completed(false)
+                }
+            })
+        }
+    }
     
     func uploadFileToStorage(sub:String, uploadData:Data?) {
         print(String(Date().hashValue))

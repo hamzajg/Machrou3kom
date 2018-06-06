@@ -14,11 +14,15 @@ extension UIImageView {
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode
         image = nil
-        Alamofire.request(url).responseImage { response in            
-            if let image = response.result.value {
+        Alamofire.request(url).responseImage(imageScale: 1.5, inflateResponseImage: false, completionHandler: {response in
+            guard let image = response.result.value else {
+                print(response.result)
+                return
+            }
+            DispatchQueue.main.async {
                 self.image = image
             }
-        }
+        })
     }
     func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         guard let url = URL(string: link) else { return }
@@ -29,6 +33,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var homeTableView: UITableView!
     var posts:[Post] = [Post]()
     var category:Category? = nil
+    let appServices = AppServices()
 //    var activityIndicator = UIActivityIndicatorView()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
@@ -55,40 +60,24 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.likeBtn.setTitle(posts[indexPath.row].getLikesCount() == 0 ? "" : String(posts[indexPath.row].getLikesCount()), for: .normal)
         if(ViewController.isGuest) {
             cell.likeBtn.addTarget(self, action: #selector(self.likeBtnAction(_: cell:)), for: .touchUpInside)            
-            cell.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
+            cell.likeBtn.setImage(UIImage(named: "heart-outline-25"), for: .normal)
         } else {
             if(posts[indexPath.row].isLiked()) {
                 cell.likeBtn.setImage(UIImage(named: "heart-outline-filled-25"), for: .normal)
             } else {
-                cell.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
+                cell.likeBtn.setImage(UIImage(named: "heart-outline-25"), for: .normal)
             }
         }
         cell.pinedLabel.isHidden = !posts[indexPath.row].isAvailable()
+        if indexPath.row == 0 {
+            appServices.IsPostOfWeek() {(b) in
+                if (b) {
+                    self.pinPost(cell: cell)
+                }
+            }
+        }
         if posts[indexPath.row].isAvailable() {
-            //let tborder = CALayer()
-            let bborder = CALayer()
-            let lborder = CALayer()
-            let rborder = CALayer()
-            let width = CGFloat(5.0)
-            //tborder.borderColor = UIColor.orange.cgColor
-            //tborder.frame = CGRect(x: 0, y: 0, width:  cell.frame.size.width, height: width)
-            bborder.borderColor = UIColor.orange.cgColor
-            bborder.frame = CGRect(x: 0, y: cell.frame.size.height - width, width:  cell.frame.size.width, height: cell.frame.size.height)
-            lborder.borderColor = UIColor.orange.cgColor
-            lborder.frame = CGRect(x: 0, y: 0, width: width, height: cell.frame.size.height)
-            rborder.borderColor = UIColor.orange.cgColor
-            rborder.frame = CGRect(x: cell.frame.size.width - width, y: 0, width: width, height: cell.frame.size.height)
-
-            //tborder.borderWidth = width
-            bborder.borderWidth = width
-            lborder.borderWidth = width
-            rborder.borderWidth = width
-            //cell.layer.addSublayer(tborder)
-            cell.layer.addSublayer(bborder)
-            cell.layer.addSublayer(lborder)
-            cell.layer.addSublayer(rborder)
-            cell.layer.cornerRadius = 10
-            cell.layer.masksToBounds = true
+            pinPost(cell: cell)
         }
         if(posts[indexPath.row].getOnePhoto() != nil) {
             cell.homeImageView.downloadedFrom(link: (posts[indexPath.row].getOnePhoto()?.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil))!)
@@ -96,6 +85,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         cell.semanticContentAttribute = .forceLeftToRight
         return cell
+    }
+    func pinPost(cell:UITableViewCell) {
+        
+        //let tborder = CALayer()
+        let bborder = CALayer()
+        let lborder = CALayer()
+        let rborder = CALayer()
+        let width = CGFloat(5.0)
+        //tborder.borderColor = UIColor.orange.cgColor
+        //tborder.frame = CGRect(x: 0, y: 0, width:  cell.frame.size.width, height: width)
+        bborder.borderColor = UIColor.orange.cgColor
+        bborder.frame = CGRect(x: 0, y: cell.frame.size.height - width, width:  cell.frame.size.width, height: cell.frame.size.height)
+        lborder.borderColor = UIColor.orange.cgColor
+        lborder.frame = CGRect(x: 0, y: 0, width: width, height: cell.frame.size.height)
+        rborder.borderColor = UIColor.orange.cgColor
+        rborder.frame = CGRect(x: cell.frame.size.width - width, y: 0, width: width, height: cell.frame.size.height)
+        
+        //tborder.borderWidth = width
+        bborder.borderWidth = width
+        lborder.borderWidth = width
+        rborder.borderWidth = width
+        //cell.layer.addSublayer(tborder)
+        cell.layer.addSublayer(bborder)
+        cell.layer.addSublayer(lborder)
+        cell.layer.addSublayer(rborder)
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
     }
     func addNavBarManyImageView() {
         
@@ -141,7 +157,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarManyImageView()
-        let appServices = AppServices()
 //        activityIndicator.center = self.view.center
 //        activityIndicator.hidesWhenStopped = true
 //        activityIndicator.activityIndicatorViewStyle = .gray

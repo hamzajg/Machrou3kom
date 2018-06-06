@@ -41,7 +41,7 @@ class HomePageTableViewCell: UITableViewCell {
                             self.likeBtn.setTitle(String(likeCount! + 1), for: .normal)
                             sender.pulsate()
                         } else {
-                            self.likeBtn.setImage(UIImage(named: "heart-outline-25-red"), for: .normal)
+                            self.likeBtn.setImage(UIImage(named: "heart-outline-25"), for: .normal)
                             let likeCount = self.likeBtn.titleLabel?.text?.count == 0 ? 0 : Int((self.likeBtn.titleLabel?.text)!)
                             self.likeBtn.setTitle(String(likeCount! - 1), for: .normal)
                             sender.pulsate()
