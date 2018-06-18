@@ -165,8 +165,8 @@ class AppServices {
         self.ref?.child("Users").observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(sub) {
                 user = User(snapshot: snapshot.childSnapshot(forPath: sub))
-                }
-                completed(user)
+            }
+            completed(user)
         })
     }
     func GetOnePostByUserAsync(sub:String, completed: @escaping (Post?) -> ()){
@@ -204,8 +204,6 @@ class AppServices {
             self.ref = Database.database().reference()
             self.ref?.child("Settings").observeSingleEvent(of: .value, with: {(snapshot) in
                 if let postOfWeek = snapshot.childSnapshot(forPath: "post_of_week").value {
-                    
-                    print(postOfWeek)
                     completed(postOfWeek as! Bool)
                 } else {
                     completed(false)

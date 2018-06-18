@@ -63,6 +63,9 @@ class SessionManager {
         // Clear session from browser
         let webAuth = Auth0.webAuth()
         webAuth.clearSession(federated: true) { _ in }
-        return self.credentialsManager.clear()
+        let defaults = UserDefaults.standard
+        if (defaults.string(forKey: "isLogin") != nil){
+            defaults.removeObject(forKey: "isLogin")}
+        return self.credentialsManager == nil ? false : self.credentialsManager.clear()
     }
 }

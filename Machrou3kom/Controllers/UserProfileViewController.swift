@@ -82,7 +82,9 @@ class UserProfileViewController: UIViewController {
             self.updatePostBtn.isHidden = false
             self.signOutBtn.isHidden = false
             self.userNameLabel.text = SessionManager.profile.name
-            self.userProfileImageView.downloadedFrom(url: SessionManager.profile.picture!)
+            if SessionManager.profile != nil {
+                self.userProfileImageView.downloadedFrom(url: SessionManager.profile.picture!)
+            }
         }
         // Do any additional setup after loading the view.
     }

@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var guestBtn: UIButton!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var appNameLabel: UILabel!
+    let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         addNavBarManyImageView()
@@ -25,6 +26,24 @@ class ViewController: UIViewController {
             appNameLabel.isHidden = true
         }
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("===============viewWillAppear===========")
+        // Receive
+        if let isLogin = defaults.string(forKey: "isLogin")
+        {
+            print(isLogin)
+            if (self.defaults.string(forKey: "id_country") != nil)
+            {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "ShowCategoryPage", sender: self)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "goCountryPage", sender: self)
+                }
+            }
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         viewDidLoad()
@@ -38,6 +57,11 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "goCountryPage", sender: self)
     }
     @IBAction func signInBtnAction(_ sender: UIButton) {
+        auth0Session()
+    }
+    
+    func auth0Session() {
+        print("===============auth0Session===========")
         var token:String = ""
         Auth0
             .webAuth()
@@ -68,14 +92,12 @@ class ViewController: UIViewController {
                                 SessionManager.profile = profile
                                 ViewController.isGuest = false
                                 Messaging.messaging().subscribe(toTopic: profile.sub.replacingOccurrences(of: "|", with: "", options: .literal, range: nil))
-                                let defaults = UserDefaults.standard
                                 // Store
-                                defaults.set(SessionManager.profile.sub, forKey: "profile_sub")
-                                if (defaults.string(forKey: "id_country") != nil)
+                                self.defaults.set(SessionManager.profile.sub, forKey: "profile_sub")
+                                self.defaults.set("true", forKey: "isLogin")
+                                if (self.defaults.string(forKey: "id_country") != nil)
                                 {
                                     DispatchQueue.main.async {
-//                                        let viewController: UITabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! Machrou3komViewController
-//                                        self.navigationController?.pushViewController(viewController, animated: true)
                                         self.performSegue(withIdentifier: "ShowCategoryPage", sender: self)
                                     }
                                 } else {
@@ -88,15 +110,9 @@ class ViewController: UIViewController {
                             }
                             
                     }
-                    //                    if ViewController.isGuest {
-                    //                        self.performSegue(withIdentifier: "goCountryPage", sender: self)
-                    //                    } else {
-//
-                    //                    }
                 }
         }
     }
-    
     
     func addNavBarManyImageView() {
         
