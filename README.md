@@ -34,10 +34,10 @@ Podfile
 
 ## Building
 
-Open `Machrou3kom.xcworkspace` in Xcode, or install pods first:
+Open `Machrou3kom.xcworkspace` in Xcode, or install pods first (from the
+repository root — the `Podfile` and the workspace are both at the top level):
 
 ```bash
-cd Machrou3kom
 pod install
 open Machrou3kom.xcworkspace
 ```
